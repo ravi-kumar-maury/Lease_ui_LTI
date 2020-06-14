@@ -13,7 +13,7 @@ steps:
     cloudMbt:
       dockerImage: 'devxci/mbtci:1.0.10'
 
-### Stage-specific configuration
+### Stage-specific 
 stages:
 #  backendIntegrationTests:
 #    credentials:
