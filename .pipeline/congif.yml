@@ -1,0 +1,34 @@
+general:
+
+
+### Step-specific configuration
+steps:
+  mtaBuild:
+    buildTarget: 'CF'
+    mtaBuildTool: cloudMbt
+    platform: 'cf'
+    mtaJarLocation: '/opt/sap/mta/lib/mta.jar'
+    classic:
+      dockerImage: 'ppiper/mta-archive-builder'
+    cloudMbt:
+      dockerImage: 'devxci/mbtci:1.0.10'
+
+### Stage-specific configuration
+stages:
+#  backendIntegrationTests:
+#    credentials:
+#      - alias: 'mySystemAlias'
+#        credentialId: 'mySystemCredentialsId'
+
+#  s4SdkQualityChecks:
+#    nonErpDestinations:
+#      - 'myCustomDestination'
+
+  productionDeployment:
+    cfTargets:
+      - org: 'myOrg'
+        space: 'mySpace'
+        apiEndpoint: 'https://'
+        appName: 'myAppName'
+        manifest: 'manifest.yml'
+        credentialsId: 'myDeploymentCredentialsId'
