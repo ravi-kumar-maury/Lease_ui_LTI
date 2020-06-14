@@ -6,8 +6,6 @@ steps:
   mtaBuild:
     buildTarget: 'CF'
     mtaBuildTool: cloudMbt
-    platform: 'cf'
-    mtaJarLocation: '/opt/sap/mta/lib/mta.jar'
     classic:
       dockerImage: 'ppiper/mta-archive-builder'
     cloudMbt:
