@@ -1,0 +1,138 @@
+{
+    "resources": [
+        {
+            "name": "Component.js"
+        },
+        {
+            "name": "controller/InitialView.controller.js"
+        },
+        {
+            "name": "controller/PostView.controller.js"
+        },
+        {
+            "name": "css/style.css"
+        },
+        {
+            "name": "fragments/ComCodeDialog.fragment.xml"
+        },
+        {
+            "name": "fragments/CostCen.fragment.xml"
+        },
+        {
+            "name": "fragments/GLA.fragment.xml"
+        },
+        {
+            "name": "fragments/GLInd.fragment.xml"
+        },
+        {
+            "name": "fragments/LAN.fragment.xml"
+        },
+        {
+            "name": "fragments/PDSN.fragment.xml"
+        },
+        {
+            "name": "fragments/PDT1.fragment.xml"
+        },
+        {
+            "name": "fragments/PDT2.fragment.xml"
+        },
+        {
+            "name": "fragments/PODT1.fragment.xml"
+        },
+        {
+            "name": "fragments/PODT2.fragment.xml"
+        },
+        {
+            "name": "fragments/PP1.fragment.xml"
+        },
+        {
+            "name": "fragments/PP2.fragment.xml"
+        },
+        {
+            "name": "fragments/ProfCen.fragment.xml"
+        },
+        {
+            "name": "fragments/RevReason.fragment.xml"
+        },
+        {
+            "name": "fragments/ValueHelpDialog.fragment.xml"
+        },
+        {
+            "name": "fragments/WBS.fragment.xml"
+        },
+        {
+            "name": "i18n/i18n_en.properties",
+            "raw": "i18n/i18n.properties",
+            "locale": "_en"
+        },
+        {
+            "name": "index.html"
+        },
+        {
+            "name": "localService/metadata.xml"
+        },
+        {
+            "name": "manifest.json"
+        },
+        {
+            "name": "model/invPostTemplate.json"
+        },
+        {
+            "name": "model/jobTemplateList.json"
+        },
+        {
+            "name": "model/models.js"
+        },
+        {
+            "name": "model/specialGLTemplate.json"
+        },
+        {
+            "name": "model/visibilityModel.json"
+        },
+        {
+            "name": "serviceBinding.js"
+        },
+        {
+            "name": "test/integration/AllJourneys.js"
+        },
+        {
+            "name": "test/integration/NavigationJourney.js"
+        },
+        {
+            "name": "test/integration/arrangements/Startup.js"
+        },
+        {
+            "name": "test/integration/opaTests.qunit.html"
+        },
+        {
+            "name": "test/integration/opaTests.qunit.js"
+        },
+        {
+            "name": "test/integration/pages/InitialView.js"
+        },
+        {
+            "name": "test/testsuite.qunit.html"
+        },
+        {
+            "name": "test/testsuite.qunit.js"
+        },
+        {
+            "name": "test/unit/AllTests.js"
+        },
+        {
+            "name": "test/unit/controller/InitialView.controller.js"
+        },
+        {
+            "name": "test/unit/unitTests.qunit.html"
+        },
+        {
+            "name": "test/unit/unitTests.qunit.js"
+        },
+        {
+            "name": "view/InitialView.view.xml"
+        },
+        {
+            "name": "view/PostView.view.xml"
+        }
+    ]
+}

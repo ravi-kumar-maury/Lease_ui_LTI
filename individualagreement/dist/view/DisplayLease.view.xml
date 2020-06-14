@@ -1,0 +1,566 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:u="sap.uxap" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core" xmlns:t="sap.ui.table" controllerName="com.lti.LeaseManagement.individualagreement.controller.DisplayLease"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<!--<Shell>-->
+	<App id="appDisplay">
+		<pages>
+			<Page id="idPageDisplay">
+				<customHeader>
+					<Bar>
+						<contentLeft>
+							<Button icon="sap-icon://nav-back" press="onNavBack"/>
+						</contentLeft>
+						<contentMiddle>
+							<Label design="Bold" text="{i18n>DISPLAY_LEASE}"/>
+						</contentMiddle>
+						<contentRight>
+							<Button id="idEditBtn" icon="sap-icon://edit" tooltip="Edit" press="onEdit"></Button>
+						</contentRight>
+					</Bar>
+				</customHeader>
+				<content>
+					<f:Form id="idFormDisplay" editable="true">
+						<f:layout>
+							<f:ResponsiveGridLayout labelSpanL="4" labelSpanM="2" labelSpanS="2" columnsL="2"/>
+						</f:layout>
+						<f:formContainers>
+							<f:FormContainer>
+								<f:formElements>
+									<f:FormElement id="leaseAgrLabel" label="Lease Agreement">
+										<f:fields>
+											<Input width="200px" showValueHelp="true" editable="{uiModel>/headrEditable}" value="{agNUM}"/>
+											<Input width="20px" showValueHelp="true" editable="{uiModel>/headrEditable}"/>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement >
+										<f:label>
+											<Label text="Vendor" required="true"/>
+										</f:label>
+										<f:fields>
+											<Input id="idVend" placeholder="Vendor" width="200px" showValueHelp="true" required="true" value="{vEND_vEND}"
+												editable="{uiModel>/headrEditable}"/>
+										</f:fields>
+									</f:FormElement>
+								</f:formElements>
+							</f:FormContainer>
+							<f:FormContainer>
+								<f:formElements>
+									<f:FormElement>
+										<f:label>
+											<Label text="Agreement Type" required="true"/>
+										</f:label>
+										<f:fields>
+											<ComboBox id="idAgrType" items="{/ZLTI_LA_LAI_SW}" width="200px" value="{agTYP_docTYP}" editable="{uiModel>/headrEditable}">
+												<core:Item key="{docTYP}" text="{docTYP}"/>
+											</ComboBox>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement>
+										<f:label>
+											<Label text="Agreement Date" required="true"/>
+										</f:label>
+										<f:fields>
+											<DatePicker id="agreementDate" width="200px" editable="{uiModel>/headrEditable}" valueFormat="MM-dd-yyyy" displayFormat="MM-dd-yyyy"
+												dateValue="{aggDt}"/>
+										</f:fields>
+									</f:FormElement>
+								</f:formElements>
+							</f:FormContainer>
+						</f:formContainers>
+					</f:Form>
+					<u:ObjectPageLayout id="objectPageLayout" showEditHeaderButton="true" useIconTabBar="true">
+						<u:sections>
+							<u:ObjectPageSection title="General Data">
+								<u:subSections>
+									<u:ObjectPageSubSection id="generalDataSection">
+										<f:Form editable="true">
+											<f:layout>
+												<f:ResponsiveGridLayout labelSpanL="4" labelSpanM="2" labelSpanS="2" columnsL="3"/>
+											</f:layout>
+											<f:formContainers>
+												<f:FormContainer>
+													<f:formElements>
+														<f:FormElement>
+															<f:label>
+																<Label text="Company Code" required="true"/>
+															</f:label>
+															<f:fields>
+																<Input id="idCompCode" value="{coCDE_coCDE}" placeholder="Company Code" valueHelpRequest="onValueChangeCC" showValueHelp="true"
+																	editable="{uiModel>/headrEditable}" required="true"/>
+															</f:fields>
+														</f:FormElement>
+													</f:formElements>
+													<f:formElements>
+														<f:FormElement label="Plant">
+															<f:fields>
+																<Input id="idPlant" value="{pLNT_pLNT}" placeholder="Plant" valueHelpRequest="onValueChangePlant" showValueHelp="true"
+																	editable="{uiModel>/headrEditable}"/>
+															</f:fields>
+														</f:FormElement>
+													</f:formElements>
+													<f:formElements>
+														<f:FormElement label="Material">
+															<f:fields>
+																<Input id="idMat" value="{assIDENT_assIDENT}" placeholder="Material" editable="{uiModel>/headrEditable}"/>
+															</f:fields>
+														</f:FormElement>
+													</f:formElements>
+													<f:formElements>
+														<f:FormElement>
+															<f:label>
+																<Label text="Quantity" required="true"/>
+															</f:label>
+															<f:fields>
+																<Input id="idQty" value="{qTY}" required="true" textAlign="Right" editable="{uiModel>/headrEditable}"/>
+																<Input id="idUom" value="{uOM_uOM}" width="50%" required="true" editable="{uiModel>/headrEditable}"/>
+															</f:fields>
+														</f:FormElement>
+													</f:formElements>
+													<f:formElements>
+														<f:FormElement>
+															<f:label>
+																<Label text="Asset" required="true"/>
+															</f:label>
+															<f:fields>
+																<Input id="idAsset" value="{assNUM_assNUM}" editable="{uiModel>/headrEditable}"/>
+																<Input id="idAssetSub" width="30%" value="{assSUBNO_assNUM}" textAlign="Right" editable="{uiModel>/headrEditable}"/>
+															</f:fields>
+														</f:FormElement>
+													</f:formElements>
+												</f:FormContainer>
+												<f:FormContainer>
+													<f:formElements>
+														<f:FormElement>
+															<f:label>
+																<Label text="Asset Description" required="true"/>
+															</f:label>
+															<f:fields>
+																<Input id="asstDesrcp" value="{assDesc}" placeholder="Asset Description" editable="{uiModel>/headrEditable}" required="true"/>
+															</f:fields>
+														</f:FormElement>
+													</f:formElements>
+													<f:formElements>
+														<f:FormElement label="Cost Center">
+															<f:fields>
+																<Input id="idCostCnt" value="{ccCODE_coCDE}" editable="{uiModel>/headrEditable}" placeholder="Cost Center"/>
+															</f:fields>
+														</f:FormElement>
+													</f:formElements>
+													<f:formElements>
+														<f:FormElement label="Order">
+															<f:fields>
+																<Input id="idOrder" editable="{uiModel>/headrEditable}" value="{internalORDER_internalORDER}" placeholder="Order" width="auto"/>
+															</f:fields>
+														</f:FormElement>
+													</f:formElements>
+													<f:formElements>
+														<f:FormElement label="WBS Element">
+															<f:fields>
+																<Input id="idWbs" editable="{uiModel>/headrEditable}" value="{wbS_wBS}" placeholder="WBS Element"/>
+															</f:fields>
+														</f:FormElement>
+													</f:formElements>
+													<f:formElements>
+														<f:FormElement>
+															<f:label>
+																<Label text="Profit Center" required="true"/>
+															</f:label>
+															<f:fields>
+																<Input id="idProfCnt" value="{profCEN_profCEN}" editable="{uiModel>/headrEditable}" placeholder="Profit Center"
+																	valueHelpRequest="onValueChangeProfit" showValueHelp="true" required="true"/>
+															</f:fields>
+														</f:FormElement>
+													</f:formElements>
+												</f:FormContainer>
+												<f:FormContainer>
+													<f:formElements>
+														<f:FormElement>
+															<f:label>
+																<Label text="Currency" required="true"/>
+															</f:label>
+															<f:fields required="true">
+																<Input id="idCurr" value="{cURR_cURR}" editable="{uiModel>/headrEditable}" placeholder="Currency" valueHelpRequest="onValueChangeCurrency"
+																	showValueHelp="true" required="true"/>
+															</f:fields>
+														</f:FormElement>
+													</f:formElements>
+													<f:formElements>
+														<f:FormElement>
+															<f:label>
+																<Label text="Exchange Rate" required="true"/>
+															</f:label>
+															<f:fields required="true">
+																<Input id="idExhRate" value="{exchngRATE}" editable="{uiModel>/headrEditable}" placeholder="Exchange Rate" required="true" textAlign="Right"/>
+															</f:fields>
+														</f:FormElement>
+														<f:FormElement label="Migrated">
+															<f:fields>
+																<CheckBox editable="{uiModel>/headrEditable}"/>
+															</f:fields>
+														</f:FormElement>
+													</f:formElements>
+												</f:FormContainer>
+											</f:formContainers>
+										</f:Form>
+									</u:ObjectPageSubSection>
+								</u:subSections>
+							</u:ObjectPageSection>
+							<u:ObjectPageSection title="Terms And Conditions">
+								<u:subSections>
+									<u:ObjectPageSubSection>
+										<VBox>
+											<f:Form id="idTnCForm" editable="true">
+												<f:layout>
+													<f:ResponsiveGridLayout labelSpanL="4" labelSpanM="2" labelSpanS="2" columnsL="2"/>
+												</f:layout>
+												<f:formContainers>
+													<f:FormContainer>
+														<f:formElements>
+															<f:FormElement label="Old Contract No">
+																<f:fields>
+																	<Input id="oldContNum" value="{oldCONTRNO}" editable="{uiModel>/fieldsEditable}" placeholder="Old Contract No"/>
+																</f:fields>
+															</f:FormElement>
+															<f:FormElement label="Legal Document No">
+																<f:fields>
+																	<Input id="legDocNum" value="{legDOCNUM}" editable="{uiModel>/fieldsEditable}" placeholder="Legal Document No"/>
+																</f:fields>
+															</f:FormElement>
+															<f:FormElement>
+																<f:label>
+																	<Label text="Lease Type" required="true"/>
+																</f:label>
+																<f:fields >
+																	<!--<ComboBox id="idLesType" items="{/ZLTI_LA_TYPES}" selectedKey="{/ZLTI_LA_TYPES/lesTYPE}" width="230px" editable="{uiModel>/fieldsEditable}">-->
+																	<!--	<core:Item key="{lesTYPE}" text="{dESCRP}"/>-->
+																	<!--</ComboBox>-->
+																	<Input id="idLesType" value="{lesTYPE_lesTYPE}" valueHelpRequest="onChangeLT" showValueHelp="true"
+																		placeholder="Lease Type" editable="{uiModel>/fieldsEditable}"/>
+																</f:fields>
+															</f:FormElement>
+															<f:FormElement>
+																<f:fields>
+																	<CheckBox id="buyBackChkBx" selected="{buyBACK}" class="buyBack" text="Buy-Back" editable="{uiModel>/fieldsEditable}"/>
+																	<Text text="Buy-Back Amount" class="buyBack"/>
+																	<Input id="buyBackAmt" value="{buyBACKAMT}" textAlign="Right" editable="{uiModel>/fieldsEditable}"/>
+																</f:fields>
+															</f:FormElement>
+															<f:FormElement>
+																<f:label>
+																	<Label text="Reference Interest Rate" required="true"/>
+																</f:label>
+																<f:fields>
+																	<Input id="refIntRate" value="{refINTRT_intrKEY}" valueHelpRequest="onChangeRefIntRate" showValueHelp="true"
+																		placeholder="Reference Interest Rate" editable="{uiModel>/fieldsEditable}"/>
+																</f:fields>
+															</f:FormElement>
+															<f:FormElement label="Residual Value">
+																<f:fields>
+																	<Input id="resValue" value="{resiVALUE}" placeholder="Residual Value" editable="{uiModel>/fieldsEditable}"/>
+																</f:fields>
+															</f:FormElement>
+														</f:formElements>
+													</f:FormContainer>
+													<f:FormContainer>
+														<f:formElements>
+															<f:FormElement label="Old contract date">
+																<f:fields>
+																	<DatePicker id="oldContDate" valueFormat="MM-dd-yyyy" displayFormat="MM-dd-yyyy" dateValue="{oldCONTRDT}"
+																		enabled="{uiModel>/fieldsEditable}"/>
+																</f:fields>
+															</f:FormElement>
+														</f:formElements>
+														<f:formElements>
+															<f:FormElement label="Legal Document date">
+																<f:fields>
+																	<DatePicker id="legDocDate" dateValue="{legDOCDT}" valueFormat="MM-dd-yyyy" displayFormat="MM-dd-yyyy" enabled="{uiModel>/fieldsEditable}"/>
+																</f:fields>
+															</f:FormElement>
+														</f:formElements>
+														<f:formElements>
+															<f:FormElement label="Master Contract No">
+																<f:fields>
+																	<Input id="mastContNum" value="{mastCONTNUM}" editable="{uiModel>/fieldsEditable}" placeholder="Master Contract No"/>
+																</f:fields>
+															</f:FormElement>
+														</f:formElements>
+														<f:formElements>
+															<f:FormElement>
+																<f:label>
+																	<Label text="Useful Life" required="true"/>
+																</f:label>
+																<f:fields>
+																	<HBox>
+																		<Input id="usefulLifeYr" value="{useLIFEYRS}" editable="{uiModel>/fieldsEditable}" width="4rem" required="true"/>
+																		<Text text=" / " renderWhitespace="true" maxLines="1"/>
+																		<ComboBox id="usefulLifeMnth" value="{useLIFEMON}" editable="{uiModel>/fieldsEditable}" width="2rem">
+																			<core:Item text="1"/>
+																			<core:Item text="2"/>
+																			<core:Item text="3"/>
+																			<core:Item text="4"/>
+																			<core:Item text="5"/>
+																			<core:Item text="6"/>
+																			<core:Item text="7"/>
+																			<core:Item text="8"/>
+																			<core:Item text="9"/>
+																			<core:Item text="10"/>
+																			<core:Item text="11"/>
+																		</ComboBox>
+																	</HBox>
+																</f:fields>
+															</f:FormElement>
+															<f:FormElement label="Rent Index Key">
+																<f:fields>
+																	<Input id="renIndKey" value="{indxSER_indexSERIES}" valueHelpRequest="onChangeRentIndexKey" placeholder="Rent Index Key"
+																		editable="{uiModel>/fieldsEditable}" showValueHelp="true" textAlign="Right"/>
+																</f:fields>
+															</f:FormElement>
+															<f:FormElement label="Sub-Leased">
+																<f:fields>
+																	<CheckBox id="subLeased" editable="{uiModel>/fieldsEditable}"/>
+																</f:fields>
+															</f:FormElement>
+														</f:formElements>
+													</f:FormContainer>
+												</f:formContainers>
+											</f:Form>
+											<OverflowToolbar id="tncToolbar" enabled="{uiModel>/fieldsEditable}">
+												<ToolbarSpacer/>
+												<Button id="idAddBtn" icon="sap-icon://sys-add" tooltip="Insert Row" class="size4" press="onAddItem" enabled="{uiModel>/fieldsEditable}"/>
+												<Button id="idDelBtn" icon="sap-icon://delete" tooltip="Delete Row" press="onItemDelete" enabled="{uiModel>/fieldsEditable}"/>
+											</OverflowToolbar>
+											<ScrollContainer>
+												<content>
+													<Table id="idTnCTable" backgroundDesign="Solid" mode="{= ${uiModel>/fieldsEditable} ? 'MultiSelect' : 'None'}" growing="true"
+														growingThreshold="5" items="{path: 'termsCONDTN', sorter : { path : 'iTEMs' }}" growingScrollToLoad="true">
+														<columns>
+															<Column hAlign="Center" width="80px">
+																<Text text="Sr No"></Text>
+															</Column>
+															<Column hAlign="Center" width="320px">
+																<Text text="Expense Type"></Text>
+															</Column>
+															<Column hAlign="Center" width="100px">
+																<Text text="Amount"></Text>
+															</Column>
+															<Column hAlign="Center" width="150px">
+																<Text text="Valid From"></Text>
+															</Column>
+															<Column hAlign="Center" width="230px">
+																<Text text="Due On"></Text>
+															</Column>
+															<Column hAlign="Center" width="150px">
+																<Text text="Payment Frequency"></Text>
+															</Column>
+															<Column hAlign="Center" width="150px">
+																<Text text="Price Escalator"></Text>
+															</Column>
+															<Column hAlign="Center" width="100px">
+																<Text text="Escalation Value"></Text>
+															</Column>
+															<Column hAlign="Center" width="100px">
+																<Text text="Price Change Frequency"></Text>
+															</Column>
+															<Column hAlign="Center" width="150px">
+																<Text text="Minimum Escalator Parameter"></Text>
+															</Column>
+															<Column hAlign="Center" width="120px">
+																<Text text="Minimum Escalation"></Text>
+															</Column>
+															<Column hAlign="Center" width="100px">
+																<Text text="Capitalisation"></Text>
+															</Column>
+															<Column hAlign="Center" width="100px">
+																<Text text="Interest Bearing"></Text>
+															</Column>
+															<Column hAlign="Center" width="120px">
+																<Text text="Vendor"></Text>
+															</Column>
+															<Column hAlign="Center" width="100px">
+																<Text text="Tax Code"></Text>
+															</Column>
+															<Column hAlign="Center" width="150px">
+																<Text text="GL Account"></Text>
+															</Column>
+															<Column hAlign="Center" width="100px">
+																<Text text="Ledger"></Text>
+															</Column>
+														</columns>
+														<ColumnListItem>
+															<Text id="srNo" text="{iTEMs}"/>
+															<Input id="expTyp" value="{expenseTYP}" width="100%" editable="{uiModel>/fieldsEditable}" showValueHelp="true" showSuggestion="true"
+																valueHelpRequest="onChangeExpType"/>
+															<Input id="amt" textAlign="Right" value="{amounT}" editable="{uiModel>/fieldsEditable}"/>
+															<DatePicker id="validFrom" valueFormat="MM-dd-yyyy" displayFormat="MM-dd-yyyy" dateValue="{validFRM}" editable="{uiModel>/fieldsEditable}"/>
+															<ComboBox id="dueOn" width="100%" selectedKey="{dueON}" editable="{uiModel>/fieldsEditable}">
+																<core:Item key="EOP" text="End of the period"/>
+																<core:Item key="BOP" text="Beginning of the period"/>
+															</ComboBox>
+															<ComboBox id="payFreq" width="100%" value="{pymtFREQ}" editable="{uiModel>/fieldsEditable}">
+																<core:Item text="MONTH"/>
+																<core:Item text="BI-MONTH"/>
+																<core:Item text="QUARTER"/>
+																<core:Item text="HALF-YEAR"/>
+																<core:Item text="YEAR"/>
+															</ComboBox>
+															<ComboBox id="priceEscltr" width="100%" value="{priceESC}" editable="{uiModel>/fieldsEditable}">
+																<core:Item text="Value"/>
+																<core:Item text="Percentage"/>
+															</ComboBox>
+															<Input id="esclVal" value="{esclVAL}" textAlign="Right" editable="{uiModel>/fieldsEditable}"/>
+															<Input id="priceChangeFreq" value="{priceCHNGFREQ}" editable="{uiModel>/fieldsEditable}"/>
+															<ComboBox id="minEsclPara" width="100%" value="{minESCLPAR}" editable="{uiModel>/fieldsEditable}">
+																<core:Item text="Value"/>
+																<core:Item text="Percentage"/>
+															</ComboBox>
+															<Input id="minEscalatn" value="{minESC}" textAlign="Right" editable="{uiModel>/fieldsEditable}"/>
+															<CheckBox id="capitalistn" selected="{capitalisatioN}" editable="{uiModel>/fieldsEditable}"/>
+															<CheckBox id="intBearing" selected="{iNTB}" editable="{uiModel>/fieldsEditable}"/>
+															<Input id="vendr" value="{vEND_vEND}" showValueHelp="true" showSuggestion="true" valueHelpRequest="onValueChangeVen"
+																editable="{uiModel>/fieldsEditable}"/>
+															<Input id="taxCode" value="{taxCODE}" showValueHelp="true" showSuggestion="true" valueHelpRequest="onChangeTaxCode" editable="{uiModel>/fieldsEditable}"/>
+															<Input id="gLAcc" value="{glACC}" editable="{uiModel>/fieldsEditable}" showValueHelp="true" showSuggestion="true"
+																valueHelpRequest="onChangeGLAcc"/>
+															<Input id="ledger" value="{lEDGER_lEDGER}" editable="{uiModel>/fieldsEditable}" showValueHelp="true" showSuggestion="true"
+																valueHelpRequest="onChangeLedger"/>
+														</ColumnListItem>
+													</Table>
+												</content>
+											</ScrollContainer>
+										</VBox>
+									</u:ObjectPageSubSection>
+								</u:subSections>
+							</u:ObjectPageSection>
+							<u:ObjectPageSection title="Validity Period">
+								<u:subSections>
+									<u:ObjectPageSubSection>
+										<VBox>
+											<Toolbar>
+												<ToolbarSpacer/>
+												<Label text="Valid From" labelFor="valValidFrom" required="true"/>
+												<DatePicker id="valValidFrom" width="10rem" valueFormat="MM-dd-yyyy" displayFormat="MM-dd-yyyy" dateValue="{validFROM}"
+													editable="{uiModel>/fieldsEditable}"/>
+												<!--<ToolbarSpacer width="720px"/>-->
+												<Label text="Valid To" labelFor="validTo" required="true"/>
+												<DatePicker id="valValidTo" width="10rem" valueFormat="MM-dd-yyyy" displayFormat="MM-dd-yyyy" dateValue="{validTO}"
+													editable="{uiModel>/fieldsEditable}"/>
+												<ToolbarSpacer/>
+											</Toolbar>
+											<OverflowToolbar id="valTb">
+												<ToolbarSpacer/>
+												<Button id="valAddBtn" icon="sap-icon://sys-add" tooltip="Insert Row" class="size4" press="onAddItem2" enabled="{uiModel>/fieldsEditable}"/>
+												<Button id="valDelBtn" icon="sap-icon://delete" tooltip="Delete Row" press="onDeleteItem2" enabled="{uiModel>/fieldsEditable}"/>
+											</OverflowToolbar>
+											<ScrollContainer>
+												<content>
+													<Table id="validityTble" backgroundDesign="Solid" mode="{= ${uiModel>/fieldsEditable} ? 'MultiSelect' : 'None'}" growing="true"
+														growingThreshold="5" items="{path: 'valPERIOD', sorter : { path : 'iTEM' }}" growingScrollToLoad="true" visible="true">
+														<columns>
+															<Column hAlign="Center" width="20%">
+																<Text text="Start Date"></Text>
+															</Column>
+															<Column hAlign="Center" width="20%">
+																<Text text="End Date"></Text>
+															</Column>
+															<Column hAlign="Center" width="20%">
+																<Text text="No. Of Months"></Text>
+															</Column>
+															<Column hAlign="Center" width="20%">
+																<Text text="Status"></Text>
+															</Column>
+															<Column hAlign="Center" width="20%">
+																<Text text="Validity ID"></Text>
+															</Column>
+														</columns>
+														<ColumnListItem>
+															<DatePicker id="startDate" dateValue="{strDT}" valueFormat="MM-dd-yyyy" displayFormat="MM-dd-yyyy" editable="{uiModel>/fieldsEditable}"
+																required="true"/>
+															<DatePicker id="endDate" dateValue="{endDT}" valueFormat="MM-dd-yyyy" displayFormat="MM-dd-yyyy" editable="{uiModel>/fieldsEditable}"
+																required="true"/>
+															<Input id="noOfMonths" textAlign="Right" value="{noMONTH}" editable="{uiModel>/fieldsEditable}" required="true"/>
+															<Input id="status" showValueHelp="true" value="{sTATUS}" editable="{uiModel>/fieldsEditable}" required="true"/>
+															<Input id="validId" showValueHelp="true" value="{validID}" editable="{uiModel>/fieldsEditable}" required="true"/>
+														</ColumnListItem>
+													</Table>
+												</content>
+											</ScrollContainer>
+										</VBox>
+									</u:ObjectPageSubSection>
+								</u:subSections>
+							</u:ObjectPageSection>
+							<u:ObjectPageSection title="Cash Flow">
+								<u:subSections>
+									<u:ObjectPageSubSection >
+										<!--<VBox>-->
+										<!--<OverflowToolbar width="100%"></OverflowToolbar>-->
+										<!--	<ScrollContainer>-->
+										<!--		<content>-->
+										<Table id="cashFlowTble" backgroundDesign="Solid" mode="{= ${uiModel>/fieldsEditable} ? 'MultiSelect' : 'None'}" growing="true"
+											growingThreshold="5" items="{path: 'cashFLOW', sorter : { path : 'lineITEM' }}" growingScrollToLoad="true" visible="true">
+											<columns>
+												<Column hAlign="Center" width="100px">
+													<Text text="Posting Date"></Text>
+												</Column>
+												<Column hAlign="Center" width="120px">
+													<Text text="Flow Type"></Text>
+												</Column>
+												<Column hAlign="Center" width="150px">
+													<Text text="Flow Type Description"></Text>
+												</Column>
+												<Column hAlign="Center" width="150px">
+													<Text text="Processing Status"></Text>
+												</Column>
+												<Column hAlign="Center" width="120px">
+													<Text text="Amount"></Text>
+												</Column>
+												<Column hAlign="Center" width="120px">
+													<Text text="Currency"></Text>
+												</Column>
+												<Column hAlign="Center" width="120px">
+													<Text text="Ledger"></Text>
+												</Column>
+												<Column hAlign="Center" width="120px">
+													<Text text="Document Number"></Text>
+												</Column>
+											</columns>
+											<ColumnListItem>
+												<DatePicker id="postingDate" value="{postDT}" valueFormat="MM-dd-yyyy" displayFormat="MM-dd-yyyy" editable="{uiModel>/fieldsEditable}"/>
+												<Input id="flowType" value="{flowTYPE}" editable="{uiModel>/fieldsEditable}"/>
+												<Input id="floTypeDescp" value="{dESCR}" editable="{uiModel>/fieldsEditable}"/>
+												<Input id="processingSts" value="{sTATUS}" enabled="{uiModel>/fieldsEditable}"/>
+												<Input id="amount" value="{aMT}" showValueHelp="true" editable="{uiModel>/fieldsEditable}"/>
+												<Input id="curr" value="{cURR}" showValueHelp="true" editable="{uiModel>/fieldsEditable}"/>
+												<Input id="cfLedger" value="{lEDGER}" showValueHelp="true" editable="{uiModel>/fieldsEditable}"/>
+												<Input id="doc" value="{docNUM}" showValueHelp="true" editable="{uiModel>/fieldsEditable}"/>
+											</ColumnListItem>
+										</Table>
+										<!--		</content>-->
+										<!--	</ScrollContainer>-->
+										<!--</VBox>-->
+									</u:ObjectPageSubSection>
+								</u:subSections>
+							</u:ObjectPageSection>
+							<u:ObjectPageSection title="Text">
+								<u:subSections>
+									<u:ObjectPageSubSection >
+										<TextArea placeholder="Write some text here....." growing="true" width="100%" growingMaxLines="6" rows="15"
+											editable="{uiModel>/fieldsEditable}"/>
+									</u:ObjectPageSubSection>
+								</u:subSections>
+							</u:ObjectPageSection>
+						</u:sections>
+					</u:ObjectPageLayout>
+				</content>
+				<footer>
+					<Toolbar id="idCreateFooter">
+						<ToolbarSpacer/>
+						<Button text="Submit" id="sbmtBtn" type="Ghost" press="onPressSubmit" visible="{uiModel>/fieldsEditable}"
+							enabled="{uiModel>/fieldsEditable}"/>
+						<Button text="Cancel" type="Reject" press="onNavBack"/>
+					</Toolbar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+	<!--</Shell>-->
+</mvc:View>

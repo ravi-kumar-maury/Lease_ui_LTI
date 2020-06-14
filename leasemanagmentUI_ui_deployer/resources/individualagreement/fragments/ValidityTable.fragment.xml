@@ -1,0 +1,40 @@
+<Panel xmlns="sap.m" id="validityItems">
+	<OverflowToolbar id="valTb">
+		<ToolbarSpacer/>
+		<Button id="valAddBtn" icon="sap-icon://sys-add" tooltip="Insert Row" class="size4" press="onAddItem2" enabled="{uiModel>/fieldsEditable}"/>
+		<Button id="valDelBtn" icon="sap-icon://delete" tooltip="Delete Row" press="onDeleteItem2" enabled="{uiModel>/fieldsEditable}"/>
+	</OverflowToolbar>
+	<ScrollContainer>
+		<content>
+			<Table id="validityTble" backgroundDesign="Solid" mode="{= ${uiModel>/fieldsEditable} ? 'MultiSelect' : 'None'}" growing="true"
+				growingThreshold="5" items="{path: 'valPERIOD', sorter : { path : 'iTEM' }}" growingScrollToLoad="true" visible="true">
+				<columns>
+					<Column hAlign="Center" width="20%">
+						<Text text="Start Date"></Text>
+					</Column>
+					<Column hAlign="Center" width="20%">
+						<Text text="End Date"></Text>
+					</Column>
+					<Column hAlign="Center" width="20%">
+						<Text text="No. Of Months"></Text>
+					</Column>
+					<Column hAlign="Center" width="20%">
+						<Text text="Status"></Text>
+					</Column>
+					<Column hAlign="Center" width="20%">
+						<Text text="Validity ID"></Text>
+					</Column>
+				</columns>
+				<ColumnListItem>
+					<DatePicker id="startDate" dateValue="{strDT}" valueFormat="MM-dd-yyyy" displayFormat="MM-dd-yyyy" editable="{uiModel>/fieldsEditable}"
+						required="true"/>
+					<DatePicker id="endDate" dateValue="{endDT}" valueFormat="MM-dd-yyyy" displayFormat="MM-dd-yyyy" enabled="{uiModel>/fieldsEditable}"
+						required="true"/>
+					<Input id="noOfMonths" textAlign="Right" value="{noMONTH}" editable="{uiModel>/fieldsEditable}" required="true"/>
+					<Input id="status" showValueHelp="true" value="{sTATUS}" editable="{uiModel>/fieldsEditable}" required="true"/>
+					<Input id="validId" showValueHelp="true" value="{validID}" editable="{uiModel>/fieldsEditable}" required="true"/>
+				</ColumnListItem>
+			</Table>
+		</content>
+	</ScrollContainer>
+</Panel>

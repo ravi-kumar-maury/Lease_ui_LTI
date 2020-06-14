@@ -1,0 +1,101 @@
+<mvc:View controllerName="com.lti.LeaseManagement.LeaseSchedule.controller.app" 
+ xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	xmlns="sap.m" 
+	xmlns:viz="sap.viz.ui5.controls"
+	xmlns:tnt="sap.tnt">
+<App id="app">
+			<pages>
+				<Page id="page" backgroundDesign="Solid" >
+					<content> 
+	<tnt:ToolHeader class="#FF0000">
+
+		<DatePicker
+		    width="25%"
+			id="DP1"
+			placeholder="Enter Date ..."
+			change="handleChange"
+			class="sapUiSmallMarginTopBottomLeft"/>
+        <ToolbarSpacer>
+			<layoutData>
+				<OverflowToolbarLayoutData priority="NeverOverflow" maxWidth="256px" />
+			</layoutData>
+		</ToolbarSpacer>
+		<Button icon="sap-icon://drill-up" type="Transparent">
+			<layoutData>
+				<OverflowToolbarLayoutData priority="NeverOverflow" />
+			</layoutData>
+		</Button>
+		<Button icon="sap-icon://drill-down" type="Transparent">
+			<layoutData>
+				<OverflowToolbarLayoutData priority="NeverOverflow" />
+			</layoutData>
+		</Button>
+		<Button icon="sap-icon://notes" type="Transparent">
+			<layoutData>
+				<OverflowToolbarLayoutData priority="NeverOverflow" />
+			</layoutData>
+		</Button>
+		<Button icon="sap-icon://legend" type="Transparent">
+			<layoutData>
+				<OverflowToolbarLayoutData priority="NeverOverflow" />
+			</layoutData>
+		</Button>
+		<Button icon="sap-icon://zoom-in" type="Transparent">
+			<layoutData>
+				<OverflowToolbarLayoutData priority="NeverOverflow" />
+			</layoutData>
+		</Button>
+		<Button icon="sap-icon://zoom-out" type="Transparent">
+			<layoutData>
+				<OverflowToolbarLayoutData priority="NeverOverflow" />
+			</layoutData>
+		</Button>
+		<Button icon="sap-icon://action-settings" type="Transparent">
+			<layoutData>
+				<OverflowToolbarLayoutData priority="NeverOverflow" />
+			</layoutData>
+		</Button>
+		<Button icon="sap-icon://bar-chart" type="Transparent">
+			<layoutData>
+				<OverflowToolbarLayoutData priority="NeverOverflow" />
+			</layoutData>
+		</Button>
+		<Button icon="sap-icon://resize" type="Transparent">
+			<layoutData>
+				<OverflowToolbarLayoutData priority="NeverOverflow" />
+			</layoutData>
+		</Button>
+		<Button icon="sap-icon://excel-attachment" type="Transparent">
+			<layoutData>
+				<OverflowToolbarLayoutData priority="NeverOverflow" />
+			</layoutData>
+		</Button>
+		<Button icon="sap-icon://table-chart" type="Transparent">
+			<layoutData>
+				<OverflowToolbarLayoutData priority="NeverOverflow" />
+			</layoutData>
+		</Button>
+		<Button icon="sap-icon://horizontal-bar-chart" type="Transparent">
+			<layoutData>
+				<OverflowToolbarLayoutData priority="NeverOverflow" />
+			</layoutData>
+		</Button>
+	<!--	<ToolbarSpacer>
+			<layoutData>
+				<OverflowToolbarLayoutData minWidth="50px" />
+			</layoutData>
+		</ToolbarSpacer>-->
+		</tnt:ToolHeader>
+
+		<viz:VizFrame xmlns="sap.viz" id="idcolumn" width="100%">
+						
+						</viz:VizFrame>
+						<Button text="Tabular" press="onClick"/>
+	</content>
+	
+				</Page>
+			</pages>
+			
+		</App>
+
+</mvc:View>

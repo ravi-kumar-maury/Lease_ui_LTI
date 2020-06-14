@@ -1,0 +1,6 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog id="idExpTypDialog" title="Select Expense Type" liveChange="onSearchExpTyp" cancel="handleCancelExpTyp" search="handleSearchExpTyp"
+		confirm="handleConfirmExpTyp" items="{/ZLTI_LA_COST_MAP}" growing = "true">
+		<StandardListItem id="expTypList" type="Active" title="{costKEY}" description="{dESCRP}" />
+	</SelectDialog>
+</core:FragmentDefinition>

@@ -1,0 +1,5 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog id="idRentIndexKey" title="Select Rent Index Key"  search="handleSearchRentIndexKey" confirm="handleConfirmRentIndexKey" cancel="handleCloserRentIndexKey" items="{/ZLTI_LA_RENT_CLS}" growing = "true" >
+		<StandardListItem title="{indexSERIES}" type="Active" description="{indexVAL}"/>
+	</SelectDialog>
+</core:FragmentDefinition>

@@ -1,0 +1,5 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog id="idRefIntRateDialog" title="Select Reference Interest Rate"  search="handleSearchRefIntRate" confirm="handleConfirmRefIntRate" cancel="handleCloserRefIntRate" items="{/ZLTI_LA_IRR}" growing = "true" >
+		<StandardListItem title="{intrKEY}" type="Active" description="{intrDESC}"/>
+	</SelectDialog>
+</core:FragmentDefinition>

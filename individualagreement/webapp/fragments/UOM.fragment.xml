@@ -1,0 +1,5 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog id="idUOMDialog" title="Select UOM"  search="handleSearchUOM" confirm="handleConfirmUOM" cancel="handleCloseUOM" items="{/ZLTI_LA_UOM}" growing = "true" >
+		<StandardListItem title="{uOM}" type="Active" description="{dESCRP}"/>
+	</SelectDialog>
+</core:FragmentDefinition>

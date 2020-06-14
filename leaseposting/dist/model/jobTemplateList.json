@@ -1,0 +1,33 @@
+{
+	"jobList": [{
+		"Value": "Lease ROU Posting",
+		"Key": "1"
+	}, {
+		"Value": "Amortization Document Posting",
+		"Key": "2"
+	}, {
+		"Value": "Interest Posting for Lease Management",
+		"Key": "3"
+	}, {
+		"Value": "Accural / Accural Reversal for Lease Management",
+		"Key": "4"
+	}, {
+		"Value": "Retirement Posting - Retirement with Residual",
+		"Key": "5"
+	}, {
+		"Value": "Retirement Posting - Retirement with Buy Back",
+		"Key": "6"
+	}, {
+		"Value": "Retirement Posting - Early Termination",
+		"Key": "7"
+	}, {
+		"Value": "Retirement Posting - Impairment",
+		"Key": "8"
+	}, {
+		"Value": "Invoice Posting for Lease Management",
+		"Key": "9"
+	}, {
+		"Value": "Sub Leasing of Lease Management",
+		"Key": "10"
+	}]
+}

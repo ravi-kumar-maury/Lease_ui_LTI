@@ -1,0 +1,6 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog id="idWbsDialog" title="Select WBS" liveChange="onSearchWbs" cancel="handleCancelWbs" search="handleSearchWbs"
+		confirm="handleConfirmWbs" items="{/ZLTI_LA_WBS}" growing = "true">
+		<StandardListItem id="wbsList" title="{wBS}" type="Active" description="{wbsDESC}"/>
+	</SelectDialog>
+</core:FragmentDefinition>

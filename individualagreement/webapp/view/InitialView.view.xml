@@ -1,0 +1,127 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	displayBlock="true" controllerName="com.lti.LeaseManagement.individualagreement.controller.InitialView"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<!--<Shell>-->
+	<App id="app">
+		<pages>
+			<Page id="idPageInitial"
+				class="sapUiContentPadding sapUiResponsivePadding--header sapUiResponsivePadding--subHeader sapUiResponsivePadding--content sapUiResponsivePadding--footer">
+				<customHeader>
+					<Bar>
+						<contentMiddle>
+							<Label design="Bold" text="Individual Lease Agreement"/>
+						</contentMiddle>
+					</Bar>
+				</customHeader>
+				<Panel expandable="{device>/system/phone}" expanded="{= !${device>/system/phone} }">
+				<content>
+					<f:Form editable="true">
+						<f:layout>
+							<f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="12" adjustLabelSpan="true" emptySpanXL="0" emptySpanL="0"
+								emptySpanM="0" emptySpanS="0" columnsXL="3" columnsL="3" columnsM="3" singleContainerFullSize="false"/>
+						</f:layout>
+						<f:formContainers>
+							<f:FormContainer>
+								<f:formElements>
+									<f:FormElement label="{i18n>LEASE_AGREEMENT}">
+										<f:fields>
+											<Input id="leaseAgr" width="180px" showValueHelp="true" showSuggestion="true" valueHelpRequest="onValueChangeInd" placeholder="Enter LA"/>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="{i18n>COMPANYCODE}">
+										<f:fields>
+											<Input id="compCode" width="180px" showValueHelp="true" valueHelpRequest="onValueChangeCC" change="onSearchAgreement"
+												placeholder="Company Code"/>
+										</f:fields>
+									</f:FormElement>
+								</f:formElements>
+							</f:FormContainer>
+							<f:FormContainer>
+								<f:formElements>
+									<f:FormElement label="Vendor">
+										<f:fields>
+											<Input id="vendor" width="180px" showValueHelp="true" valueHelpRequest="onValueChangeVen" placeholder="Vendor"/>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="Lease Type">
+										<f:fields>
+											<Input id="leaseType" width="180px" showValueHelp="true" valueHelpRequest="onValueChangeLT" placeholder="Lease Type"/>
+										</f:fields>
+									</f:FormElement>
+								</f:formElements>
+							</f:FormContainer>
+							<f:FormContainer>
+								<f:formElements>
+									<f:FormElement label="{i18n>STARTDATE}">
+										<f:fields>
+											<DatePicker id="startDate" width="180px" valueFormat="MM-dd-yyyy" displayFormat="MM-dd-yyyy"/>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="End Of Date">
+										<f:fields>
+											<DatePicker id="endDate" width="180px" valueFormat="MM-dd-yyyy" displayFormat="MM-dd-yyyy"/>
+										</f:fields>
+									</f:FormElement>
+								</f:formElements>
+							</f:FormContainer>
+						</f:formContainers>
+					</f:Form>
+					<Toolbar id="idForButtons">
+						<ToolbarSpacer/>
+						<Button id="applyBtn" text="{i18n>APPLY}" press="onSearch"></Button>
+						<Button id="resetBtn" text="{i18n>RESET}" press="onPressReset"></Button>
+					</Toolbar>
+					<Table id="idILListTable" mode="MultiSelect" inset="false" noDataText="{i18n>NO_DATA}" growing="true" growingThreshold="1000"
+						items="{ path : '/ZLTI_LA_IND_LA', parameters : {$expand : 'termsCONDTN', $count: true, $$updateGroupId: 'IndividualAgreementGroup' }}"
+						backgroundDesign="Solid" >
+						<headerToolbar>
+							<Toolbar>
+								<ToolbarSpacer/>
+								<Button id="addBtn" icon="sap-icon://add" tooltip="Create" press="navToCreateLeasePage"/>
+								<Button id="delBtn" icon="sap-icon://delete" tooltip="Delete" press="deleteLease"/>
+								<Button id="sortBtn" icon="sap-icon://sort" tooltip="Sort" press="sortPress"/>
+								<Button id="filBtn" icon="sap-icon://filter" tooltip="Filter" press="onApplyFilter"/>
+								<Button id="settingsBtn" icon="sap-icon://action-settings" tooltip="Settings"/>
+							</Toolbar>
+						</headerToolbar>
+						<columns style="font:bold;" id="idTableColumn" visible="true">
+							<Column hAlign="Center">
+								<ObjectIdentifier title="{i18n>LEASE_AGREEMENT}"/>
+								<!--<Label text="{i18n>LEASE_AGREEMENT}" tooltip="{i18n>LEASE_AGREEMENT}" design="Bold"/>-->
+							</Column>
+							<Column hAlign="Center">
+								<ObjectIdentifier title="{i18n>LEASE_AGREEMENT}"/>
+							</Column>
+							<Column hAlign="Center">
+								<ObjectIdentifier title="{i18n>TYPEOFLEASE}"/>
+							</Column>
+							<Column hAlign="Center">
+								<ObjectIdentifier title="{i18n>CURRENCY}"/>
+							</Column>
+							<Column hAlign="Center">
+								<ObjectIdentifier title="{i18n>VALIDITY_START_DATE}"/>
+							</Column>
+							<Column hAlign="Center">
+								<ObjectIdentifier title="{i18n>VALIDITY_END_DATE}"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem type="Navigation" press="onSelectChange">
+								<cells>
+									<ObjectIdentifier text="{agNUM}"/>
+									<ObjectIdentifier text="{coCDE_coCDE}"/>
+									<ObjectIdentifier text="{lesTYPE_lesTYPE}"/>
+									<ObjectIdentifier text="{cURR_cURR}"/>
+									<ObjectIdentifier text="{validFROM}"/>
+									<ObjectIdentifier text="{validTO}"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</content>
+				</Panel>
+			</Page>
+		</pages>
+	</App>
+	<!--</Shell>-->
+</mvc:View>

@@ -1,0 +1,49 @@
+<Panel xmlns="sap.m" id="masterItems">
+	<Table id="idTable" backgroundDesign="Solid" mode="{= ${uiModel>/fieldsEditable} ? 'MultiSelect' : 'None'}"
+		items="{path: 'iTEMs', sorter : { path : 'iTEM' }, parameters : {$count: true, $$updateGroupId: 'MasterAgreementGroup' }}" growing="true"
+		growingScrollToLoad="true">
+		<headerToolbar>
+			<Toolbar>
+				<Title text="Items" level="H2"/>
+				<ToolbarSpacer></ToolbarSpacer>
+				<Button id="idNewAdd" icon="sap-icon://add" tooltip="Add" press="onAddItem" enabled="{uiModel>/fieldsEditable}"/>
+				<Button id="idNewDel" icon="sap-icon://sys-minus" tooltip="Delete" press="onItemDelete" enabled="{uiModel>/fieldsEditable}"/>
+				<Button icon="sap-icon://sort" tooltip="Sort" enabled="{uiModel>/showMasterItems}"></Button>
+			</Toolbar>
+		</headerToolbar>
+		<columns>
+			<Column hAlign="Center" minScreenWidth="Small" demandPopin="true">
+				<Text text="Item"></Text>
+			</Column>
+			<Column hAlign="Center" minScreenWidth="Small" demandPopin="true">
+				<Text text="Asset Type"></Text>
+			</Column>
+			<Column hAlign="Center" minScreenWidth="Small" demandPopin="true">
+				<Text text="Asset Description"></Text>
+			</Column>
+			<Column hAlign="Center" minScreenWidth="Small" demandPopin="true">
+				<Text text="Target Quantity"></Text>
+			</Column>
+			<Column hAlign="Center" minScreenWidth="Small" demandPopin="true">
+				<Text text="Unit"></Text>
+			</Column>
+			<Column hAlign="Center" minScreenWidth="Small" demandPopin="true">
+				<Text text="Net Price"></Text>
+			</Column>
+			<Column hAlign="Center" minScreenWidth="Small" demandPopin="true">
+				<Text text="Buy Back"></Text>
+			</Column>
+		</columns>
+		<ColumnListItem>
+			<Text text="{iTEM}"/>
+			<Input value="{assetTYPE_assetTYPE}" editable="{uiModel>/fieldsEditable}" showValueHelp="true" showSuggestion="true"
+				valueHelpRequest="onValueChangeAT" textAlign="Center" change="assetChange"/>
+			<Input value="{shrtTEXT}" editable="{uiModel>/fieldsEditable}"/>
+			<Input value="{targQTY}" editable="{uiModel>/fieldsEditable}" textAlign="Right"/>
+			<Input value="{uOM_uOM}" showValueHelp="true" showSuggestion="true" valueHelpRequest="onChangeValueUOM" required="true" width="180px"
+				editable="{uiModel>/fieldsEditable}" textAlign="Center"/>
+			<Input value="{netPRICE}" editable="{uiModel>/fieldsEditable}" textAlign="Right"/>
+			<CheckBox selected="{buyBACK}" editable="{uiModel>/fieldsEditable}" textAlign="Center"></CheckBox>
+		</ColumnListItem>
+	</Table>
+</Panel>

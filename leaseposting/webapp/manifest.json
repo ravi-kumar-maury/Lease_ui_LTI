@@ -1,0 +1,155 @@
+{
+	"_version": "1.12.0",
+	"sap.app": {
+		"id": "com.lti.LeaseManagement.leaseposting",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "servicecatalog.connectivityComponentForManifest",
+			"version": "0.0.0"
+		},
+		"dataSources": {
+			"catalog": {
+				"uri": "/LeaseManagement/catalog/",
+				"type": "OData",
+				"settings": {
+					"localUri": "localService/metadata.xml",
+					"odataVersion": "4.0"
+				}
+			}
+		},
+		"crossNavigation": {
+			"inbounds": {
+				"intent1": {
+					"signature": {
+						"parameters": {},
+						"additionalParameters": "allowed"
+					},
+					"semanticObject": "leaseaccountingjobs",
+					"action": "display",
+					"title": "LeaseAccounting",
+					"icon": "sap-icon://account"
+				}
+			}
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"flexEnabled": false,
+		"rootView": {
+			"viewName": "com.lti.LeaseManagement.leaseposting.view.InitialView",
+			"type": "XML",
+			"async": true,
+			"id": "InitialView"
+		},
+		"dependencies": {
+			"minUI5Version": "1.65.6",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.ui.layout": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "com.lti.LeaseManagement.leaseposting.i18n.i18n"
+				}
+			},
+			"": {
+				"type": "sap.ui.model.odata.v4.ODataModel",
+				"settings": {
+					"operationMode": "Server",
+					"synchronizationMode": "None",
+					"groupId": "$direct"
+				},
+				"dataSource": "catalog",
+				"preload": true
+			},
+			"JTModel": {
+				"type": "sap.ui.model.json.JSONModel",
+				"uri": "model/jobTemplateList.json"
+			},
+			"VisModel": {
+				"type": "sap.ui.model.json.JSONModel",
+				"uri": "model/visibilityModel.json"
+			},
+			"InPstModel": {
+				"type": "sap.ui.model.json.JSONModel",
+				"uri": "model/invPostTemplate.json"
+			},
+			"GLModel": {
+				"type": "sap.ui.model.json.JSONModel",
+				"uri": "model/specialGLTemplate.json"
+			}
+		},
+		"resources": {
+			"css": [{
+				"uri": "css/style.css"
+			}]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "com.lti.LeaseManagement.leaseposting.view",
+				"controlAggregation": "pages",
+				"controlId": "app",
+				"clearControlAggregation": false
+			},
+			"routes": [{
+				"name": "RouteInitialView",
+				"pattern": "RouteInitialView",
+				"target": [
+					"TargetInitialView"
+				]
+			}, {
+				"name": "PostView",
+				"pattern": "PostView",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["PostView"]
+			}],
+			"targets": {
+				"TargetInitialView": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewId": "",
+					"viewName": "InitialView"
+				},
+				"PostView": {
+					"viewType": "XML",
+					"viewName": "PostView",
+					"transition": "fade"
+				}
+			}
+		}
+	}
+}

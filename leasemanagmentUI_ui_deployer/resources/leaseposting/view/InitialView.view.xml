@@ -1,0 +1,114 @@
+<mvc:View controllerName="com.lti.LeaseManagement.leaseposting.controller.InitialView" xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns="sap.m" xmlns:form="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<App id="app">
+		<pages>
+			<Page id="page" showHeader="true">
+				<customHeader>
+					<Bar>
+						<contentMiddle>
+							<Title text="{i18n>title}" level="H1"></Title>
+						</contentMiddle>
+					</Bar>
+				</customHeader>
+				<content>
+					<form:Form width="100%" editable="true" visible="true">
+						<form:formContainers>
+							<form:FormContainer visible="true">
+								<form:formElements>
+									<form:FormElement visible="true">
+										<form:label>
+											<Label text="{i18n>labelStatus}" design="Standard" textAlign="Begin" textDirection="Inherit"/>
+										</form:label>
+										<form:fields>
+											<MultiComboBox id="idMCB" selectionChange="handleSelectionChange">
+												<items>
+													<core:Item text="Failed" enabled="true" key="Failed"/>
+													<core:Item text="Cancelled" enabled="true" key="Cancelled"/>
+													<core:Item text="Finished" enabled="true" key="Finished"/>
+													<core:Item text="In Process" enabled="true" key="In Process"/>
+													<core:Item text="Scheduled" enabled="true" key="Scheduled"/>
+													<core:Item text="User Error" enabled="true" key="User Error"/>
+													<core:Item text="Ready" enabled="true" key="Ready"/>
+												</items>
+											</MultiComboBox>
+										</form:fields>
+									</form:FormElement>
+								</form:formElements>
+							</form:FormContainer>
+							<form:FormContainer visible="true">
+								<form:formElements>
+									<form:FormElement visible="true">
+										<form:label>
+											<Label text="{i18n>labelFrom}" required="true" design="Standard" textAlign="Begin" textDirection="Inherit"/>
+										</form:label>
+										<form:fields>
+											<DateTimePicker id="DTPFrm" placeholder="Enter Date" width="190px" change="handleChange"/>
+										</form:fields>
+									</form:FormElement>
+								</form:formElements>
+							</form:FormContainer>
+							<form:FormContainer visible="true">
+								<form:formElements>
+									<form:FormElement visible="true">
+										<form:label>
+											<Label text="{i18n>labelTo}" required="true" design="Standard" textAlign="Begin" textDirection="Inherit"/>
+										</form:label>
+										<form:fields>
+											<DateTimePicker id="DTPTo" placeholder="Enter Date" width="190px" change="handleChange"/>
+										</form:fields>
+									</form:FormElement>
+								</form:formElements>
+								<form:title/>
+							</form:FormContainer>
+						</form:formContainers>
+						<form:layout>
+							<form:ResponsiveGridLayout labelSpanXL="3" labelSpanL="4" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4"
+								emptySpanL="2" emptySpanM="2" emptySpanS="0" columnsXL="1" columnsL="3" columnsM="3" singleContainerFullSize="false"/>
+						</form:layout>
+					</form:Form>
+					<Toolbar>
+						<ToolbarSpacer/>
+						<Button id="idSearchBtn" text="Search"/>
+					</Toolbar>
+					<Table>
+						<headerToolbar>
+							<OverflowToolbar>
+								<content>
+									<Title text="{i18n>Tabletitle}" level="H2"/>
+									<ToolbarSpacer/>
+									<Button icon="sap-icon://add" press="onPressAdd"></Button>
+									<Button icon="sap-icon://copy"></Button>
+									<Button icon="sap-icon://sys-cancel"></Button>
+									<Button icon="sap-icon://action-settings"></Button>
+								</content>
+							</OverflowToolbar>
+						</headerToolbar>
+						<columns>
+							<Column >
+								<Text text="{i18n>labelStatus}"/>
+							</Column>
+							<Column >
+								<Text text="{i18n>labelLog}"/>
+							</Column>
+							<Column >
+								<Text text="{i18n>labelResults}"/>
+							</Column>
+							<Column >
+								<Text text="{i18n>labelSteps}"/>
+							</Column>
+							<Column>
+								<Text text="{i18n>labelDesc}"/>
+							</Column>
+							<Column>
+								<Text text="{i18n>labelPlanSt}"/>
+							</Column>
+							<Column>
+								<Text text="{i18n>labelcreate}"/>
+							</Column>
+						</columns>
+					</Table>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

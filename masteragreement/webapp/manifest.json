@@ -1,0 +1,142 @@
+{
+	"_version": "1.12.0",
+	"sap.app": {
+		"id": "com.lti.LeaseManagement.masteragreement",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "servicecatalog.connectivityComponentForManifest",
+			"version": "0.0.0"
+		},
+		"dataSources": {
+			"catalog": {
+				"uri": "/LeaseManagement/catalog/",
+				"type": "OData",
+				"settings": {
+					"localUri": "localService/metadata.xml",
+					"odataVersion": "4.0"
+				}
+			}
+		},
+		"crossNavigation": {
+			"inbounds": {
+				"intent1": {
+					"signature": {
+						"parameters": {},
+						"additionalParameters": "allowed"
+					},
+					"semanticObject": "masteragreement",
+					"action": "display",
+					"title": "MasterAgreement",
+					"icon": "sap-icon://document-text"
+				}
+			}
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": ["sap_hcb", "sap_belize"]
+	},
+	"sap.ui5": {
+		"flexEnabled": false,
+		"rootView": {
+			"viewName": "com.lti.LeaseManagement.masteragreement.view.InitialView",
+			"type": "XML",
+			"async": true,
+			"id": "InitialView"
+		},
+		"dependencies": {
+			"minUI5Version": "1.65.6",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.ui.layout": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "com.lti.LeaseManagement.masteragreement.i18n.i18n"
+				}
+			},
+			"": {
+				"type": "sap.ui.model.odata.v4.ODataModel",
+				"settings": {
+					"operationMode": "Server",
+					"synchronizationMode": "None",
+					"groupId": "$auto",
+					"updateGroupId": "$auto",
+					"groupProperties": {
+						"MasterAgreementGroup": {
+							"submit": "API"
+						}
+					}
+				},
+				"dataSource": "catalog",
+				"preload": true
+			},
+			"uiModel": {
+				"type": "sap.ui.model.json.JSONModel"
+			}
+		},
+		"resources": {
+			"css": [{
+				"uri": "css/style.css"
+			}]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "com.lti.LeaseManagement.masteragreement.view",
+				"controlAggregation": "pages",
+				"controlId": "app"
+			},
+			"routes": [{
+				"name": "InitialView",
+				"pattern": "",
+				"target": ["InitialView"]
+			}, {
+				"name": "MasterDetailView",
+				"pattern": "MasterDetailView",
+				"target": ["MasterDetailView"]
+			}],
+			"targets": {
+				"InitialView": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewName": "InitialView"
+				},
+				"MasterDetailView": {
+					"viewType": "XML",
+					"viewName": "MasterDetailView"
+				}
+			}
+		}
+	}
+}

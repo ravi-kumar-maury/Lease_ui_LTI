@@ -1,0 +1,13 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog id="idGLIDialog" title="Special G/L Indicator" search="handleSearch" cancel="handleCancel" confirm="handleConfirm"
+		items="{path: 'GLModel>/GL'}">
+		<StandardListItem id="idGLILabel" title="{GLModel>desc}">
+			<dependents>
+				<core:CustomData key="{GLModel>value}" value="{GLModel>desc}"/>
+				<!--<core:CustomData>-->
+				<!--	<customData key="{GLModel>value}"/>-->
+				<!--</core:CustomData>-->
+			</dependents>
+		</StandardListItem>
+	</SelectDialog>
+</core:FragmentDefinition>

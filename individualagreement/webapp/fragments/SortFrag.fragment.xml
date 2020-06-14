@@ -1,0 +1,12 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<ViewSettingsDialog id="sortFrag" confirm="SortFragConfirm" resetFilters="resetSortFrag">
+		<sortItems>
+			<ViewSettingsItem text="Lease Agreement" key="agNUM" selected="true"/>
+			<ViewSettingsItem text="Company Code" key="coCDE_coCDE"/>
+			<ViewSettingsItem text="Type of Lease" key="lesTYPE_lesTYPE" />
+			<ViewSettingsItem text="Currency" key="cURR_cURR"/>
+			<ViewSettingsItem text="Validity Start Date" key="validFROM"/>
+			<ViewSettingsItem text="Validity End Date" key="validTO"/>
+		</sortItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

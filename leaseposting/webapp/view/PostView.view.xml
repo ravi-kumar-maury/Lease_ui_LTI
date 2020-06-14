@@ -1,0 +1,588 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="com.lti.LeaseManagement.leaseposting.controller.PostView" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:u="sap.uxap" xmlns:f="sap.ui.layout.form" xmlns:vm="sap.ui.comp.variants">
+	<App>
+		<pages>
+			<Page showHeader="true">
+				<customHeader>
+					<Bar>
+						<contentLeft>
+							<Button id="idBackBtn" icon="sap-icon://nav-back" press="onNavPress" tooltip="Back"/>
+						</contentLeft>
+						<contentMiddle>
+							<Title text="{i18n>PostTitle}" level="H1"></Title>
+						</contentMiddle>
+					</Bar>
+				</customHeader>
+				<content>
+					<u:ObjectPageLayout id="idOPL">
+						<u:sections>
+							<u:ObjectPageSection id="idGen" title="{i18n>GenInfo}">
+								<u:subSections>
+									<u:ObjectPageSubSection id="idGenSS">
+										<f:SimpleForm id="idSF" editable="true" layout="ResponsiveGridLayout" labelSpanXL="3" labelSpanL="4" labelSpanM="4" labelSpanS="12"
+											adjustLabelSpan="false" emptySpanXL="4" emptySpanL="1" emptySpanM="1" emptySpanS="0" columnsXL="1" columnsL="2" columnsM="2"
+											singleContainerFullSize="false">
+											<f:content>
+												<Label text="Job Template" required="true"/>
+												<Input id="idJTInput" showValueHelp="true" valueHelpRequest="handleValueHelp" width="300px" selectedKey="{path:'JTModel>Key'}"></Input>
+												<Label text="Job Name"/>
+												<Input id="idJNInput" width="300px"/>
+											</f:content>
+										</f:SimpleForm>
+									</u:ObjectPageSubSection>
+								</u:subSections>
+							</u:ObjectPageSection>
+							<u:ObjectPageSection id="idSch" title="{i18n>Sch}">
+								<u:subSections>
+									<u:ObjectPageSubSection id="idSchSS">
+										<f:SimpleForm id="idSF1" editable="true" layout="ResponsiveGridLayout" labelSpanXL="3" labelSpanL="4" labelSpanM="4" labelSpanS="12"
+											adjustLabelSpan="false" emptySpanXL="4" emptySpanL="1" emptySpanM="1" emptySpanS="0" columnsXL="1" columnsL="2" columnsM="2"
+											singleContainerFullSize="false">
+											<f:content>
+												<Label text="Start Immediately"/>
+												<CheckBox id="idChkBox" selected="true" valueState="Information" select="onSelectChkBox"/>
+												<Label text="Start"/>
+												<DateTimePicker id="idDTP" value="{path:'dateModel>/dateValue'}" editable="false"/>
+												<!--<Label text="Recurrence Pattern"/>-->
+												<!--<Text text="Single Run"/>-->
+											</f:content>
+										</f:SimpleForm>
+									</u:ObjectPageSubSection>
+								</u:subSections>
+							</u:ObjectPageSection>
+							<u:ObjectPageSection id="idParam" title="{i18n>Param}">
+								<u:subSections>
+									<u:ObjectPageSubSection title="Variants">
+										<Bar>
+											<contentLeft>
+												<vm:VariantManagement id="VariantFT" save="onPressSave" showSetAsDefault="false" variantItems="{/VariantFT}" manage="onManageVariFT"
+													select="onSelVariFT">
+													<vm:variantItems>
+														<vm:VariantItem text="{Name}" key="{Key}"></vm:VariantItem>
+													</vm:variantItems>
+												</vm:VariantManagement>
+											</contentLeft>
+										</Bar>
+									</u:ObjectPageSubSection>
+									<u:ObjectPageSubSection id="idParSS" title="Parameter Details">
+										<!--<mvc:XMLView id="idView" viewName="com.lti.LeaseManagement.LeaseAccountingJobs.view.PostingParameters"></mvc:XMLView>-->
+										<f:Form id="idLeaseROUForm" editable="true" width="100%" visible="{VisModel>/leaserouform}">
+											<f:layout>
+												<f:ResponsiveGridLayout labelSpanXL="3" labelSpanL="4" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="1"
+													emptySpanM="1" emptySpanS="0" columnsXL="1" columnsL="2" columnsM="2" singleContainerFullSize="false"/>
+											</f:layout>
+											<f:formContainers>
+												<f:FormContainer title="General Details">
+													<f:formElements>
+														<f:FormElement>
+															<f:label>
+																<Label text="{i18n>CC}" required="true"/>
+															</f:label>
+															<f:fields>
+																<Input id="idGenCC" placeholder="{i18n>CC}" width="180px" showValueHelp="true" valueHelpRequest="onValueChangeCC"/>
+															</f:fields>
+														</f:FormElement>
+														<f:FormElement>
+															<f:label>
+																<Label text="{i18n>PDT}" required="true"/>
+															</f:label>
+															<f:fields>
+																<Input id="idPDT1" placeholder="Pur Doc Type" width="180px" showValueHelp="true" valueHelpRequest="onValueChangePDT1"/>
+																<Input id="idPDT2" placeholder="to" width="70px" showValueHelp="true" valueHelpRequest="onValueChangePDT1"/>
+															</f:fields>
+														</f:FormElement>
+														<f:FormElement>
+															<f:label>
+																<Label text="{i18n>LAN}" required="true"/>
+															</f:label>
+															<f:fields>
+																<Input id="LAN1" placeholder="{i18n>LAN}" width="180px" showValueHelp="true" valueHelpRequest="onValueChangeLAN"/>
+																<!--<MultiInput id="LAN1" placeholder="{i18n>LAN}" width="180px" showValueHelp="true" valueHelpRequest="onValueChangeLAN"
+																	suggestionItems="{ path: '/ZLTI_LA_MASTRLA', sorter: { path: 'mastAGGR' } }">
+																	<core:Item key="{mastAGGR}" text="{mastAGGR}"/>
+																</MultiInput>-->
+																<Input id="LAN2" placeholder="to" width="70px" showValueHelp="true" valueHelpRequest="onValueChangeLAN"/>
+															</f:fields>
+														</f:FormElement>
+														<f:FormElement>
+															<f:label>
+																<Label text="Test Run"/>
+															</f:label>
+															<f:fields>
+																<Switch id="Switch" type="AcceptReject" state="true"/>
+															</f:fields>
+														</f:FormElement>
+													</f:formElements>
+												</f:FormContainer>
+												<f:FormContainer title="Posting Option">
+													<f:formElements>
+														<f:FormElement>
+															<f:label>
+																<Label text="Posting Option"/>
+															</f:label>
+															<f:fields>
+																<RadioButtonGroup id="idLARadBtn">
+																	<RadioButton text="Initial Posting"/>
+																	<RadioButton text="Incremental Posting"/>
+																</RadioButtonGroup>
+															</f:fields>
+														</f:FormElement>
+													</f:formElements>
+												</f:FormContainer>
+											</f:formContainers>
+										</f:Form>
+										<!--Other posting jobs-->
+										<f:Form id="idAmortDocForm" editable="true" width="100%" visible="{VisModel>/amortdocform}">
+											<f:layout>
+												<f:ResponsiveGridLayout labelSpanXL="3" labelSpanL="4" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="1"
+													emptySpanM="1" emptySpanS="0" columnsXL="1" columnsL="2" columnsM="2" singleContainerFullSize="false"/>
+											</f:layout>
+											<f:formContainers>
+												<f:FormContainer id="idGenDet" title="General Details" visible="{VisModel>/GenDet}">
+													<f:formElements>
+														<f:FormElement>
+															<f:label>
+																<Label id="idCCLabel" text="{i18n>CC}"/>
+															</f:label>
+															<f:fields>
+																<Input id="idGCC" placeholder="{i18n>CC}" width="180px" showValueHelp="true" valueHelpRequest="onValueChangeCC"/>
+															</f:fields>
+														</f:FormElement>
+														<f:FormElement>
+															<f:label>
+																<Label id="idFYLabel" text="{i18n>FY}"/>
+															</f:label>
+															<f:fields>
+																<Input id="idGFY" placeholder="Fiscal Year" width="180px"/>
+															</f:fields>
+														</f:FormElement>
+														<f:FormElement id="idPDT">
+															<f:label>
+																<Label id="idPODOCLabel" text="{i18n>PODOC}"/>
+															</f:label>
+															<f:fields>
+																<Input id="idGPO1" placeholder="PO Doc Type" width="180px" showValueHelp="true" valueHelpRequest="onValueChangePODT1"/>
+																<Input id="idGPO2" placeholder="to" width="70px" showValueHelp="true" valueHelpRequest="onValueChangePODT1"/>
+															</f:fields>
+														</f:FormElement>
+														<f:FormElement id="idPDTSubLeased">
+															<f:label>
+																<Label id="idPODOCSL" text="{i18n>PODOC}"/>
+															</f:label>
+															<f:fields>
+																<Input id="idGPDOC" placeholder="{i18n>PODOC}" width="180px" showValueHelp="true" valueHelpRequest="onValueChangePODT1"/>
+															</f:fields>
+														</f:FormElement>
+														<f:FormElement id="idPP">
+															<f:label>
+																<Label id="idPPLabel" text="{i18n>PP}"/>
+															</f:label>
+															<f:fields>
+																<Input id="idGPPer" placeholder="Posting Period" width="180px"/>
+																<Input id="idGPPTo" placeholder="to" width="70px"/>
+															</f:fields>
+														</f:FormElement>
+														<f:FormElement id="idPPSubLeased">
+															<f:label>
+																<Label id="idPPSubLeaLabel" text="{i18n>PP}"/>
+															</f:label>
+															<f:fields>
+																<Input id="idGPostPer" placeholder="Posting Period" width="180px"/>
+															</f:fields>
+														</f:FormElement>
+														<f:FormElement id="idPDFE">
+															<f:label>
+																<Label text="{i18n>LAN}"/>
+															</f:label>
+															<f:fields>
+																<Input id="idGLAN1" placeholder="Lease Agr Num" width="180px" showValueHelp="true" valueHelpRequest="onValueChangeLAN"/>
+																<Input id="idGLAN2" placeholder="to" width="70px" showValueHelp="true" valueHelpRequest="onValueChangeLAN"/>
+															</f:fields>
+														</f:FormElement>
+														<f:FormElement id="idLANFE" visible="false">
+															<f:label>
+																<Label id="idLANLabel" text="{i18n>LAN}"/>
+															</f:label>
+															<f:fields>
+																<Input id="idGLAN" placeholder="{i18n>LAN}" width="180px" showValueHelp="true" valueHelpRequest="onValueChangeLAN"/>
+															</f:fields>
+														</f:FormElement>
+														<f:FormElement id="idSLANFE" visible="false">
+															<f:label>
+																<Label id="idSLANLabel" text="{i18n>SLAN}"/>
+															</f:label>
+															<f:fields>
+																<Input id="idGSLAN" placeholder="{i18n>SLAN}" width="180px" showValueHelp="true" valueHelpRequest="onValueChangePDSN"/>
+															</f:fields>
+														</f:FormElement>
+														<f:FormElement id="idNIAFE" visible="false">
+															<f:label>
+																<Label id="idNIALabel" text="{i18n>NIA}"/>
+															</f:label>
+															<f:fields>
+																<Input id="idGNIA" placeholder="{i18n>NIA}" width="180px"/>
+															</f:fields>
+														</f:FormElement>
+														<f:FormElement id="idTRun">
+															<f:label>
+																<Label text="Test Run"/>
+															</f:label>
+															<f:fields>
+																<Switch id="idGSW" type="AcceptReject" state="true"/>
+															</f:fields>
+														</f:FormElement>
+													</f:formElements>
+												</f:FormContainer>
+												<f:FormContainer id="idInvPost" title="Invoice Posting Details" visible="{VisModel>/InvPost}">
+													<f:formElements>
+														<f:FormElement>
+															<f:label>
+																<Label text="{i18n>PDT}" required="true"/>
+															</f:label>
+															<f:fields>
+																<Input id="idGPDT" placeholder="Pur Doc Type" width="180px" showValueHelp="true" valueHelpRequest="onValueChangePDT1"/>
+															</f:fields>
+														</f:FormElement>
+														<f:FormElement>
+															<f:label>
+																<Label text="{i18n>PostDT}" required="true"/>
+															</f:label>
+															<f:fields>
+																<DatePicker id="idGDP" placeholder="Enter Date" displayFormat="dd-MM-yyyy" width="180px"/>
+															</f:fields>
+														</f:FormElement>
+														<f:FormElement>
+															<f:label>
+																<Label text="{i18n>DocDt}" required="true"/>
+															</f:label>
+															<f:fields>
+																<DatePicker id="idGDT" placeholder="Enter Date" displayFormat="dd-MM-yyyy" width="180px"/>
+															</f:fields>
+														</f:FormElement>
+														<f:FormElement>
+															<f:label>
+																<Label text="{i18n>GLInd}"/>
+															</f:label>
+															<f:fields>
+																<Input id="idGGI" placeholder="{i18n>GLInd}" width="180px" showValueHelp="true" valueHelpRequest="onValueChangeGLI"/>
+															</f:fields>
+														</f:FormElement>
+														<f:FormElement>
+															<f:label>
+																<Label text="{i18n>Ref}"/>
+															</f:label>
+															<f:fields>
+																<Input id="idGRef" placeholder="{i18n>Ref}" width="180px"/>
+															</f:fields>
+														</f:FormElement>
+													</f:formElements>
+												</f:FormContainer>
+												<f:FormContainer id="idRevPost" title="Reversal Posting" visible="{VisModel>/revpost}">
+													<f:formElements>
+														<f:FormElement>
+															<f:label>
+																<Label text="Reversal Posting"/>
+															</f:label>
+															<f:fields>
+																<Switch id="idAccRejRevPost" type="AcceptReject" state="false" change="onChangeRevPost"/>
+															</f:fields>
+														</f:FormElement>
+													</f:formElements>
+												</f:FormContainer>
+												<f:FormContainer id="idReverYes" title="Specifications for Reversal Posting" visible="{VisModel>/revspecif}">
+													<f:formElements>
+														<f:FormElement>
+															<f:label>
+																<Label text="Reversal Reason" required="true"/>
+															</f:label>
+															<f:fields>
+																<Input id="idGRR" placeholder="Reversal Reason" width="180px"/>
+															</f:fields>
+														</f:FormElement>
+														<f:FormElement>
+															<f:label>
+																<Label text="Reversal Posting Date"/>
+															</f:label>
+															<f:fields>
+																<DatePicker id="idGRRDT" placeholder="Enter Date" displayFormat="dd-MM-yyyy" width="180px"/>
+															</f:fields>
+														</f:FormElement>
+													</f:formElements>
+												</f:FormContainer>
+												<f:FormContainer id="idMarkVal" title="Market Value Details" visible="{VisModel>/MarkVal}">
+													<f:formElements>
+														<f:FormElement>
+															<f:label>
+																<Label text="Market Value"/>
+															</f:label>
+															<f:fields>
+																<Input id="idGMV" placeholder="Market Value" width="180px"/>
+															</f:fields>
+														</f:FormElement>
+													</f:formElements>
+												</f:FormContainer>
+												<f:FormContainer id="idDiffBB" title="BuyBack and Asset Details" visible="{VisModel>/DiffBB}">
+													<f:formElements>
+														<f:FormElement>
+															<f:label>
+																<Label text="Differential Buy-Back Amount"/>
+															</f:label>
+															<f:fields>
+																<Input id="idGDBA" placeholder="Diff BB Amt" width="180px"/>
+															</f:fields>
+														</f:FormElement>
+														<f:FormElement>
+															<f:label>
+																<Label text="Asset Number"/>
+															</f:label>
+															<f:fields>
+																<Input id="idGAN" placeholder="Asset Number" width="180px"/>
+															</f:fields>
+														</f:FormElement>
+														<f:FormElement>
+															<f:label>
+																<Label text="Asset Sub Number"/>
+															</f:label>
+															<f:fields>
+																<Input id="idGASN" placeholder="Asset Sub Num" width="180px"/>
+															</f:fields>
+														</f:FormElement>
+													</f:formElements>
+												</f:FormContainer>
+												<f:FormContainer id="idPen" title="Penalty Details" visible="{VisModel>/Pen}">
+													<f:formElements>
+														<f:FormElement>
+															<f:label>
+																<Label text="Penalty for Early Termination"/>
+															</f:label>
+															<f:fields>
+																<Input id="idGPen" placeholder="Penalty" width="180px"/>
+															</f:fields>
+														</f:FormElement>
+													</f:formElements>
+												</f:FormContainer>
+												<f:FormContainer id="idImpOpt" title="Impairment Option" visible="{VisModel>/ImpOpt}">
+													<f:formElements>
+														<f:FormElement>
+															<f:label>
+																<Label text="Impairment Option"/>
+															</f:label>
+															<f:fields>
+																<RadioButtonGroup id="idRBG" select="handleRadioButtonSelect">
+																	<RadioButton id="idImpairment" text="Impairment"/>
+																	<RadioButton id="idImpairmentRev" text="Impairment Reversal"/>
+																</RadioButtonGroup>
+															</f:fields>
+														</f:FormElement>
+													</f:formElements>
+												</f:FormContainer>
+												<f:FormContainer id="idImpDet" title="Impairment Details" visible="{VisModel>/ImpDet}">
+													<f:formElements>
+														<f:FormElement>
+															<f:label>
+																<Label text="{i18n>CostCen}" required="true"/>
+															</f:label>
+															<f:fields>
+																<Input id="idGCostCen" placeholder="{i18n>CostCen}" width="180px" showValueHelp="true" valueHelpRequest="onValueChangeCostCen"/>
+															</f:fields>
+														</f:FormElement>
+														<f:FormElement>
+															<f:label>
+																<Label text="{i18n>PostDT}" required="true"/>
+															</f:label>
+															<f:fields>
+																<DatePicker id="idGPDDt" placeholder="Enter Date" displayFormat="dd-MM-yyyy" width="180px"/>
+															</f:fields>
+														</f:FormElement>
+														<f:FormElement id="idAccPrin">
+															<f:label>
+																<Label text="{i18n>AP}" required="true"/>
+															</f:label>
+															<f:fields>
+																<Input id="idGAP" placeholder="Accounting Principle" width="180px"/>
+															</f:fields>
+														</f:FormElement>
+														<f:FormElement id="idDepArea">
+															<f:label>
+																<Label text="{i18n>DA}" required="true"/>
+															</f:label>
+															<f:fields>
+																<Input id="idGDAr" placeholder="Dep.Area" width="180px"/>
+															</f:fields>
+														</f:FormElement>
+														<f:FormElement>
+															<f:label>
+																<Label text="{i18n>LAN}" required="true"/>
+															</f:label>
+															<f:fields>
+																<Input id="idGILAN" placeholder="Lease Agr Num" width="180px" showValueHelp="true" valueHelpRequest="onValueChangeLAN"/>
+															</f:fields>
+														</f:FormElement>
+														<f:FormElement id="idIV">
+															<f:label>
+																<Label text="{i18n>IV}" required="true"/>
+															</f:label>
+															<f:fields>
+																<Input id="idGIV" placeholder="Impairment Value" width="180px"/>
+															</f:fields>
+														</f:FormElement>
+														<f:FormElement id="idDT">
+															<f:label>
+																<Label text="{i18n>DT}" required="true"/>
+															</f:label>
+															<f:fields>
+																<Input id="idGDTyp" placeholder="Document Type" width="180px" showValueHelp="true" valueHelpRequest="onValueChangePDT1"/>
+																<Input id="idGDTyp1" placeholder="to" width="70px" showValueHelp="true" valueHelpRequest="onValueChangePDT1"/>
+															</f:fields>
+														</f:FormElement>
+														<f:FormElement id="idRevDoc">
+															<f:label>
+																<Label text="{i18n>RDOC}"/>
+															</f:label>
+															<f:fields>
+																<Input id="idGRD" placeholder="Reversal Doc" width="180px"/>
+															</f:fields>
+														</f:FormElement>
+														<f:FormElement id="idRevDocYr">
+															<f:label>
+																<Label text="{i18n>RDOCYr}"/>
+															</f:label>
+															<f:fields>
+																<Input id="idGYr" placeholder="Enter Year" type="Number" width="180px" maxLength="4"/>
+															</f:fields>
+														</f:FormElement>
+														<f:FormElement id="idRevReason">
+															<f:label>
+																<Label text="{i18n>RRea}"/>
+															</f:label>
+															<f:fields>
+																<Input id="idGRReas" placeholder="Reversal Reason" width="180px" showValueHelp="true" valueHelpRequest="onValueChangeRevReason"/>
+															</f:fields>
+														</f:FormElement>
+														<f:FormElement id="idRevDt">
+															<f:label>
+																<Label text="{i18n>RevDt}"/>
+															</f:label>
+															<f:fields>
+																<DatePicker id="idGRRDt" placeholder="Enter Date" displayFormat="dd-MM-yyyy" width="180px"/>
+															</f:fields>
+														</f:FormElement>
+													</f:formElements>
+												</f:FormContainer>
+											</f:formContainers>
+										</f:Form>
+										<Toolbar visible="{VisModel>/InvPost}">
+											<ToolbarSpacer/>
+											<Button icon="sap-icon://add" tooltip="Add Row" press="onActionAddLine"></Button>
+											<Button icon="sap-icon://delete" tooltip="Delete Row" press="onActionDelete"/>
+										</Toolbar>
+										<ScrollContainer vertical="true">
+											<content>
+												<Table id="idInvPostTbl" alternateRowColors="true" backgroundDesign="Translucent" visible="{VisModel>/InvPost}"
+													items="{InPstModel>/newItem}" mode="MultiSelect" growing="true" growingThreshold="6">
+													<!--<headerToolbar>-->
+													<!--	<Toolbar>-->
+													<!--		<ToolbarSpacer />-->
+													<!--		<Button icon="sap-icon://add" tooltip="Add Row" press="onActionAddLine"></Button>-->
+													<!--		<Button icon="sap-icon://delete" tooltip="Delete Row" press="onActionDelete"/>-->
+													<!--	</Toolbar>-->
+													<!--</headerToolbar>-->
+													<columns>
+														<Column width="170px">
+															<Text text="{i18n>GLAcc}"/>
+														</Column>
+														<Column width="170px">
+															<Text text="{i18n>ST}"/>
+														</Column>
+														<Column width="170px">
+															<Text text="{i18n>DC}"/>
+														</Column>
+														<Column width="170px">
+															<Text text="{i18n>ADC}"/>
+														</Column>
+														<Column width="170px">
+															<Text text="{i18n>LCA}"/>
+														</Column>
+														<Column width="170px">
+															<Text text="{i18n>TC}"/>
+														</Column>
+														<Column width="170px">
+															<Text text="{i18n>TJC}"/>
+														</Column>
+														<Column width="170px">
+															<Text text="{i18n>Assg}"/>
+														</Column>
+														<Column width="170px">
+															<Text text="{i18n>BusAr}"/>
+														</Column>
+														<Column width="170px">
+															<Text text="{i18n>CostCen}"/>
+														</Column>
+														<Column width="170px">
+															<Text text="{i18n>PC}"/>
+														</Column>
+														<Column width="170px">
+															<Text text="{i18n>Ord}"/>
+														</Column>
+														<Column width="170px">
+															<Text text="{i18n>PD}"/>
+														</Column>
+														<Column width="170px">
+															<Text text="{i18n>LI}"/>
+														</Column>
+														<Column width="170px">
+															<Text text="{i18n>WBS}"/>
+														</Column>
+													</columns>
+													<items>
+														<ColumnListItem>
+															<cells>
+																<Input id="idTGLAcc" maxLength="10" showValueHelp="true" value="{InPstModel>glAcc}" valueHelpRequest="onValueChangeGLA"/>
+																<!--<Text text="{InPstModel>shrtText}"/>-->
+																<Input id="idSTxt" editable="false"/>
+																<ComboBox id="idTCB" value="{InPstModel>dc}">
+																	<core:Item key="Debit" text="Debit"/>
+																	<core:Item key="Credit" text="Credit"/>
+																</ComboBox>
+																<Input id="idTN" type="Number" maxLength="16" value="{InPstModel>amtDocCur}"/>
+																<!--<Text text="{InPstModel>locCurAmt}"/>-->
+																<Input editable="false"/>
+																<Input id="idTTCD" maxLength="2" value="{InPstModel>taxCD}"/>
+																<Input id="idTTJC" maxLength="15" value="{InPstModel>taxJC}"/>
+																<Input id="idTAs" maxLength="20" value="{InPstModel>assig}"/>
+																<Input id="idTBA" maxLength="4" value="{InPstModel>busArea}"/>
+																<Input id="idTCC" showValueHelp="true" value="{InPstModel>cc}" valueHelpRequest="onValueChangeCostCen"/>
+																<Input id="idTPC" showValueHelp="true" value="{InPstModel>pc}" valueHelpRequest="onValueChangeProfCen"/>
+																<Input id="idTOrd" maxLength="12" value="{InPstModel>order}"/>
+																<Input id="idTPDoc" maxLength="10" value="{InPstModel>pdoc}"/>
+																<!--<Text text="{InPstModel>lineItem}"/>-->
+																<Input editable="false"/>
+																<Input id="idTWBS" showValueHelp="true" value="{InPstModel>wbs}" valueHelpRequest="onValueChangeWBS"/>
+															</cells>
+														</ColumnListItem>
+													</items>
+												</Table>
+											</content>
+										</ScrollContainer>
+									</u:ObjectPageSubSection>
+								</u:subSections>
+							</u:ObjectPageSection>
+						</u:sections>
+					</u:ObjectPageLayout>
+				</content>
+				<footer>
+					<!--<Toolbar>-->
+					<!--	<ToolbarSpacer/>-->
+					<!--	<Button text="Execute Job" type="Emphasized"/>-->
+					<!--</Toolbar>-->
+					<Bar>
+						<contentRight>
+							<Button text="Execute Job" type="Emphasized"/>
+						</contentRight>
+					</Bar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

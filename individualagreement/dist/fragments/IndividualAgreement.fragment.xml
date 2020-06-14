@@ -1,0 +1,6 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog id="idDialogInd" title="Select Individual Agreements" liveChange="onSearchIA" 
+		cancel="handleCloseIA" confirm="handleConfirmIA" items="{/ZLTI_LA_IND_LA}" multiSelect="false" > 
+		<StandardListItem id="IAList" title="{agNUM}" type="Active" description="Individual Agreement"/>
+	</SelectDialog>
+</core:FragmentDefinition>

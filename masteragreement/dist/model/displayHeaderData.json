@@ -1,0 +1,13 @@
+{
+	"dispItem": [{
+		"Item": "100",
+		"Material": "",
+		"ShortText": "Master Lease",
+		"MaterialGroup": "AA",
+		"TargetQuantity": "200",
+		"Unit": "1",
+		"NetPrice": "150,000",
+		"BuyBack": true,
+		"zeditable": false
+	}]
+}

@@ -1,0 +1,119 @@
+{
+    "resources": [
+        {
+            "name": "Component.js"
+        },
+        {
+            "name": "controller/InitialView.controller.js"
+        },
+        {
+            "name": "controller/MasterDetailView.controller.js"
+        },
+        {
+            "name": "css/style.css"
+        },
+        {
+            "name": "fragments/AssetType.fragment.xml"
+        },
+        {
+            "name": "fragments/CompanyCodes.fragment.xml"
+        },
+        {
+            "name": "fragments/Currency.fragment.xml"
+        },
+        {
+            "name": "fragments/Filter.fragment.xml"
+        },
+        {
+            "name": "fragments/LeaseTypes.fragment.xml"
+        },
+        {
+            "name": "fragments/MasterAgreement.fragment.xml"
+        },
+        {
+            "name": "fragments/MasterItems.fragment.xml"
+        },
+        {
+            "name": "fragments/SortFrag.fragment.xml"
+        },
+        {
+            "name": "fragments/UOM.fragment.xml"
+        },
+        {
+            "name": "fragments/Vendor.fragment.xml"
+        },
+        {
+            "name": "i18n/i18n.properties",
+            "raw": "i18n/i18n.properties"
+        },
+        {
+            "name": "index.html"
+        },
+        {
+            "name": "localService/metadata.xml"
+        },
+        {
+            "name": "manifest.json"
+        },
+        {
+            "name": "model/createNew.json"
+        },
+        {
+            "name": "model/displayHeaderData.json"
+        },
+        {
+            "name": "model/formData.json"
+        },
+        {
+            "name": "model/models.js"
+        },
+        {
+            "name": "serviceBinding.js"
+        },
+        {
+            "name": "test/integration/AllJourneys.js"
+        },
+        {
+            "name": "test/integration/NavigationJourney.js"
+        },
+        {
+            "name": "test/integration/arrangements/Startup.js"
+        },
+        {
+            "name": "test/integration/opaTests.qunit.html"
+        },
+        {
+            "name": "test/integration/opaTests.qunit.js"
+        },
+        {
+            "name": "test/integration/pages/InitialView.js"
+        },
+        {
+            "name": "test/testsuite.qunit.html"
+        },
+        {
+            "name": "test/testsuite.qunit.js"
+        },
+        {
+            "name": "test/unit/AllTests.js"
+        },
+        {
+            "name": "test/unit/controller/InitialView.controller.js"
+        },
+        {
+            "name": "test/unit/unitTests.qunit.html"
+        },
+        {
+            "name": "test/unit/unitTests.qunit.js"
+        },
+        {
+            "name": "view/InitialView.view.xml"
+        },
+        {
+            "name": "view/MasterDetailView.view.xml"
+        },
+        {
+            "name": "view/MasterItemsView.view.xml"
+        }
+    ]
+}

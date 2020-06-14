@@ -1,0 +1,135 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:f="sap.ui.layout.form"
+	controllerName="com.lti.LeaseManagement.masteragreement.controller.MasterDetailView" xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page id="idCrtDisp">
+				<customHeader>
+					<Bar>
+						<contentLeft>
+							<Button icon="sap-icon://nav-back" tooltip="Back" press="onNavBack"/>
+						</contentLeft>
+						<contentMiddle>
+							<Title text="Master Agreement" titleStyle="H3"/>
+						</contentMiddle>
+						<contentRight>
+							<Button id="idEditBtn" icon="sap-icon://edit" tooltip="Edit" press="onEdit" visible="{uiModel>/showMasterItems}"></Button>
+						</contentRight>
+					</Bar>
+				</customHeader>
+				<content id="masterDetails">
+					<f:Form id="idForm" editable="true">
+						<f:title visible="{uiModel>/showMasterItems}">
+							<core:Title text="{mastAGGR}"/>
+						</f:title>
+						<f:layout>
+							<f:ResponsiveGridLayout labelSpanL="4" labelSpanM="4" labelSpanS="12" adjustLabelSpan="true" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+								columnsL="3" columnsM="3" singleContainerFullSize="true"/>
+						</f:layout>
+						<f:formContainers>
+							<!--<f:formContainers>-->
+							<f:FormContainer>
+								<f:formElements>
+									<f:FormElement>
+										<f:label>
+											<Label text="Company Code" required="true"/>
+										</f:label>
+										<f:fields>
+											<Input id="idCC" placeholder="Company Code" width="180px" value="{coCDE_coCDE}" showValueHelp="true" showSuggestion="true"
+												valueHelpRequest="onValueChangeCC" editable="{uiModel>/fieldsEditable1}" />
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement>
+										<f:label>
+											<Label text="Vendor" required="true"/>
+										</f:label>
+										<f:fields>
+											<Input id="idVend" placeholder="Vendor" width="180px" value="{vEND_vEND}" showValueHelp="true" showSuggestion="true"
+												valueHelpRequest="onValueChangeVen" editable="{uiModel>/fieldsEditable1}" />
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement>
+										<f:label>
+											<Label text="Start Date" required="true"/>
+										</f:label>
+										<f:fields>
+											<DatePicker id="idStrtDt" valueFormat="MM-dd-yyyy" displayFormat="MM-dd-yyyy" width="180px" dateValue="{validFROM}"
+												editable="{uiModel>/fieldsEditable}"/>
+										</f:fields>
+									</f:FormElement>
+								</f:formElements>
+							</f:FormContainer>
+							<f:FormContainer>
+							   	<f:formElements>
+									<f:FormElement>
+										<f:label>
+											<Label text="Target Value" required="true"/>
+										</f:label>
+										<f:fields>
+											<Input id="idTargVal" placeholder="Target Value" width="180px" value="{targVAL}" editable="{uiModel>/fieldsEditable}" textAlign="Right"/>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement>
+										<f:label>
+											<Label text="Currency" required="true"/>
+										</f:label>
+										<f:fields>
+											<Input id="idCurr" placeholder="Currency" width="180px" value="{cURR_cURR}" showValueHelp="true" showSuggestion="true"
+												valueHelpRequest="onValueChangeCurr" editable="{uiModel>/fieldsEditable}"/>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement>
+										<f:label>
+											<Label text="Type of Lease" required="true"/>
+										</f:label>
+										<f:fields>
+											<Input id="idLT" placeholder="Type of Lease" width="180px" value="{lesTYPE_lesTYPE}" showValueHelp="true" valueHelpRequest="onValueChangeLT"
+												editable="{uiModel>/fieldsEditable}"/>
+										</f:fields>
+									</f:FormElement>
+								
+								</f:formElements>
+							</f:FormContainer>
+							<f:FormContainer>
+								    <f:FormElement>
+										<f:label>
+											<Label text="Penalty"/>
+										</f:label>
+										<f:fields>
+											<CheckBox id="idPen" selected="{pENALTY}" editable="{uiModel>/fieldsEditable}"/>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement>
+										<f:label>
+											<Label text="Agreement Date"/>
+										</f:label>
+										<f:fields>
+											<DatePicker id="idAgDt" valueFormat="MM-dd-yyyy" displayFormat="MM-dd-yyyy" width="180px" dateValue="{aggDt}"
+												editable="{uiModel>/fieldsEditable}"/>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement>
+										<f:label>
+											<Label text="End Date" required="true"/>
+										</f:label>
+										<f:fields>
+											
+											<DatePicker id="idEndDt" valueFormat="MM-dd-yyyy" displayFormat="MM-dd-yyyy" width="180px" dateValue="{validTO}"
+												editable="{uiModel>/fieldsEditable}"/>
+										</f:fields>
+									</f:FormElement>
+							</f:FormContainer>
+						</f:formContainers>
+					</f:Form>
+				</content>
+				<footer>
+					<Toolbar>
+						<ToolbarSpacer/>
+						<Button text="Save" type="Ghost" press="onPressSave"></Button>
+						<Button text="Submit" type="Ghost" press="onPressSubmit"></Button>
+						<Button text="Cancel" type="Reject" press="onNavBack"></Button>
+					</Toolbar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

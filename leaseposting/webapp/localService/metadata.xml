@@ -1,0 +1,1899 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+	<edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470974/Common.xml?api=v2">
+		<edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+		<edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470968/UI.xml?api=v2">
+		<edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1"/>
+	</edmx:Reference>
+	<edmx:DataServices>
+		<Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="CatalogService">
+			<EntityContainer Name="EntityContainer">
+				<EntitySet Name="ZLTI_LA_ACCT_DET" EntityType="CatalogService.ZLTI_LA_ACCT_DET"/>
+				<EntitySet Name="ZLTI_LA_ASSET_TY" EntityType="CatalogService.ZLTI_LA_ASSET_TY"/>
+				<EntitySet Name="ZLTI_LA_ASSTMST" EntityType="CatalogService.ZLTI_LA_ASSTMST"/>
+				<EntitySet Name="ZLTI_LA_BUSEVNID" EntityType="CatalogService.ZLTI_LA_BUSEVNID"/>
+				<EntitySet Name="ZLTI_LA_CCODE" EntityType="CatalogService.ZLTI_LA_CCODE"/>
+				<EntitySet Name="ZLTI_LA_COST_MAP" EntityType="CatalogService.ZLTI_LA_COST_MAP"/>
+				<EntitySet Name="ZLTI_LA_CSTCNT" EntityType="CatalogService.ZLTI_LA_CSTCNT"/>
+				<EntitySet Name="ZLTI_LA_CURCONV" EntityType="CatalogService.ZLTI_LA_CURCONV"/>
+				<EntitySet Name="ZLTI_LA_CURR" EntityType="CatalogService.ZLTI_LA_CURR"/>
+				<EntitySet Name="ZLTI_LA_FI_DOCTY" EntityType="CatalogService.ZLTI_LA_FI_DOCTY"/>
+				<EntitySet Name="ZLTI_LA_FLOW_TYP" EntityType="CatalogService.ZLTI_LA_FLOW_TYP"/>
+				<EntitySet Name="ZLTI_LA_GLMAST" EntityType="CatalogService.ZLTI_LA_GLMAST"/>
+				<EntitySet Name="ZLTI_LA_IND_LA" EntityType="CatalogService.ZLTI_LA_IND_LA">
+					<NavigationPropertyBinding Path="coCDE" Target="ZLTI_LA_CCODE"/>
+					<NavigationPropertyBinding Path="lesTYPE" Target="ZLTI_LA_TYPES"/>
+					<NavigationPropertyBinding Path="assNUM" Target="ZLTI_LA_ASSTMST"/>
+					<NavigationPropertyBinding Path="assSUBNO" Target="ZLTI_LA_ASSTMST"/>
+					<NavigationPropertyBinding Path="pLNT" Target="ZLTI_LA_PLNT"/>
+					<NavigationPropertyBinding Path="uOM" Target="ZLTI_LA_UOM"/>
+					<NavigationPropertyBinding Path="vEND" Target="ZLTI_LA_VEND"/>
+					<NavigationPropertyBinding Path="ccCODE" Target="ZLTI_LA_CSTCNT"/>
+					<NavigationPropertyBinding Path="internalORDER" Target="ZLTI_LA_INTORD"/>
+					<NavigationPropertyBinding Path="wbS" Target="ZLTI_LA_WBS"/>
+					<NavigationPropertyBinding Path="profCEN" Target="ZLTI_LA_PFTCNT"/>
+					<NavigationPropertyBinding Path="cURR" Target="ZLTI_LA_CURR"/>
+					<NavigationPropertyBinding Path="assIDENT" Target="ZLTI_LA_MATNUM"/>
+					<NavigationPropertyBinding Path="mastAGGR" Target="ZLTI_LA_MASTRLA"/>
+					<NavigationPropertyBinding Path="agTYP" Target="ZLTI_LA_LAI_SW"/>
+					<NavigationPropertyBinding Path="refINTRT" Target="ZLTI_LA_IRR"/>
+					<NavigationPropertyBinding Path="indxSER" Target="ZLTI_LA_RENT_CLS"/>
+					<NavigationPropertyBinding Path="termsCONDTN" Target="ZLTI_LA_LCH_DTL"/>
+					<NavigationPropertyBinding Path="cashFLOW" Target="ZLTI_LA_LCI_CFL"/>
+					<NavigationPropertyBinding Path="valPERIOD" Target="ZLTI_LA_LCI_VALP"/>
+				</EntitySet>
+				<EntitySet Name="ZLTI_LA_INTORD" EntityType="CatalogService.ZLTI_LA_INTORD"/>
+				<EntitySet Name="ZLTI_LA_IRR" EntityType="CatalogService.ZLTI_LA_IRR"/>
+				<EntitySet Name="ZLTI_LA_LAI_SW" EntityType="CatalogService.ZLTI_LA_LAI_SW"/>
+				<EntitySet Name="ZLTI_LA_LCH_DTL" EntityType="CatalogService.ZLTI_LA_LCH_DTL">
+					<NavigationPropertyBinding Path="agNUM" Target="ZLTI_LA_IND_LA"/>
+					<NavigationPropertyBinding Path="vEND" Target="ZLTI_LA_VEND"/>
+					<NavigationPropertyBinding Path="lEDGER" Target="ZLTI_LA_ACCT_DET"/>
+				</EntitySet>
+				<EntitySet Name="ZLTI_LA_LCH_SW" EntityType="CatalogService.ZLTI_LA_LCH_SW"/>
+				<EntitySet Name="ZLTI_LA_LCI_CFL" EntityType="CatalogService.ZLTI_LA_LCI_CFL">
+					<NavigationPropertyBinding Path="agNUM" Target="ZLTI_LA_IND_LA"/>
+					<NavigationPropertyBinding Path="flowTYPE" Target="ZLTI_LA_FLOW_TYP"/>
+					<NavigationPropertyBinding Path="cURR" Target="ZLTI_LA_CURR"/>
+					<NavigationPropertyBinding Path="pLNT" Target="ZLTI_LA_PLNT"/>
+					<NavigationPropertyBinding Path="vEND" Target="ZLTI_LA_VEND"/>
+				</EntitySet>
+				<EntitySet Name="ZLTI_LA_LCI_LEDG" EntityType="CatalogService.ZLTI_LA_LCI_LEDG"/>
+				<EntitySet Name="ZLTI_LA_LCI_PVF" EntityType="CatalogService.ZLTI_LA_LCI_PVF">
+					<NavigationPropertyBinding Path="agNUM" Target="ZLTI_LA_IND_LA"/>
+					<NavigationPropertyBinding Path="lEDGER" Target="ZLTI_LA_ACCT_DET"/>
+					<NavigationPropertyBinding Path="refINTRT" Target="ZLTI_LA_IRR"/>
+					<NavigationPropertyBinding Path="cURR" Target="ZLTI_LA_CURR"/>
+				</EntitySet>
+				<EntitySet Name="ZLTI_LA_LCI_VALP" EntityType="CatalogService.ZLTI_LA_LCI_VALP">
+					<NavigationPropertyBinding Path="agNUM" Target="ZLTI_LA_IND_LA"/>
+					<NavigationPropertyBinding Path="lEDGER" Target="ZLTI_LA_ACCT_DET"/>
+					<NavigationPropertyBinding Path="idREFINT" Target="ZLTI_LA_IRR"/>
+					<NavigationPropertyBinding Path="cURR" Target="ZLTI_LA_CURR"/>
+					<NavigationPropertyBinding Path="pLNT" Target="ZLTI_LA_PLNT"/>
+					<NavigationPropertyBinding Path="vEND" Target="ZLTI_LA_VEND"/>
+				</EntitySet>
+				<EntitySet Name="ZLTI_LA_LDETAILS" EntityType="CatalogService.ZLTI_LA_LDETAILS">
+					<NavigationPropertyBinding Path="agNUM" Target="ZLTI_LA_IND_LA"/>
+					<NavigationPropertyBinding Path="coCDE" Target="ZLTI_LA_CCODE"/>
+					<NavigationPropertyBinding Path="lEDGER" Target="ZLTI_LA_ACCT_DET"/>
+					<NavigationPropertyBinding Path="refINTRT" Target="ZLTI_LA_IRR"/>
+					<NavigationPropertyBinding Path="cURR" Target="ZLTI_LA_CURR"/>
+					<NavigationPropertyBinding Path="pLNT" Target="ZLTI_LA_PLNT"/>
+					<NavigationPropertyBinding Path="vEND" Target="ZLTI_LA_VEND"/>
+				</EntitySet>
+				<EntitySet Name="ZLTI_LA_MASTRLA" EntityType="CatalogService.ZLTI_LA_MASTRLA">
+					<NavigationPropertyBinding Path="coCDE" Target="ZLTI_LA_CCODE"/>
+					<NavigationPropertyBinding Path="iTEMs" Target="ZLTI_LA_MASTRLA_ITMS"/>
+					<NavigationPropertyBinding Path="vEND" Target="ZLTI_LA_VEND"/>
+					<NavigationPropertyBinding Path="pLNT" Target="ZLTI_LA_PLNT"/>
+					<NavigationPropertyBinding Path="cURR" Target="ZLTI_LA_CURR"/>
+					<NavigationPropertyBinding Path="lesTYPE" Target="ZLTI_LA_TYPES"/>
+				</EntitySet>
+				<EntitySet Name="ZLTI_LA_MASTRLA_ITMS" EntityType="CatalogService.ZLTI_LA_MASTRLA_ITMS">
+					<NavigationPropertyBinding Path="mastAGGR" Target="ZLTI_LA_MASTRLA"/>
+					<NavigationPropertyBinding Path="assetTYPE" Target="ZLTI_LA_ASSET_TY"/>
+					<NavigationPropertyBinding Path="uOM" Target="ZLTI_LA_UOM"/>
+				</EntitySet>
+				<EntitySet Name="ZLTI_LA_MATNUM" EntityType="CatalogService.ZLTI_LA_MATNUM"/>
+				<EntitySet Name="ZLTI_LA_PFTCNT" EntityType="CatalogService.ZLTI_LA_PFTCNT"/>
+				<EntitySet Name="ZLTI_LA_PLNT" EntityType="CatalogService.ZLTI_LA_PLNT"/>
+				<EntitySet Name="ZLTI_LA_RENT_CLS" EntityType="CatalogService.ZLTI_LA_RENT_CLS"/>
+				<EntitySet Name="ZLTI_LA_TAXCDE" EntityType="CatalogService.ZLTI_LA_TAXCDE"/>
+				<EntitySet Name="ZLTI_LA_TYPES" EntityType="CatalogService.ZLTI_LA_TYPES"/>
+				<EntitySet Name="ZLTI_LA_UOM" EntityType="CatalogService.ZLTI_LA_UOM"/>
+				<EntitySet Name="ZLTI_LA_VAL_DATE" EntityType="CatalogService.ZLTI_LA_VAL_DATE">
+					<NavigationPropertyBinding Path="agNUM" Target="ZLTI_LA_IND_LA"/>
+				</EntitySet>
+				<EntitySet Name="ZLTI_LA_VEND" EntityType="CatalogService.ZLTI_LA_VEND">
+					<NavigationPropertyBinding Path="coCDE" Target="ZLTI_LA_CCODE"/>
+				</EntitySet>
+				<EntitySet Name="ZLTI_LA_WBS" EntityType="CatalogService.ZLTI_LA_WBS"/>
+			</EntityContainer>
+			<EntityType Name="ZLTI_LA_ACCT_DET">
+				<Key>
+					<PropertyRef Name="cOA"/>
+					<PropertyRef Name="coCDE"/>
+					<PropertyRef Name="lEDGER"/>
+					<PropertyRef Name="lesTYPE"/>
+					<PropertyRef Name="busiEVEID"/>
+					<PropertyRef Name="flowTYPE"/>
+					<PropertyRef Name="acctYPE"/>
+				</Key>
+				<Property Name="modifiedAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="cOA" Type="Edm.String" MaxLength="4" Nullable="false"/>
+				<Property Name="coCDE" Type="Edm.String" MaxLength="4" Nullable="false"/>
+				<Property Name="lEDGER" Type="Edm.String" MaxLength="2" Nullable="false"/>
+				<Property Name="lesTYPE" Type="Edm.String" MaxLength="2" Nullable="false"/>
+				<Property Name="busiEVEID" Type="Edm.String" MaxLength="4" Nullable="false"/>
+				<Property Name="flowTYPE" Type="Edm.String" MaxLength="5" Nullable="false"/>
+				<Property Name="acctYPE" Type="Edm.String" MaxLength="1" Nullable="false"/>
+				<Property Name="glACC" Type="Edm.String" MaxLength="10"/>
+				<Property Name="debCRE" Type="Edm.String" MaxLength="1"/>
+				<Property Name="invBLK" Type="Edm.String" MaxLength="1"/>
+				<Property Name="sPCLGL" Type="Edm.String" MaxLength="1"/>
+				<Property Name="assTTYP" Type="Edm.String" MaxLength="3"/>
+			</EntityType>
+			<EntityType Name="ZLTI_LA_ASSET_TY">
+				<Key>
+					<PropertyRef Name="assetTYPE"/>
+				</Key>
+				<Property Name="modifiedAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="assetTYPE" Type="Edm.String" MaxLength="2" Nullable="false"/>
+				<Property Name="dESCRP" Type="Edm.String" MaxLength="50"/>
+			</EntityType>
+			<EntityType Name="ZLTI_LA_ASSTMST">
+				<Key>
+					<PropertyRef Name="coCDE"/>
+					<PropertyRef Name="assNUM"/>
+				</Key>
+				<Property Name="modifiedAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="coCDE" Type="Edm.String" MaxLength="4" Nullable="false"/>
+				<Property Name="assNUM" Type="Edm.String" MaxLength="12" Nullable="false"/>
+				<Property Name="assSUBNUM" Type="Edm.String" MaxLength="4"/>
+				<Property Name="assCLASS" Type="Edm.String" MaxLength="25"/>
+				<Property Name="profCEN" Type="Edm.String" MaxLength="10"/>
+			</EntityType>
+			<EntityType Name="ZLTI_LA_BUSEVNID">
+				<Key>
+					<PropertyRef Name="busiEVEID"/>
+				</Key>
+				<Property Name="modifiedAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="busiEVEID" Type="Edm.String" MaxLength="4" Nullable="false"/>
+				<Property Name="busDESC" Type="Edm.String" MaxLength="50"/>
+			</EntityType>
+			<EntityType Name="ZLTI_LA_CCODE">
+				<Key>
+					<PropertyRef Name="coCDE"/>
+				</Key>
+				<Property Name="modifiedAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="coCDE" Type="Edm.String" MaxLength="4" Nullable="false"/>
+				<Property Name="cocdeDESC" Type="Edm.String" MaxLength="25"/>
+				<Property Name="cURR" Type="Edm.String" MaxLength="5"/>
+				<Property Name="logSYS" Type="Edm.String" MaxLength="40"/>
+			</EntityType>
+			<EntityType Name="ZLTI_LA_COST_MAP">
+				<Key>
+					<PropertyRef Name="costKEY"/>
+				</Key>
+				<Property Name="modifiedAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="costKEY" Type="Edm.String" MaxLength="4" Nullable="false"/>
+				<Property Name="dESCRP" Type="Edm.String" MaxLength="50"/>
+				<Property Name="cTYP" Type="Edm.Boolean"/>
+				<Property Name="iNTB" Type="Edm.Boolean"/>
+				<Property Name="dISC" Type="Edm.Boolean"/>
+			</EntityType>
+			<EntityType Name="ZLTI_LA_CSTCNT">
+				<Key>
+					<PropertyRef Name="ccCODE"/>
+					<PropertyRef Name="coCDE"/>
+					<PropertyRef Name="profCEN"/>
+				</Key>
+				<Property Name="modifiedAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="ccCODE" Type="Edm.String" MaxLength="10" Nullable="false"/>
+				<Property Name="coCDE" Type="Edm.String" MaxLength="4" Nullable="false"/>
+				<Property Name="profCEN" Type="Edm.String" MaxLength="10" Nullable="false"/>
+				<Property Name="ccVALIDTO" Type="Edm.Date"/>
+				<Property Name="ccVALIDFROM" Type="Edm.Date"/>
+				<Property Name="CCNAME" Type="Edm.String" MaxLength="25"/>
+				<Property Name="ccDESC" Type="Edm.String" MaxLength="40"/>
+			</EntityType>
+			<EntityType Name="ZLTI_LA_CURCONV">
+				<Key>
+					<PropertyRef Name="exchRTTYP"/>
+					<PropertyRef Name="fromCURR"/>
+					<PropertyRef Name="toCURR"/>
+				</Key>
+				<Property Name="modifiedAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="exchRTTYP" Type="Edm.String" MaxLength="4" Nullable="false"/>
+				<Property Name="fromCURR" Type="Edm.String" MaxLength="5" Nullable="false"/>
+				<Property Name="toCURR" Type="Edm.String" MaxLength="5" Nullable="false"/>
+				<Property Name="effDT" Type="Edm.Date"/>
+				<Property Name="exchRT" Type="Edm.Decimal" Scale="4" Precision="7"/>
+			</EntityType>
+			<EntityType Name="ZLTI_LA_CURR">
+				<Key>
+					<PropertyRef Name="cURR"/>
+				</Key>
+				<Property Name="modifiedAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="cURR" Type="Edm.String" MaxLength="3" Nullable="false"/>
+				<Property Name="currDESC" Type="Edm.String" MaxLength="25"/>
+			</EntityType>
+			<EntityType Name="ZLTI_LA_FI_DOCTY">
+				<Key>
+					<PropertyRef Name="coCDE"/>
+					<PropertyRef Name="busEVNTID"/>
+				</Key>
+				<Property Name="modifiedAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="coCDE" Type="Edm.String" MaxLength="4" Nullable="false"/>
+				<Property Name="busEVNTID" Type="Edm.String" MaxLength="4" Nullable="false"/>
+				<Property Name="docTYP" Type="Edm.String" MaxLength="2"/>
+			</EntityType>
+			<EntityType Name="ZLTI_LA_FLOW_TYP">
+				<Key>
+					<PropertyRef Name="flowTYPE"/>
+				</Key>
+				<Property Name="modifiedAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="flowTYPE" Type="Edm.String" MaxLength="5" Nullable="false"/>
+				<Property Name="dESCRP" Type="Edm.String" MaxLength="50"/>
+			</EntityType>
+			<EntityType Name="ZLTI_LA_GLMAST">
+				<Key>
+					<PropertyRef Name="coCDE"/>
+					<PropertyRef Name="glACC"/>
+				</Key>
+				<Property Name="modifiedAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="coCDE" Type="Edm.String" MaxLength="4" Nullable="false"/>
+				<Property Name="glACC" Type="Edm.String" MaxLength="10" Nullable="false"/>
+				<Property Name="accDESC" Type="Edm.String" MaxLength="40"/>
+				<Property Name="cOA" Type="Edm.String" MaxLength="4"/>
+			</EntityType>
+			<EntityType Name="ZLTI_LA_IND_LA">
+				<Key>
+					<PropertyRef Name="agNUM"/>
+				</Key>
+				<Property Name="modifiedAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="agNUM" Type="Edm.String" MaxLength="100" Nullable="false"/>
+				<NavigationProperty Name="coCDE" Type="CatalogService.ZLTI_LA_CCODE">
+					<ReferentialConstraint Property="coCDE_coCDE" ReferencedProperty="coCDE"/>
+				</NavigationProperty>
+				<Property Name="orderTYP" Type="Edm.String" MaxLength="4"/>
+				<Property Name="aggDt" Type="Edm.Date"/>
+				<NavigationProperty Name="lesTYPE" Type="CatalogService.ZLTI_LA_TYPES">
+					<ReferentialConstraint Property="lesTYPE_lesTYPE" ReferencedProperty="lesTYPE"/>
+				</NavigationProperty>
+				<NavigationProperty Name="assNUM" Type="CatalogService.ZLTI_LA_ASSTMST">
+					<ReferentialConstraint Property="assNUM_coCDE" ReferencedProperty="coCDE"/>
+					<ReferentialConstraint Property="assNUM_assNUM" ReferencedProperty="assNUM"/>
+				</NavigationProperty>
+				<NavigationProperty Name="assSUBNO" Type="CatalogService.ZLTI_LA_ASSTMST">
+					<ReferentialConstraint Property="assSUBNO_coCDE" ReferencedProperty="coCDE"/>
+					<ReferentialConstraint Property="assSUBNO_assNUM" ReferencedProperty="assNUM"/>
+				</NavigationProperty>
+				<NavigationProperty Name="pLNT" Type="CatalogService.ZLTI_LA_PLNT">
+					<ReferentialConstraint Property="pLNT_pLNT" ReferencedProperty="pLNT"/>
+				</NavigationProperty>
+				<Property Name="assDesc" Type="Edm.String" MaxLength="12"/>
+				<Property Name="qTY" Type="Edm.Int32"/>
+				<NavigationProperty Name="uOM" Type="CatalogService.ZLTI_LA_UOM">
+					<ReferentialConstraint Property="uOM_uOM" ReferencedProperty="uOM"/>
+				</NavigationProperty>
+				<NavigationProperty Name="vEND" Type="CatalogService.ZLTI_LA_VEND">
+					<ReferentialConstraint Property="vEND_vEND" ReferencedProperty="vEND"/>
+				</NavigationProperty>
+				<NavigationProperty Name="ccCODE" Type="CatalogService.ZLTI_LA_CSTCNT">
+					<ReferentialConstraint Property="ccCODE_ccCODE" ReferencedProperty="ccCODE"/>
+					<ReferentialConstraint Property="ccCODE_coCDE" ReferencedProperty="coCDE"/>
+					<ReferentialConstraint Property="ccCODE_profCEN" ReferencedProperty="profCEN"/>
+				</NavigationProperty>
+				<NavigationProperty Name="internalORDER" Type="CatalogService.ZLTI_LA_INTORD">
+					<ReferentialConstraint Property="internalORDER_internalORDER" ReferencedProperty="internalORDER"/>
+				</NavigationProperty>
+				<NavigationProperty Name="wbS" Type="CatalogService.ZLTI_LA_WBS">
+					<ReferentialConstraint Property="wbS_wBS" ReferencedProperty="wBS"/>
+				</NavigationProperty>
+				<NavigationProperty Name="profCEN" Type="CatalogService.ZLTI_LA_PFTCNT">
+					<ReferentialConstraint Property="profCEN_coCDE" ReferencedProperty="coCDE"/>
+					<ReferentialConstraint Property="profCEN_profCEN" ReferencedProperty="profCEN"/>
+				</NavigationProperty>
+				<Property Name="migIND" Type="Edm.Boolean"/>
+				<NavigationProperty Name="cURR" Type="CatalogService.ZLTI_LA_CURR">
+					<ReferentialConstraint Property="cURR_cURR" ReferencedProperty="cURR"/>
+				</NavigationProperty>
+				<Property Name="validFROM" Type="Edm.Date"/>
+				<Property Name="validTO" Type="Edm.Date"/>
+				<NavigationProperty Name="assIDENT" Type="CatalogService.ZLTI_LA_MATNUM">
+					<ReferentialConstraint Property="assIDENT_assIDENT" ReferencedProperty="assIDENT"/>
+				</NavigationProperty>
+				<NavigationProperty Name="mastAGGR" Type="CatalogService.ZLTI_LA_MASTRLA">
+					<ReferentialConstraint Property="mastAGGR_mastAGGR" ReferencedProperty="mastAGGR"/>
+				</NavigationProperty>
+				<NavigationProperty Name="agTYP" Type="CatalogService.ZLTI_LA_LAI_SW">
+					<ReferentialConstraint Property="agTYP_docTYP" ReferencedProperty="docTYP"/>
+				</NavigationProperty>
+				<Property Name="exchngRATE" Type="Edm.Int32"/>
+				<Property Name="userTEXT" Type="Edm.String" MaxLength="500"/>
+				<Property Name="oldCONTRNO" Type="Edm.String" MaxLength="25"/>
+				<Property Name="oldCONTRDT" Type="Edm.Date"/>
+				<Property Name="legDOCNUM" Type="Edm.String" MaxLength="10"/>
+				<Property Name="legDOCDT" Type="Edm.Date"/>
+				<Property Name="mastCONTNUM" Type="Edm.String" MaxLength="25"/>
+				<Property Name="contSTRDT" Type="Edm.Date"/>
+				<Property Name="contENDDT" Type="Edm.Date"/>
+				<Property Name="docTY" Type="Edm.String" MaxLength="4"/>
+				<Property Name="useLIFEYRS" Type="Edm.Int32"/>
+				<Property Name="useLIFEMON" Type="Edm.Int32"/>
+				<Property Name="buyBACK" Type="Edm.Boolean"/>
+				<Property Name="buyBACKAMT" Type="Edm.Int32"/>
+				<Property Name="resiVALUE" Type="Edm.String" MaxLength="10"/>
+				<Property Name="yRS" Type="Edm.Int32"/>
+				<Property Name="mnTHS" Type="Edm.Int32"/>
+				<NavigationProperty Name="refINTRT" Type="CatalogService.ZLTI_LA_IRR">
+					<ReferentialConstraint Property="refINTRT_intrKEY" ReferencedProperty="intrKEY"/>
+				</NavigationProperty>
+				<NavigationProperty Name="indxSER" Type="CatalogService.ZLTI_LA_RENT_CLS">
+					<ReferentialConstraint Property="indxSER_indexSERIES" ReferencedProperty="indexSERIES"/>
+					<ReferentialConstraint Property="indxSER_indexYR" ReferencedProperty="indexYR"/>
+					<ReferentialConstraint Property="indxSER_indexMNTH" ReferencedProperty="indexMNTH"/>
+				</NavigationProperty>
+				<Property Name="subLEAS" Type="Edm.Boolean"/>
+				<NavigationProperty Name="termsCONDTN" Type="Collection(CatalogService.ZLTI_LA_LCH_DTL)" Partner="agNUM">
+					<OnDelete Action="Cascade"/>
+				</NavigationProperty>
+				<NavigationProperty Name="cashFLOW" Type="Collection(CatalogService.ZLTI_LA_LCI_CFL)" Partner="agNUM">
+					<OnDelete Action="Cascade"/>
+				</NavigationProperty>
+				<NavigationProperty Name="valPERIOD" Type="Collection(CatalogService.ZLTI_LA_LCI_VALP)" Partner="agNUM">
+					<OnDelete Action="Cascade"/>
+				</NavigationProperty>
+				<Property Name="coCDE_coCDE" Type="Edm.String" MaxLength="4"/>
+				<Property Name="lesTYPE_lesTYPE" Type="Edm.String" MaxLength="2"/>
+				<Property Name="assNUM_coCDE" Type="Edm.String" MaxLength="4"/>
+				<Property Name="assNUM_assNUM" Type="Edm.String" MaxLength="12"/>
+				<Property Name="assSUBNO_coCDE" Type="Edm.String" MaxLength="4"/>
+				<Property Name="assSUBNO_assNUM" Type="Edm.String" MaxLength="12"/>
+				<Property Name="pLNT_pLNT" Type="Edm.String" MaxLength="10"/>
+				<Property Name="uOM_uOM" Type="Edm.String" MaxLength="6"/>
+				<Property Name="vEND_vEND" Type="Edm.String" MaxLength="10"/>
+				<Property Name="ccCODE_ccCODE" Type="Edm.String" MaxLength="10"/>
+				<Property Name="ccCODE_coCDE" Type="Edm.String" MaxLength="4"/>
+				<Property Name="ccCODE_profCEN" Type="Edm.String" MaxLength="10"/>
+				<Property Name="internalORDER_internalORDER" Type="Edm.String" MaxLength="12"/>
+				<Property Name="wbS_wBS" Type="Edm.String" MaxLength="24"/>
+				<Property Name="profCEN_coCDE" Type="Edm.String" MaxLength="4"/>
+				<Property Name="profCEN_profCEN" Type="Edm.String" MaxLength="10"/>
+				<Property Name="cURR_cURR" Type="Edm.String" MaxLength="3"/>
+				<Property Name="assIDENT_assIDENT" Type="Edm.String" MaxLength="10"/>
+				<Property Name="mastAGGR_mastAGGR" Type="Edm.String" MaxLength="100"/>
+				<Property Name="agTYP_docTYP" Type="Edm.String" MaxLength="4"/>
+				<Property Name="refINTRT_intrKEY" Type="Edm.String" MaxLength="4"/>
+				<Property Name="indxSER_indexSERIES" Type="Edm.String" MaxLength="5"/>
+				<Property Name="indxSER_indexYR" Type="Edm.Int32"/>
+				<Property Name="indxSER_indexMNTH" Type="Edm.Int32"/>
+			</EntityType>
+			<EntityType Name="ZLTI_LA_INTORD">
+				<Key>
+					<PropertyRef Name="internalORDER"/>
+				</Key>
+				<Property Name="modifiedAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="internalORDER" Type="Edm.String" MaxLength="12" Nullable="false"/>
+				<Property Name="ccDESC" Type="Edm.String" MaxLength="40"/>
+				<Property Name="profCEN" Type="Edm.String" MaxLength="10"/>
+				<Property Name="coCDE" Type="Edm.String" MaxLength="4"/>
+			</EntityType>
+			<EntityType Name="ZLTI_LA_IRR">
+				<Key>
+					<PropertyRef Name="intrKEY"/>
+				</Key>
+				<Property Name="modifiedAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="intrKEY" Type="Edm.String" MaxLength="4" Nullable="false"/>
+				<Property Name="intrDESC" Type="Edm.String" MaxLength="25"/>
+				<Property Name="validFRM" Type="Edm.Date"/>
+				<Property Name="rOI" Type="Edm.Decimal" Scale="4" Precision="7"/>
+			</EntityType>
+			<EntityType Name="ZLTI_LA_LAI_SW">
+				<Key>
+					<PropertyRef Name="docTYP"/>
+				</Key>
+				<Property Name="modifiedAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="docTYP" Type="Edm.String" MaxLength="4" Nullable="false"/>
+				<Property Name="typDESC" Type="Edm.String" MaxLength="25"/>
+			</EntityType>
+			<EntityType Name="ZLTI_LA_LCH_DTL">
+				<Key>
+					<PropertyRef Name="iTEMs"/>
+					<PropertyRef Name="agNUM_agNUM"/>
+				</Key>
+				<Property Name="modifiedAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+				<NavigationProperty Name="agNUM" Type="CatalogService.ZLTI_LA_IND_LA" Partner="termsCONDTN">
+					<ReferentialConstraint Property="agNUM_agNUM" ReferencedProperty="agNUM"/>
+				</NavigationProperty>
+				<Property Name="iTEMs" Type="Edm.Int32" Nullable="false"/>
+				<Property Name="expenseTYP" Type="Edm.String" MaxLength="100"/>
+				<Property Name="amounT" Type="Edm.Decimal" Scale="2" Precision="13"/>
+				<Property Name="validFRM" Type="Edm.Date"/>
+				<Property Name="dueON" Type="Edm.String" MaxLength="3"/>
+				<Property Name="pymtFREQ" Type="Edm.String" MaxLength="10"/>
+				<Property Name="priceESC" Type="Edm.String" MaxLength="10"/>
+				<Property Name="esclVAL" Type="Edm.Decimal" Scale="2" Precision="13"/>
+				<Property Name="priceCHNGFREQ" Type="Edm.String" MaxLength="10"/>
+				<Property Name="minESCLPAR" Type="Edm.String" MaxLength="10"/>
+				<Property Name="minESC" Type="Edm.Decimal" Scale="2" Precision="13"/>
+				<Property Name="capitalisatioN" Type="Edm.Boolean"/>
+				<Property Name="iNTB" Type="Edm.Boolean"/>
+				<NavigationProperty Name="vEND" Type="CatalogService.ZLTI_LA_VEND">
+					<ReferentialConstraint Property="vEND_vEND" ReferencedProperty="vEND"/>
+				</NavigationProperty>
+				<Property Name="taxCODE" Type="Edm.String" MaxLength="2"/>
+				<Property Name="glACC" Type="Edm.String" MaxLength="10"/>
+				<NavigationProperty Name="lEDGER" Type="CatalogService.ZLTI_LA_ACCT_DET">
+					<ReferentialConstraint Property="lEDGER_cOA" ReferencedProperty="cOA"/>
+					<ReferentialConstraint Property="lEDGER_coCDE" ReferencedProperty="coCDE"/>
+					<ReferentialConstraint Property="lEDGER_lEDGER" ReferencedProperty="lEDGER"/>
+					<ReferentialConstraint Property="lEDGER_lesTYPE" ReferencedProperty="lesTYPE"/>
+					<ReferentialConstraint Property="lEDGER_busiEVEID" ReferencedProperty="busiEVEID"/>
+					<ReferentialConstraint Property="lEDGER_flowTYPE" ReferencedProperty="flowTYPE"/>
+					<ReferentialConstraint Property="lEDGER_acctYPE" ReferencedProperty="acctYPE"/>
+				</NavigationProperty>
+				<Property Name="agNUM_agNUM" Type="Edm.String" MaxLength="100" Nullable="false"/>
+				<Property Name="vEND_vEND" Type="Edm.String" MaxLength="10"/>
+				<Property Name="lEDGER_cOA" Type="Edm.String" MaxLength="4"/>
+				<Property Name="lEDGER_coCDE" Type="Edm.String" MaxLength="4"/>
+				<Property Name="lEDGER_lEDGER" Type="Edm.String" MaxLength="2"/>
+				<Property Name="lEDGER_lesTYPE" Type="Edm.String" MaxLength="2"/>
+				<Property Name="lEDGER_busiEVEID" Type="Edm.String" MaxLength="4"/>
+				<Property Name="lEDGER_flowTYPE" Type="Edm.String" MaxLength="5"/>
+				<Property Name="lEDGER_acctYPE" Type="Edm.String" MaxLength="1"/>
+			</EntityType>
+			<EntityType Name="ZLTI_LA_LCH_SW">
+				<Key>
+					<PropertyRef Name="docCAT"/>
+					<PropertyRef Name="docTYP"/>
+				</Key>
+				<Property Name="modifiedAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="docCAT" Type="Edm.String" MaxLength="1" Nullable="false"/>
+				<Property Name="docTYP" Type="Edm.String" MaxLength="4" Nullable="false"/>
+				<Property Name="leasAGGAPP" Type="Edm.String" MaxLength="1"/>
+			</EntityType>
+			<EntityType Name="ZLTI_LA_LCI_CFL">
+				<Key>
+					<PropertyRef Name="lineITEM"/>
+					<PropertyRef Name="agNUM_agNUM"/>
+				</Key>
+				<Property Name="modifiedAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+				<NavigationProperty Name="agNUM" Type="CatalogService.ZLTI_LA_IND_LA" Partner="cashFLOW">
+					<ReferentialConstraint Property="agNUM_agNUM" ReferencedProperty="agNUM"/>
+				</NavigationProperty>
+				<Property Name="lineITEM" Type="Edm.Int32" Nullable="false"/>
+				<Property Name="sTATUS" Type="Edm.String" MaxLength="4"/>
+				<Property Name="purcDOCTYP" Type="Edm.String" MaxLength="4"/>
+				<NavigationProperty Name="flowTYPE" Type="CatalogService.ZLTI_LA_FLOW_TYP">
+					<ReferentialConstraint Property="flowTYPE_flowTYPE" ReferencedProperty="flowTYPE"/>
+				</NavigationProperty>
+				<Property Name="dESCR" Type="Edm.String" MaxLength="50"/>
+				<Property Name="postDT" Type="Edm.Date"/>
+				<Property Name="amtLOCCURR" Type="Edm.Decimal" Scale="2" Precision="13"/>
+				<Property Name="lCURR" Type="Edm.String" MaxLength="5"/>
+				<Property Name="aMT" Type="Edm.Decimal" Scale="2" Precision="13"/>
+				<NavigationProperty Name="cURR" Type="CatalogService.ZLTI_LA_CURR">
+					<ReferentialConstraint Property="cURR_cURR" ReferencedProperty="cURR"/>
+				</NavigationProperty>
+				<Property Name="docNUM" Type="Edm.String" MaxLength="10"/>
+				<Property Name="fisYR" Type="Edm.Int32"/>
+				<Property Name="fisMON" Type="Edm.Int32"/>
+				<NavigationProperty Name="pLNT" Type="CatalogService.ZLTI_LA_PLNT">
+					<ReferentialConstraint Property="pLNT_pLNT" ReferencedProperty="pLNT"/>
+				</NavigationProperty>
+				<Property Name="proccSTS" Type="Edm.String" MaxLength="1"/>
+				<Property Name="revPEND" Type="Edm.String" MaxLength="1"/>
+				<NavigationProperty Name="vEND" Type="CatalogService.ZLTI_LA_VEND">
+					<ReferentialConstraint Property="vEND_vEND" ReferencedProperty="vEND"/>
+				</NavigationProperty>
+				<Property Name="accASSCAT" Type="Edm.String" MaxLength="1"/>
+				<Property Name="lEDGER" Type="Edm.String" MaxLength="2"/>
+				<Property Name="agNUM_agNUM" Type="Edm.String" MaxLength="100" Nullable="false"/>
+				<Property Name="flowTYPE_flowTYPE" Type="Edm.String" MaxLength="5"/>
+				<Property Name="cURR_cURR" Type="Edm.String" MaxLength="3"/>
+				<Property Name="pLNT_pLNT" Type="Edm.String" MaxLength="10"/>
+				<Property Name="vEND_vEND" Type="Edm.String" MaxLength="10"/>
+			</EntityType>
+			<EntityType Name="ZLTI_LA_LCI_LEDG">
+				<Key>
+					<PropertyRef Name="lEDGER"/>
+				</Key>
+				<Property Name="modifiedAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="lEDGER" Type="Edm.String" MaxLength="2" Nullable="false"/>
+				<Property Name="ledNAM" Type="Edm.String" MaxLength="25"/>
+			</EntityType>
+			<EntityType Name="ZLTI_LA_LCI_PVF">
+				<Key>
+					<PropertyRef Name="iTEM"/>
+					<PropertyRef Name="agNUM_agNUM"/>
+					<PropertyRef Name="lEDGER_cOA"/>
+					<PropertyRef Name="lEDGER_coCDE"/>
+					<PropertyRef Name="lEDGER_lEDGER"/>
+					<PropertyRef Name="lEDGER_lesTYPE"/>
+					<PropertyRef Name="lEDGER_busiEVEID"/>
+					<PropertyRef Name="lEDGER_flowTYPE"/>
+					<PropertyRef Name="lEDGER_acctYPE"/>
+				</Key>
+				<Property Name="modifiedAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+				<NavigationProperty Name="agNUM" Type="CatalogService.ZLTI_LA_IND_LA">
+					<ReferentialConstraint Property="agNUM_agNUM" ReferencedProperty="agNUM"/>
+				</NavigationProperty>
+				<Property Name="iTEM" Type="Edm.Int32" Nullable="false"/>
+				<NavigationProperty Name="lEDGER" Type="CatalogService.ZLTI_LA_ACCT_DET">
+					<ReferentialConstraint Property="lEDGER_cOA" ReferencedProperty="cOA"/>
+					<ReferentialConstraint Property="lEDGER_coCDE" ReferencedProperty="coCDE"/>
+					<ReferentialConstraint Property="lEDGER_lEDGER" ReferencedProperty="lEDGER"/>
+					<ReferentialConstraint Property="lEDGER_lesTYPE" ReferencedProperty="lesTYPE"/>
+					<ReferentialConstraint Property="lEDGER_busiEVEID" ReferencedProperty="busiEVEID"/>
+					<ReferentialConstraint Property="lEDGER_flowTYPE" ReferencedProperty="flowTYPE"/>
+					<ReferentialConstraint Property="lEDGER_acctYPE" ReferencedProperty="acctYPE"/>
+				</NavigationProperty>
+				<Property Name="validFRM" Type="Edm.Date"/>
+				<Property Name="dESCR" Type="Edm.String" MaxLength="50"/>
+				<Property Name="postDT" Type="Edm.Date"/>
+				<Property Name="perLEASPYMT" Type="Edm.Decimal" Scale="2" Precision="13"/>
+				<Property Name="fREQUENCY" Type="Edm.String" MaxLength="10"/>
+				<Property Name="pymtMADEAT" Type="Edm.String" MaxLength="3"/>
+				<NavigationProperty Name="refINTRT" Type="CatalogService.ZLTI_LA_IRR">
+					<ReferentialConstraint Property="refINTRT_intrKEY" ReferencedProperty="intrKEY"/>
+				</NavigationProperty>
+				<Property Name="intrRATE" Type="Edm.Decimal" Scale="7" Precision="10"/>
+				<Property Name="residVALUE" Type="Edm.Decimal" Scale="2" Precision="13"/>
+				<NavigationProperty Name="cURR" Type="CatalogService.ZLTI_LA_CURR">
+					<ReferentialConstraint Property="cURR_cURR" ReferencedProperty="cURR"/>
+				</NavigationProperty>
+				<Property Name="pvPERIOD" Type="Edm.Int32"/>
+				<Property Name="fACTOR" Type="Edm.Decimal" Scale="5" Precision="13"/>
+				<Property Name="nomiAMT" Type="Edm.Decimal" Scale="2" Precision="23"/>
+				<Property Name="fisYR" Type="Edm.Int32"/>
+				<Property Name="pERIOD" Type="Edm.Int32"/>
+				<Property Name="procSTS" Type="Edm.String" MaxLength="1"/>
+				<Property Name="agNUM_agNUM" Type="Edm.String" MaxLength="100" Nullable="false"/>
+				<Property Name="lEDGER_cOA" Type="Edm.String" MaxLength="4" Nullable="false"/>
+				<Property Name="lEDGER_coCDE" Type="Edm.String" MaxLength="4" Nullable="false"/>
+				<Property Name="lEDGER_lEDGER" Type="Edm.String" MaxLength="2" Nullable="false"/>
+				<Property Name="lEDGER_lesTYPE" Type="Edm.String" MaxLength="2" Nullable="false"/>
+				<Property Name="lEDGER_busiEVEID" Type="Edm.String" MaxLength="4" Nullable="false"/>
+				<Property Name="lEDGER_flowTYPE" Type="Edm.String" MaxLength="5" Nullable="false"/>
+				<Property Name="lEDGER_acctYPE" Type="Edm.String" MaxLength="1" Nullable="false"/>
+				<Property Name="refINTRT_intrKEY" Type="Edm.String" MaxLength="4"/>
+				<Property Name="cURR_cURR" Type="Edm.String" MaxLength="3"/>
+			</EntityType>
+			<EntityType Name="ZLTI_LA_LCI_VALP">
+				<Key>
+					<PropertyRef Name="iTEM"/>
+					<PropertyRef Name="agNUM_agNUM"/>
+				</Key>
+				<Property Name="modifiedAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+				<NavigationProperty Name="agNUM" Type="CatalogService.ZLTI_LA_IND_LA" Partner="valPERIOD">
+					<ReferentialConstraint Property="agNUM_agNUM" ReferencedProperty="agNUM"/>
+				</NavigationProperty>
+				<Property Name="iTEM" Type="Edm.Int32" Nullable="false"/>
+				<Property Name="dESCR" Type="Edm.String" MaxLength="50"/>
+				<NavigationProperty Name="lEDGER" Type="CatalogService.ZLTI_LA_ACCT_DET">
+					<ReferentialConstraint Property="lEDGER_cOA" ReferencedProperty="cOA"/>
+					<ReferentialConstraint Property="lEDGER_coCDE" ReferencedProperty="coCDE"/>
+					<ReferentialConstraint Property="lEDGER_lEDGER" ReferencedProperty="lEDGER"/>
+					<ReferentialConstraint Property="lEDGER_lesTYPE" ReferencedProperty="lesTYPE"/>
+					<ReferentialConstraint Property="lEDGER_busiEVEID" ReferencedProperty="busiEVEID"/>
+					<ReferentialConstraint Property="lEDGER_flowTYPE" ReferencedProperty="flowTYPE"/>
+					<ReferentialConstraint Property="lEDGER_acctYPE" ReferencedProperty="acctYPE"/>
+				</NavigationProperty>
+				<Property Name="purcDOCTYP" Type="Edm.String" MaxLength="4"/>
+				<Property Name="perLEASPYMT" Type="Edm.Decimal" Scale="2" Precision="13"/>
+				<Property Name="fREQUENCY" Type="Edm.String" MaxLength="10"/>
+				<Property Name="leasPYMTMNTH" Type="Edm.Int32"/>
+				<Property Name="typPRCCHNG" Type="Edm.String" MaxLength="6"/>
+				<Property Name="priceESCL" Type="Edm.Decimal" Scale="2" Precision="13"/>
+				<Property Name="noMONTH" Type="Edm.Int32"/>
+				<Property Name="pymtMADEAT" Type="Edm.String" MaxLength="3"/>
+				<NavigationProperty Name="idREFINT" Type="CatalogService.ZLTI_LA_IRR">
+					<ReferentialConstraint Property="idREFINT_intrKEY" ReferencedProperty="intrKEY"/>
+				</NavigationProperty>
+				<Property Name="intrRATE" Type="Edm.Decimal" Scale="7" Precision="10"/>
+				<Property Name="residVALUE" Type="Edm.String" MaxLength="20"/>
+				<NavigationProperty Name="cURR" Type="CatalogService.ZLTI_LA_CURR">
+					<ReferentialConstraint Property="cURR_cURR" ReferencedProperty="cURR"/>
+				</NavigationProperty>
+				<Property Name="mATERIAL" Type="Edm.String" MaxLength="40"/>
+				<NavigationProperty Name="pLNT" Type="CatalogService.ZLTI_LA_PLNT">
+					<ReferentialConstraint Property="pLNT_pLNT" ReferencedProperty="pLNT"/>
+				</NavigationProperty>
+				<NavigationProperty Name="vEND" Type="CatalogService.ZLTI_LA_VEND">
+					<ReferentialConstraint Property="vEND_vEND" ReferencedProperty="vEND"/>
+				</NavigationProperty>
+				<Property Name="validDT" Type="Edm.Date"/>
+				<Property Name="cAPITAL" Type="Edm.String" MaxLength="1"/>
+				<Property Name="intrBEAR" Type="Edm.String" MaxLength="1"/>
+				<Property Name="vendBUSPARTNR" Type="Edm.String" MaxLength="10"/>
+				<Property Name="taxCODE" Type="Edm.String" MaxLength="2"/>
+				<Property Name="glACC" Type="Edm.String" MaxLength="10"/>
+				<Property Name="indexSER" Type="Edm.String" MaxLength="5"/>
+				<Property Name="postCHK" Type="Edm.String" MaxLength="1"/>
+				<Property Name="validFROM" Type="Edm.Date"/>
+				<Property Name="validTO" Type="Edm.Date"/>
+				<Property Name="strDT" Type="Edm.Date"/>
+				<Property Name="endDT" Type="Edm.Date"/>
+				<Property Name="sTATUS" Type="Edm.String" MaxLength="4"/>
+				<Property Name="validID" Type="Edm.Int32"/>
+				<Property Name="agNUM_agNUM" Type="Edm.String" MaxLength="100" Nullable="false"/>
+				<Property Name="lEDGER_cOA" Type="Edm.String" MaxLength="4"/>
+				<Property Name="lEDGER_coCDE" Type="Edm.String" MaxLength="4"/>
+				<Property Name="lEDGER_lEDGER" Type="Edm.String" MaxLength="2"/>
+				<Property Name="lEDGER_lesTYPE" Type="Edm.String" MaxLength="2"/>
+				<Property Name="lEDGER_busiEVEID" Type="Edm.String" MaxLength="4"/>
+				<Property Name="lEDGER_flowTYPE" Type="Edm.String" MaxLength="5"/>
+				<Property Name="lEDGER_acctYPE" Type="Edm.String" MaxLength="1"/>
+				<Property Name="idREFINT_intrKEY" Type="Edm.String" MaxLength="4"/>
+				<Property Name="cURR_cURR" Type="Edm.String" MaxLength="3"/>
+				<Property Name="pLNT_pLNT" Type="Edm.String" MaxLength="10"/>
+				<Property Name="vEND_vEND" Type="Edm.String" MaxLength="10"/>
+			</EntityType>
+			<EntityType Name="ZLTI_LA_LDETAILS">
+				<Key>
+					<PropertyRef Name="iTEM"/>
+					<PropertyRef Name="agNUM_agNUM"/>
+				</Key>
+				<Property Name="modifiedAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+				<NavigationProperty Name="agNUM" Type="CatalogService.ZLTI_LA_IND_LA">
+					<ReferentialConstraint Property="agNUM_agNUM" ReferencedProperty="agNUM"/>
+				</NavigationProperty>
+				<Property Name="iTEM" Type="Edm.Int32" Nullable="false"/>
+				<Property Name="dESCR" Type="Edm.String" MaxLength="50"/>
+				<Property Name="validPERID" Type="Edm.String" MaxLength="14"/>
+				<NavigationProperty Name="coCDE" Type="CatalogService.ZLTI_LA_CCODE">
+					<ReferentialConstraint Property="coCDE_coCDE" ReferencedProperty="coCDE"/>
+				</NavigationProperty>
+				<NavigationProperty Name="lEDGER" Type="CatalogService.ZLTI_LA_ACCT_DET">
+					<ReferentialConstraint Property="lEDGER_cOA" ReferencedProperty="cOA"/>
+					<ReferentialConstraint Property="lEDGER_coCDE" ReferencedProperty="coCDE"/>
+					<ReferentialConstraint Property="lEDGER_lEDGER" ReferencedProperty="lEDGER"/>
+					<ReferentialConstraint Property="lEDGER_lesTYPE" ReferencedProperty="lesTYPE"/>
+					<ReferentialConstraint Property="lEDGER_busiEVEID" ReferencedProperty="busiEVEID"/>
+					<ReferentialConstraint Property="lEDGER_flowTYPE" ReferencedProperty="flowTYPE"/>
+					<ReferentialConstraint Property="lEDGER_acctYPE" ReferencedProperty="acctYPE"/>
+				</NavigationProperty>
+				<Property Name="validFROM" Type="Edm.Date"/>
+				<Property Name="valSTS" Type="Edm.String" MaxLength="4"/>
+				<Property Name="purcDOCTYP" Type="Edm.String" MaxLength="4"/>
+				<Property Name="perLEASPYMT" Type="Edm.Decimal" Scale="2" Precision="13"/>
+				<Property Name="fREQUENCY" Type="Edm.String" MaxLength="10"/>
+				<Property Name="leasePERIOD" Type="Edm.Int32"/>
+				<Property Name="leTYPPRCHG" Type="Edm.String" MaxLength="6"/>
+				<Property Name="lePRICEESC" Type="Edm.Int32"/>
+				<Property Name="noMONTH" Type="Edm.Int32"/>
+				<Property Name="leESCLPAR" Type="Edm.String" MaxLength="6"/>
+				<Property Name="priceESC" Type="Edm.Decimal" Scale="2" Precision="13"/>
+				<Property Name="pymtMADEAT" Type="Edm.String" MaxLength="3"/>
+				<NavigationProperty Name="refINTRT" Type="CatalogService.ZLTI_LA_IRR">
+					<ReferentialConstraint Property="refINTRT_intrKEY" ReferencedProperty="intrKEY"/>
+				</NavigationProperty>
+				<Property Name="intrRATE" Type="Edm.Decimal" Scale="7" Precision="10"/>
+				<Property Name="indexSER" Type="Edm.String" MaxLength="5"/>
+				<Property Name="residVALUE" Type="Edm.Decimal" Scale="2" Precision="5"/>
+				<NavigationProperty Name="cURR" Type="CatalogService.ZLTI_LA_CURR">
+					<ReferentialConstraint Property="cURR_cURR" ReferencedProperty="cURR"/>
+				</NavigationProperty>
+				<Property Name="mATERIAL" Type="Edm.String" MaxLength="40"/>
+				<NavigationProperty Name="pLNT" Type="CatalogService.ZLTI_LA_PLNT">
+					<ReferentialConstraint Property="pLNT_pLNT" ReferencedProperty="pLNT"/>
+				</NavigationProperty>
+				<NavigationProperty Name="vEND" Type="CatalogService.ZLTI_LA_VEND">
+					<ReferentialConstraint Property="vEND_vEND" ReferencedProperty="vEND"/>
+				</NavigationProperty>
+				<Property Name="cAPITAL" Type="Edm.String" MaxLength="1"/>
+				<Property Name="intrBEAR" Type="Edm.String" MaxLength="1"/>
+				<Property Name="vendCREDACCNO" Type="Edm.String" MaxLength="10"/>
+				<Property Name="taxCODE" Type="Edm.String" MaxLength="2"/>
+				<Property Name="glACC" Type="Edm.String" MaxLength="10"/>
+				<Property Name="agNUM_agNUM" Type="Edm.String" MaxLength="100" Nullable="false"/>
+				<Property Name="coCDE_coCDE" Type="Edm.String" MaxLength="4"/>
+				<Property Name="lEDGER_cOA" Type="Edm.String" MaxLength="4"/>
+				<Property Name="lEDGER_coCDE" Type="Edm.String" MaxLength="4"/>
+				<Property Name="lEDGER_lEDGER" Type="Edm.String" MaxLength="2"/>
+				<Property Name="lEDGER_lesTYPE" Type="Edm.String" MaxLength="2"/>
+				<Property Name="lEDGER_busiEVEID" Type="Edm.String" MaxLength="4"/>
+				<Property Name="lEDGER_flowTYPE" Type="Edm.String" MaxLength="5"/>
+				<Property Name="lEDGER_acctYPE" Type="Edm.String" MaxLength="1"/>
+				<Property Name="refINTRT_intrKEY" Type="Edm.String" MaxLength="4"/>
+				<Property Name="cURR_cURR" Type="Edm.String" MaxLength="3"/>
+				<Property Name="pLNT_pLNT" Type="Edm.String" MaxLength="10"/>
+				<Property Name="vEND_vEND" Type="Edm.String" MaxLength="10"/>
+			</EntityType>
+			<EntityType Name="ZLTI_LA_MASTRLA">
+				<Key>
+					<PropertyRef Name="mastAGGR"/>
+				</Key>
+				<Property Name="modifiedAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="mastAGGR" Type="Edm.String" MaxLength="100" Nullable="false"/>
+				<NavigationProperty Name="coCDE" Type="CatalogService.ZLTI_LA_CCODE">
+					<ReferentialConstraint Property="coCDE_coCDE" ReferencedProperty="coCDE"/>
+				</NavigationProperty>
+				<NavigationProperty Name="iTEMs" Type="Collection(CatalogService.ZLTI_LA_MASTRLA_ITMS)" Partner="mastAGGR">
+					<OnDelete Action="Cascade"/>
+				</NavigationProperty>
+				<NavigationProperty Name="vEND" Type="CatalogService.ZLTI_LA_VEND">
+					<ReferentialConstraint Property="vEND_vEND" ReferencedProperty="vEND"/>
+				</NavigationProperty>
+				<Property Name="aggDt" Type="Edm.Date"/>
+				<NavigationProperty Name="pLNT" Type="CatalogService.ZLTI_LA_PLNT">
+					<ReferentialConstraint Property="pLNT_pLNT" ReferencedProperty="pLNT"/>
+				</NavigationProperty>
+				<Property Name="targVAL" Type="Edm.String" MaxLength="10"/>
+				<NavigationProperty Name="cURR" Type="CatalogService.ZLTI_LA_CURR">
+					<ReferentialConstraint Property="cURR_cURR" ReferencedProperty="cURR"/>
+				</NavigationProperty>
+				<Property Name="validFROM" Type="Edm.Date"/>
+				<Property Name="validTO" Type="Edm.Date"/>
+				<NavigationProperty Name="lesTYPE" Type="CatalogService.ZLTI_LA_TYPES">
+					<ReferentialConstraint Property="lesTYPE_lesTYPE" ReferencedProperty="lesTYPE"/>
+				</NavigationProperty>
+				<Property Name="pENALTY" Type="Edm.Boolean"/>
+				<Property Name="coCDE_coCDE" Type="Edm.String" MaxLength="4"/>
+				<Property Name="vEND_vEND" Type="Edm.String" MaxLength="10"/>
+				<Property Name="pLNT_pLNT" Type="Edm.String" MaxLength="10"/>
+				<Property Name="cURR_cURR" Type="Edm.String" MaxLength="3"/>
+				<Property Name="lesTYPE_lesTYPE" Type="Edm.String" MaxLength="2"/>
+			</EntityType>
+			<EntityType Name="ZLTI_LA_MASTRLA_ITMS">
+				<Key>
+					<PropertyRef Name="iTEM"/>
+					<PropertyRef Name="mastAGGR_mastAGGR"/>
+				</Key>
+				<Property Name="modifiedAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+				<NavigationProperty Name="mastAGGR" Type="CatalogService.ZLTI_LA_MASTRLA" Partner="iTEMs">
+					<ReferentialConstraint Property="mastAGGR_mastAGGR" ReferencedProperty="mastAGGR"/>
+				</NavigationProperty>
+				<Property Name="iTEM" Type="Edm.Int32" Nullable="false"/>
+				<NavigationProperty Name="assetTYPE" Type="CatalogService.ZLTI_LA_ASSET_TY">
+					<ReferentialConstraint Property="assetTYPE_assetTYPE" ReferencedProperty="assetTYPE"/>
+				</NavigationProperty>
+				<Property Name="shrtTEXT" Type="Edm.String" MaxLength="40"/>
+				<Property Name="targQTY" Type="Edm.Int32"/>
+				<NavigationProperty Name="uOM" Type="CatalogService.ZLTI_LA_UOM">
+					<ReferentialConstraint Property="uOM_uOM" ReferencedProperty="uOM"/>
+				</NavigationProperty>
+				<Property Name="netPRICE" Type="Edm.Decimal" Scale="2" Precision="13"/>
+				<Property Name="buyBACK" Type="Edm.Boolean"/>
+				<Property Name="mastAGGR_mastAGGR" Type="Edm.String" MaxLength="100" Nullable="false"/>
+				<Property Name="assetTYPE_assetTYPE" Type="Edm.String" MaxLength="2"/>
+				<Property Name="uOM_uOM" Type="Edm.String" MaxLength="6"/>
+			</EntityType>
+			<EntityType Name="ZLTI_LA_MATNUM">
+				<Key>
+					<PropertyRef Name="assIDENT"/>
+				</Key>
+				<Property Name="modifiedAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="assIDENT" Type="Edm.String" MaxLength="10" Nullable="false"/>
+				<Property Name="assDESC" Type="Edm.String" MaxLength="40"/>
+				<Property Name="coCDE" Type="Edm.String" MaxLength="4"/>
+			</EntityType>
+			<EntityType Name="ZLTI_LA_PFTCNT">
+				<Key>
+					<PropertyRef Name="coCDE"/>
+					<PropertyRef Name="profCEN"/>
+				</Key>
+				<Property Name="modifiedAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="coCDE" Type="Edm.String" MaxLength="4" Nullable="false"/>
+				<Property Name="profCEN" Type="Edm.String" MaxLength="10" Nullable="false"/>
+				<Property Name="profCENVALTO" Type="Edm.Date"/>
+				<Property Name="profCENVALFRM" Type="Edm.Date"/>
+				<Property Name="profCENVALDESC" Type="Edm.String" MaxLength="25"/>
+			</EntityType>
+			<EntityType Name="ZLTI_LA_PLNT">
+				<Key>
+					<PropertyRef Name="pLNT"/>
+				</Key>
+				<Property Name="modifiedAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="pLNT" Type="Edm.String" MaxLength="10" Nullable="false"/>
+				<Property Name="plntDESC" Type="Edm.String" MaxLength="40"/>
+				<Property Name="cITY" Type="Edm.String" MaxLength="40"/>
+				<Property Name="cOUNTRY" Type="Edm.String" MaxLength="4"/>
+				<Property Name="coCDE" Type="Edm.String" MaxLength="4"/>
+			</EntityType>
+			<EntityType Name="ZLTI_LA_RENT_CLS">
+				<Key>
+					<PropertyRef Name="indexSERIES"/>
+					<PropertyRef Name="indexYR"/>
+					<PropertyRef Name="indexMNTH"/>
+				</Key>
+				<Property Name="modifiedAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="indexSERIES" Type="Edm.String" MaxLength="5" Nullable="false"/>
+				<Property Name="indexYR" Type="Edm.Int32" Nullable="false"/>
+				<Property Name="indexMNTH" Type="Edm.Int32" Nullable="false"/>
+				<Property Name="indexVAL" Type="Edm.Decimal" Scale="2" Precision="9"/>
+			</EntityType>
+			<EntityType Name="ZLTI_LA_TAXCDE">
+				<Key>
+					<PropertyRef Name="taxCODE"/>
+					<PropertyRef Name="cOUNTRY"/>
+				</Key>
+				<Property Name="modifiedAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="taxCODE" Type="Edm.String" MaxLength="4" Nullable="false"/>
+				<Property Name="cOUNTRY" Type="Edm.String" MaxLength="4" Nullable="false"/>
+				<Property Name="taxCDEDESC" Type="Edm.String" MaxLength="40"/>
+				<Property Name="taxJURIS" Type="Edm.String" MaxLength="10"/>
+				<Property Name="taxRATE" Type="Edm.Decimal" Scale="3" Precision="5"/>
+			</EntityType>
+			<EntityType Name="ZLTI_LA_TYPES">
+				<Key>
+					<PropertyRef Name="lesTYPE"/>
+				</Key>
+				<Property Name="modifiedAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="lesTYPE" Type="Edm.String" MaxLength="2" Nullable="false"/>
+				<Property Name="dESCRP" Type="Edm.String" MaxLength="50"/>
+			</EntityType>
+			<EntityType Name="ZLTI_LA_UOM">
+				<Key>
+					<PropertyRef Name="uOM"/>
+				</Key>
+				<Property Name="modifiedAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="uOM" Type="Edm.String" MaxLength="6" Nullable="false"/>
+				<Property Name="dESCRP" Type="Edm.String" MaxLength="25"/>
+			</EntityType>
+			<EntityType Name="ZLTI_LA_VAL_DATE">
+				<Key>
+					<PropertyRef Name="validPERID"/>
+					<PropertyRef Name="agNUM_agNUM"/>
+				</Key>
+				<Property Name="modifiedAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+				<NavigationProperty Name="agNUM" Type="CatalogService.ZLTI_LA_IND_LA">
+					<ReferentialConstraint Property="agNUM_agNUM" ReferencedProperty="agNUM"/>
+				</NavigationProperty>
+				<Property Name="validPERID" Type="Edm.String" MaxLength="14" Nullable="false"/>
+				<Property Name="strDT" Type="Edm.Date"/>
+				<Property Name="endDT" Type="Edm.Date"/>
+				<Property Name="leasePERIOD" Type="Edm.Int32"/>
+				<Property Name="valSTS" Type="Edm.String" MaxLength="4"/>
+				<Property Name="agNUM_agNUM" Type="Edm.String" MaxLength="100" Nullable="false"/>
+			</EntityType>
+			<EntityType Name="ZLTI_LA_VEND">
+				<Key>
+					<PropertyRef Name="vEND"/>
+				</Key>
+				<Property Name="modifiedAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="vEND" Type="Edm.String" MaxLength="10" Nullable="false"/>
+				<Property Name="dESCRP" Type="Edm.String" MaxLength="25"/>
+				<NavigationProperty Name="coCDE" Type="CatalogService.ZLTI_LA_CCODE">
+					<ReferentialConstraint Property="coCDE_coCDE" ReferencedProperty="coCDE"/>
+				</NavigationProperty>
+				<Property Name="vendADD" Type="Edm.String" MaxLength="25"/>
+				<Property Name="vendBANK" Type="Edm.String" MaxLength="10"/>
+				<Property Name="vendTDS" Type="Edm.String" MaxLength="20"/>
+				<Property Name="vatNUM" Type="Edm.String" MaxLength="20"/>
+				<Property Name="coCDE_coCDE" Type="Edm.String" MaxLength="4"/>
+			</EntityType>
+			<EntityType Name="ZLTI_LA_WBS">
+				<Key>
+					<PropertyRef Name="wBS"/>
+				</Key>
+				<Property Name="modifiedAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdAt" Type="Edm.DateTimeOffset"/>
+				<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+				<Property Name="wBS" Type="Edm.String" MaxLength="24" Nullable="false"/>
+				<Property Name="wbsDESC" Type="Edm.String" MaxLength="40"/>
+				<Property Name="profCEN" Type="Edm.String" MaxLength="10"/>
+				<Property Name="coCDE" Type="Edm.String" MaxLength="4"/>
+			</EntityType>
+			<Annotations Target="CatalogService.ZLTI_LA_ACCT_DET/modifiedAt">
+				<Annotation Term="Common.Label" String="Changed At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_ACCT_DET/createdAt">
+				<Annotation Term="Common.Label" String="Created At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_ACCT_DET/createdBy">
+				<Annotation Term="Common.Label" String="Created By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_ACCT_DET/modifiedBy">
+				<Annotation Term="Common.Label" String="Changed By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_ASSET_TY/modifiedAt">
+				<Annotation Term="Common.Label" String="Changed At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_ASSET_TY/createdAt">
+				<Annotation Term="Common.Label" String="Created At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_ASSET_TY/createdBy">
+				<Annotation Term="Common.Label" String="Created By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_ASSET_TY/modifiedBy">
+				<Annotation Term="Common.Label" String="Changed By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_ASSTMST/modifiedAt">
+				<Annotation Term="Common.Label" String="Changed At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_ASSTMST/createdAt">
+				<Annotation Term="Common.Label" String="Created At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_ASSTMST/createdBy">
+				<Annotation Term="Common.Label" String="Created By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_ASSTMST/modifiedBy">
+				<Annotation Term="Common.Label" String="Changed By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_BUSEVNID/modifiedAt">
+				<Annotation Term="Common.Label" String="Changed At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_BUSEVNID/createdAt">
+				<Annotation Term="Common.Label" String="Created At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_BUSEVNID/createdBy">
+				<Annotation Term="Common.Label" String="Created By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_BUSEVNID/modifiedBy">
+				<Annotation Term="Common.Label" String="Changed By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_CCODE/modifiedAt">
+				<Annotation Term="Common.Label" String="Changed At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_CCODE/createdAt">
+				<Annotation Term="Common.Label" String="Created At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_CCODE/createdBy">
+				<Annotation Term="Common.Label" String="Created By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_CCODE/modifiedBy">
+				<Annotation Term="Common.Label" String="Changed By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_COST_MAP/modifiedAt">
+				<Annotation Term="Common.Label" String="Changed At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_COST_MAP/createdAt">
+				<Annotation Term="Common.Label" String="Created At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_COST_MAP/createdBy">
+				<Annotation Term="Common.Label" String="Created By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_COST_MAP/modifiedBy">
+				<Annotation Term="Common.Label" String="Changed By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_CSTCNT/modifiedAt">
+				<Annotation Term="Common.Label" String="Changed At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_CSTCNT/createdAt">
+				<Annotation Term="Common.Label" String="Created At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_CSTCNT/createdBy">
+				<Annotation Term="Common.Label" String="Created By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_CSTCNT/modifiedBy">
+				<Annotation Term="Common.Label" String="Changed By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_CURCONV/modifiedAt">
+				<Annotation Term="Common.Label" String="Changed At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_CURCONV/createdAt">
+				<Annotation Term="Common.Label" String="Created At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_CURCONV/createdBy">
+				<Annotation Term="Common.Label" String="Created By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_CURCONV/modifiedBy">
+				<Annotation Term="Common.Label" String="Changed By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_CURR/modifiedAt">
+				<Annotation Term="Common.Label" String="Changed At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_CURR/createdAt">
+				<Annotation Term="Common.Label" String="Created At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_CURR/createdBy">
+				<Annotation Term="Common.Label" String="Created By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_CURR/modifiedBy">
+				<Annotation Term="Common.Label" String="Changed By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_FI_DOCTY/modifiedAt">
+				<Annotation Term="Common.Label" String="Changed At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_FI_DOCTY/createdAt">
+				<Annotation Term="Common.Label" String="Created At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_FI_DOCTY/createdBy">
+				<Annotation Term="Common.Label" String="Created By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_FI_DOCTY/modifiedBy">
+				<Annotation Term="Common.Label" String="Changed By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_FLOW_TYP/modifiedAt">
+				<Annotation Term="Common.Label" String="Changed At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_FLOW_TYP/createdAt">
+				<Annotation Term="Common.Label" String="Created At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_FLOW_TYP/createdBy">
+				<Annotation Term="Common.Label" String="Created By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_FLOW_TYP/modifiedBy">
+				<Annotation Term="Common.Label" String="Changed By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_GLMAST/modifiedAt">
+				<Annotation Term="Common.Label" String="Changed At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_GLMAST/createdAt">
+				<Annotation Term="Common.Label" String="Created At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_GLMAST/createdBy">
+				<Annotation Term="Common.Label" String="Created By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_GLMAST/modifiedBy">
+				<Annotation Term="Common.Label" String="Changed By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_IND_LA/modifiedAt">
+				<Annotation Term="Common.Label" String="Changed At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_IND_LA/createdAt">
+				<Annotation Term="Common.Label" String="Created At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_IND_LA/createdBy">
+				<Annotation Term="Common.Label" String="Created By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_IND_LA/modifiedBy">
+				<Annotation Term="Common.Label" String="Changed By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_INTORD/modifiedAt">
+				<Annotation Term="Common.Label" String="Changed At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_INTORD/createdAt">
+				<Annotation Term="Common.Label" String="Created At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_INTORD/createdBy">
+				<Annotation Term="Common.Label" String="Created By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_INTORD/modifiedBy">
+				<Annotation Term="Common.Label" String="Changed By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_IRR/modifiedAt">
+				<Annotation Term="Common.Label" String="Changed At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_IRR/createdAt">
+				<Annotation Term="Common.Label" String="Created At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_IRR/createdBy">
+				<Annotation Term="Common.Label" String="Created By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_IRR/modifiedBy">
+				<Annotation Term="Common.Label" String="Changed By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_LAI_SW/modifiedAt">
+				<Annotation Term="Common.Label" String="Changed At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_LAI_SW/createdAt">
+				<Annotation Term="Common.Label" String="Created At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_LAI_SW/createdBy">
+				<Annotation Term="Common.Label" String="Created By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_LAI_SW/modifiedBy">
+				<Annotation Term="Common.Label" String="Changed By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_LCH_DTL/modifiedAt">
+				<Annotation Term="Common.Label" String="Changed At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_LCH_DTL/createdAt">
+				<Annotation Term="Common.Label" String="Created At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_LCH_DTL/createdBy">
+				<Annotation Term="Common.Label" String="Created By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_LCH_DTL/modifiedBy">
+				<Annotation Term="Common.Label" String="Changed By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_LCH_SW/modifiedAt">
+				<Annotation Term="Common.Label" String="Changed At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_LCH_SW/createdAt">
+				<Annotation Term="Common.Label" String="Created At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_LCH_SW/createdBy">
+				<Annotation Term="Common.Label" String="Created By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_LCH_SW/modifiedBy">
+				<Annotation Term="Common.Label" String="Changed By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_LCI_CFL/modifiedAt">
+				<Annotation Term="Common.Label" String="Changed At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_LCI_CFL/createdAt">
+				<Annotation Term="Common.Label" String="Created At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_LCI_CFL/createdBy">
+				<Annotation Term="Common.Label" String="Created By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_LCI_CFL/modifiedBy">
+				<Annotation Term="Common.Label" String="Changed By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_LCI_LEDG/modifiedAt">
+				<Annotation Term="Common.Label" String="Changed At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_LCI_LEDG/createdAt">
+				<Annotation Term="Common.Label" String="Created At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_LCI_LEDG/createdBy">
+				<Annotation Term="Common.Label" String="Created By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_LCI_LEDG/modifiedBy">
+				<Annotation Term="Common.Label" String="Changed By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_LCI_PVF/modifiedAt">
+				<Annotation Term="Common.Label" String="Changed At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_LCI_PVF/createdAt">
+				<Annotation Term="Common.Label" String="Created At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_LCI_PVF/createdBy">
+				<Annotation Term="Common.Label" String="Created By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_LCI_PVF/modifiedBy">
+				<Annotation Term="Common.Label" String="Changed By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_LCI_VALP/modifiedAt">
+				<Annotation Term="Common.Label" String="Changed At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_LCI_VALP/createdAt">
+				<Annotation Term="Common.Label" String="Created At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_LCI_VALP/createdBy">
+				<Annotation Term="Common.Label" String="Created By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_LCI_VALP/modifiedBy">
+				<Annotation Term="Common.Label" String="Changed By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_LDETAILS/modifiedAt">
+				<Annotation Term="Common.Label" String="Changed At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_LDETAILS/createdAt">
+				<Annotation Term="Common.Label" String="Created At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_LDETAILS/createdBy">
+				<Annotation Term="Common.Label" String="Created By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_LDETAILS/modifiedBy">
+				<Annotation Term="Common.Label" String="Changed By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_MASTRLA/modifiedAt">
+				<Annotation Term="Common.Label" String="Changed At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_MASTRLA/createdAt">
+				<Annotation Term="Common.Label" String="Created At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_MASTRLA/createdBy">
+				<Annotation Term="Common.Label" String="Created By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_MASTRLA/modifiedBy">
+				<Annotation Term="Common.Label" String="Changed By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_MASTRLA_ITMS/modifiedAt">
+				<Annotation Term="Common.Label" String="Changed At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_MASTRLA_ITMS/createdAt">
+				<Annotation Term="Common.Label" String="Created At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_MASTRLA_ITMS/createdBy">
+				<Annotation Term="Common.Label" String="Created By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_MASTRLA_ITMS/modifiedBy">
+				<Annotation Term="Common.Label" String="Changed By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_MATNUM/modifiedAt">
+				<Annotation Term="Common.Label" String="Changed At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_MATNUM/createdAt">
+				<Annotation Term="Common.Label" String="Created At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_MATNUM/createdBy">
+				<Annotation Term="Common.Label" String="Created By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_MATNUM/modifiedBy">
+				<Annotation Term="Common.Label" String="Changed By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_PFTCNT/modifiedAt">
+				<Annotation Term="Common.Label" String="Changed At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_PFTCNT/createdAt">
+				<Annotation Term="Common.Label" String="Created At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_PFTCNT/createdBy">
+				<Annotation Term="Common.Label" String="Created By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_PFTCNT/modifiedBy">
+				<Annotation Term="Common.Label" String="Changed By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_PLNT/modifiedAt">
+				<Annotation Term="Common.Label" String="Changed At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_PLNT/createdAt">
+				<Annotation Term="Common.Label" String="Created At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_PLNT/createdBy">
+				<Annotation Term="Common.Label" String="Created By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_PLNT/modifiedBy">
+				<Annotation Term="Common.Label" String="Changed By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_RENT_CLS/modifiedAt">
+				<Annotation Term="Common.Label" String="Changed At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_RENT_CLS/createdAt">
+				<Annotation Term="Common.Label" String="Created At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_RENT_CLS/createdBy">
+				<Annotation Term="Common.Label" String="Created By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_RENT_CLS/modifiedBy">
+				<Annotation Term="Common.Label" String="Changed By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_TAXCDE/modifiedAt">
+				<Annotation Term="Common.Label" String="Changed At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_TAXCDE/createdAt">
+				<Annotation Term="Common.Label" String="Created At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_TAXCDE/createdBy">
+				<Annotation Term="Common.Label" String="Created By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_TAXCDE/modifiedBy">
+				<Annotation Term="Common.Label" String="Changed By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_TYPES/modifiedAt">
+				<Annotation Term="Common.Label" String="Changed At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_TYPES/createdAt">
+				<Annotation Term="Common.Label" String="Created At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_TYPES/createdBy">
+				<Annotation Term="Common.Label" String="Created By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_TYPES/modifiedBy">
+				<Annotation Term="Common.Label" String="Changed By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_UOM/modifiedAt">
+				<Annotation Term="Common.Label" String="Changed At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_UOM/createdAt">
+				<Annotation Term="Common.Label" String="Created At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_UOM/createdBy">
+				<Annotation Term="Common.Label" String="Created By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_UOM/modifiedBy">
+				<Annotation Term="Common.Label" String="Changed By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_VAL_DATE/modifiedAt">
+				<Annotation Term="Common.Label" String="Changed At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_VAL_DATE/createdAt">
+				<Annotation Term="Common.Label" String="Created At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_VAL_DATE/createdBy">
+				<Annotation Term="Common.Label" String="Created By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_VAL_DATE/modifiedBy">
+				<Annotation Term="Common.Label" String="Changed By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_VEND/modifiedAt">
+				<Annotation Term="Common.Label" String="Changed At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_VEND/createdAt">
+				<Annotation Term="Common.Label" String="Created At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_VEND/createdBy">
+				<Annotation Term="Common.Label" String="Created By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_VEND/modifiedBy">
+				<Annotation Term="Common.Label" String="Changed By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_WBS/modifiedAt">
+				<Annotation Term="Common.Label" String="Changed At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_WBS/createdAt">
+				<Annotation Term="Common.Label" String="Created At"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_WBS/createdBy">
+				<Annotation Term="Common.Label" String="Created By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CatalogService.ZLTI_LA_WBS/modifiedBy">
+				<Annotation Term="Common.Label" String="Changed By"/>
+				<Annotation Term="Core.Computed" Bool="true"/>
+				<Annotation Term="Core.Description" String="A user's unique ID"/>
+				<Annotation Term="Core.Immutable" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

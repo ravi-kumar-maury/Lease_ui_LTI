@@ -1,0 +1,5 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog id="idMatDialog" title="Select Material"  search="handleSearchMat" confirm="handleConfirmMat" cancel="handlecloseMat" items="{/ZLTI_LA_MATNUM}">
+		<StandardListItem title="{assIDENT}" type="Active" description="{assDESC}"/>
+	</SelectDialog>
+</core:FragmentDefinition>

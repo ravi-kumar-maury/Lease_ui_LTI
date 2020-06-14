@@ -1,0 +1,5 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog id="idDialogLT" title="Select Lease Type"  search="handleSearchLT" confirm="handleConfirmLT" cancel="handleCloseLT" items="{/ZLTI_LA_TYPES}">
+		<StandardListItem title="{lesTYPE}" type="Active" description="{dESCRP}"/>
+	</SelectDialog>
+</core:FragmentDefinition>

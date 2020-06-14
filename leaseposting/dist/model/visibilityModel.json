@@ -1,0 +1,13 @@
+{
+	"leaserouform": false,
+	"amortdocform": false,
+	"revpost": false,
+	"revspecif": false,
+	"MarkVal": false,
+	"DiffBB": false,
+	"Pen": false,
+	"ImpOpt": false,
+	"ImpDet": false,
+	"InvPost": false,
+	"GenDet": true
+}

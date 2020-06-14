@@ -1,0 +1,101 @@
+<Panel xmlns="sap.m" id="idTnCItems" xmlns:core="sap.ui.core">
+	<OverflowToolbar id="tncToolbar" enabled="true">
+		<ToolbarSpacer/>
+		<Button id="addBtn" icon="sap-icon://sys-add" tooltip="Insert Row" class="size4" press="onAddItem" enabled="true"/>
+		<Button id="delBtn" icon="sap-icon://delete" tooltip="Delete Row" press="onDeleteItem" enabled="true"/>
+	</OverflowToolbar>
+	<ScrollContainer>
+		<content>
+			<Table id="idTnCTable" backgroundDesign="Solid" mode="{= ${uiModel>/fieldsEditable} ? 'MultiSelect' : 'None'}" growing="true"
+				growingThreshold="5" items="{path: 'termsCONDTN', sorter : { path : 'iTEMs' }}" growingScrollToLoad="true">
+				<columns>
+					<Column hAlign="Center" width="80px">
+						<Text text="Sr No"></Text>
+					</Column>
+					<Column hAlign="Center" width="320px">
+						<Text text="Expense Type"></Text>
+					</Column>
+					<Column hAlign="Center" width="100px">
+						<Text text="Amount"></Text>
+					</Column>
+					<Column hAlign="Center" width="150px">
+						<Text text="Valid From"></Text>
+					</Column>
+					<Column hAlign="Center" width="230px">
+						<Text text="Due On"></Text>
+					</Column>
+					<Column hAlign="Center" width="150px">
+						<Text text="Payment Frequency"></Text>
+					</Column>
+					<Column hAlign="Center" width="150px">
+						<Text text="Price Escalator"></Text>
+					</Column>
+					<Column hAlign="Center" width="100px">
+						<Text text="Escalation Value"></Text>
+					</Column>
+					<Column hAlign="Center" width="100px">
+						<Text text="Price Change Frequency"></Text>
+					</Column>
+					<Column hAlign="Center" width="150px">
+						<Text text="Minimum Escalator Parameter"></Text>
+					</Column>
+					<Column hAlign="Center" width="120px">
+						<Text text="Minimum Escalation"></Text>
+					</Column>
+					<Column hAlign="Center" width="100px">
+						<Text text="Capitalisation"></Text>
+					</Column>
+					<Column hAlign="Center" width="100px">
+						<Text text="Interest Bearing"></Text>
+					</Column>
+					<Column hAlign="Center" width="120px">
+						<Text text="Vendor"></Text>
+					</Column>
+					<Column hAlign="Center" width="100px">
+						<Text text="Tax Code"></Text>
+					</Column>
+					<Column hAlign="Center" width="150px">
+						<Text text="GL Account"></Text>
+					</Column>
+					<Column hAlign="Center" width="100px">
+						<Text text="Ledger"></Text>
+					</Column>
+				</columns>
+				<ColumnListItem>
+					<Text id="srNo" text="{iTEMs}"/>
+					<Input id="expTyp" value="{expenseTYP}" width="100%" showValueHelp="true" showSuggestion="true" valueHelpRequest="onChangeExpType"/>
+					<Input id="amt" textAlign="Right" value="{amounT}"/>
+					<DatePicker id="validFrom" valueFormat="MM-dd-yyyy" displayFormat="MM-dd-yyyy" dateValue="{validFRM}"/>
+					<ComboBox id="dueOn" width="100%" value="{dueON}">
+						<core:Item key="EOP" text="End of the period"/>
+						<core:Item key="BOP" text="Beginning of the period"/>
+					</ComboBox>
+					<ComboBox id="payFreq" width="100%" value="{pymtFREQ}">
+						<core:Item text="MONTH"/>
+						<core:Item text="BI-MONTH"/>
+						<core:Item text="QUARTER"/>
+						<core:Item text="HALF-YEAR"/>
+						<core:Item text="YEAR"/>
+					</ComboBox>
+					<ComboBox id="priceEscltr" width="100%" value="{priceESC}">
+						<core:Item text="Value"/>
+						<core:Item text="Percentage"/>
+					</ComboBox>
+					<Input id="esclVal" value="{esclVAL}" textAlign="Right"/>
+					<Input id="priceChangeFreq" value="{priceCHNGFREQ}"/>
+					<ComboBox id="minEsclPara" width="100%" value="{minESCLPAR}">
+						<core:Item text="Value"/>
+						<core:Item text="Percentage"/>
+					</ComboBox>
+					<Input id="minEscalatn" value="{minESC}" textAlign="Right"/>
+					<CheckBox id="capitalistn" selected="{capitalisatioN}"/>
+					<CheckBox id="intBearing" selected="{iNTB}"/>
+					<Input id="vendr" value="{vEND_vEND}" showValueHelp="true" showSuggestion="true" valueHelpRequest="onValueChangeVen"/>
+					<Input id="taxCode" value="{taxCODE}" showValueHelp="true" showSuggestion="true" valueHelpRequest="onChangeTaxCode"/>
+					<Input id="gLAcc" value="{glACC}" showValueHelp="true" showSuggestion="true" valueHelpRequest="onChangeGLAcc"/>
+					<Input id="ledger" value="{lEDGER_lEDGER}" showValueHelp="true" showSuggestion="true" valueHelpRequest="onChangeLedger"/>
+				</ColumnListItem>
+			</Table>
+		</content>
+	</ScrollContainer>
+</Panel>

@@ -1,0 +1,6 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog id="idProfCenDialog" title="Profit Center" search="handleSearch" cancel="handleCancel" confirm="handleConfirm"
+		items="{/ZLTI_LA_PFTCNT}">
+		<StandardListItem id="idPrCenList" title="{profCEN}" description="{profCENVALDESC}"/>
+	</SelectDialog>
+</core:FragmentDefinition>

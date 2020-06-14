@@ -1,0 +1,161 @@
+{
+    "resources": [
+        {
+            "name": "Component.js"
+        },
+        {
+            "name": "controller/CreateLease.controller.js"
+        },
+        {
+            "name": "controller/DisplayLease.controller.js"
+        },
+        {
+            "name": "controller/InitialView.controller.js"
+        },
+        {
+            "name": "css/style.css"
+        },
+        {
+            "name": "fragments/Asset.fragment.xml"
+        },
+        {
+            "name": "fragments/AssetDescriptn.fragment.xml"
+        },
+        {
+            "name": "fragments/CompanyCodes.fragment.xml"
+        },
+        {
+            "name": "fragments/CostCentre.fragment.xml"
+        },
+        {
+            "name": "fragments/Currency.fragment.xml"
+        },
+        {
+            "name": "fragments/ExpenseType.fragment.xml"
+        },
+        {
+            "name": "fragments/Filter.fragment.xml"
+        },
+        {
+            "name": "fragments/GLAcc.fragment.xml"
+        },
+        {
+            "name": "fragments/IndividualAgreement.fragment.xml"
+        },
+        {
+            "name": "fragments/LeaseTypes.fragment.xml"
+        },
+        {
+            "name": "fragments/Ledger.fragment.xml"
+        },
+        {
+            "name": "fragments/MasterAgreement.fragment.xml"
+        },
+        {
+            "name": "fragments/Material.fragment.xml"
+        },
+        {
+            "name": "fragments/Order.fragment.xml"
+        },
+        {
+            "name": "fragments/Plant.fragment.xml"
+        },
+        {
+            "name": "fragments/ProfitCnt.fragment.xml"
+        },
+        {
+            "name": "fragments/RefIntRate.fragment.xml"
+        },
+        {
+            "name": "fragments/RentIndexKey.fragment.xml"
+        },
+        {
+            "name": "fragments/SortFrag.fragment.xml"
+        },
+        {
+            "name": "fragments/TaxCode.fragment.xml"
+        },
+        {
+            "name": "fragments/TnCItems.fragment.xml"
+        },
+        {
+            "name": "fragments/UOM.fragment.xml"
+        },
+        {
+            "name": "fragments/ValidityTable.fragment.xml"
+        },
+        {
+            "name": "fragments/Vendor.fragment.xml"
+        },
+        {
+            "name": "fragments/WBS.fragment.xml"
+        },
+        {
+            "name": "i18n/i18n.properties",
+            "raw": "i18n/i18n.properties"
+        },
+        {
+            "name": "index.html"
+        },
+        {
+            "name": "localService/metadata.xml"
+        },
+        {
+            "name": "manifest.json"
+        },
+        {
+            "name": "model/Data.json"
+        },
+        {
+            "name": "model/models.js"
+        },
+        {
+            "name": "serviceBinding.js"
+        },
+        {
+            "name": "test/integration/AllJourneys.js"
+        },
+        {
+            "name": "test/integration/NavigationJourney.js"
+        },
+        {
+            "name": "test/integration/arrangements/Startup.js"
+        },
+        {
+            "name": "test/integration/opaTests.qunit.html"
+        },
+        {
+            "name": "test/integration/opaTests.qunit.js"
+        },
+        {
+            "name": "test/integration/pages/InitialView.js"
+        },
+        {
+            "name": "test/testsuite.qunit.html"
+        },
+        {
+            "name": "test/testsuite.qunit.js"
+        },
+        {
+            "name": "test/unit/AllTests.js"
+        },
+        {
+            "name": "test/unit/controller/InitialView.controller.js"
+        },
+        {
+            "name": "test/unit/unitTests.qunit.html"
+        },
+        {
+            "name": "test/unit/unitTests.qunit.js"
+        },
+        {
+            "name": "view/CreateLease.view.xml"
+        },
+        {
+            "name": "view/DisplayLease.view.xml"
+        },
+        {
+            "name": "view/InitialView.view.xml"
+        }
+    ]
+}

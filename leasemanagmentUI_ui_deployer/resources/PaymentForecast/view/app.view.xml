@@ -1,0 +1,105 @@
+<mvc:View controllerName="com.lti.LeaseManagement.PaymentForecast.controller.app" xmlns:viz.data="sap.viz.ui5.data"
+	xmlns:viz="sap.viz.ui5.controls" xmlns:tnt="sap.tnt" xmlns:mvc="sap.ui.core.mvc" xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+	xmlns="sap.m">
+	<App id="app">
+		<pages>
+			<Page id="page">
+				<content>
+					<tnt:ToolHeader class="#FF0000">
+						<DatePicker width="25%" id="DP1" placeholder="Enter Date ..." change="handleChange" class="sapUiSmallMarginTopBottomLeft"/>
+						<ToolbarSpacer>
+							<layoutData>
+								<OverflowToolbarLayoutData priority="NeverOverflow" maxWidth="500px"/>
+							</layoutData>
+						</ToolbarSpacer>
+						<Button icon="sap-icon://drill-up" type="Transparent">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="NeverOverflow"/>
+							</layoutData>
+						</Button>
+						<Button icon="sap-icon://drill-down" type="Transparent">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="NeverOverflow"/>
+							</layoutData>
+						</Button>
+						<Button icon="sap-icon://notes" type="Transparent">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="NeverOverflow"/>
+							</layoutData>
+						</Button>
+						<Button icon="sap-icon://legend" type="Transparent">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="NeverOverflow"/>
+							</layoutData>
+						</Button>
+						<Button icon="sap-icon://zoom-in" type="Transparent">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="NeverOverflow"/>
+							</layoutData>
+						</Button>
+						<Button icon="sap-icon://zoom-out" type="Transparent">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="NeverOverflow"/>
+							</layoutData>
+						</Button>
+						<Button icon="sap-icon://action-settings" type="Transparent">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="NeverOverflow"/>
+							</layoutData>
+						</Button>
+						<Button icon="sap-icon://bar-chart" type="Transparent">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="NeverOverflow"/>
+							</layoutData>
+						</Button>
+						<Button icon="sap-icon://resize" type="Transparent">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="NeverOverflow"/>
+							</layoutData>
+						</Button>
+						<Button icon="sap-icon://excel-attachment" type="Transparent">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="NeverOverflow"/>
+							</layoutData>
+						</Button>
+						<Button icon="sap-icon://table-chart" type="Transparent">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="NeverOverflow"/>
+							</layoutData>
+						</Button>
+						<Button icon="sap-icon://horizontal-bar-chart" type="Transparent">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="NeverOverflow"/>
+							</layoutData>
+						</Button>
+						<!--	<ToolbarSpacer>
+			<layoutData>
+				<OverflowToolbarLayoutData minWidth="50px" />
+			</layoutData>
+		</ToolbarSpacer>-->
+					</tnt:ToolHeader> 
+				<viz:VizFrame visible="true" id="idcolumn" uiConfig="{applicationSet:'fiori'}" height="75%" width="100%" vizType="column" 
+								vizProperties="{ title: {text : 'Payment Forecast', visible : true}}">
+								<viz:dataset>
+									<viz.data:FlattenedDataset data="{path:'/ZLTI_LA_LCI_CFL'}">
+										<viz.data:dimensions>
+											<viz.data:DimensionDefinition name="agNUM_agNUM" value="{path: 'agNUM_agNUM'}"/>
+										</viz.data:dimensions>
+										<viz.data:measures>
+											<viz.data:MeasureDefinition name="vEND_vEND" value="{path: 'vEND_vEND'}"/>
+										</viz.data:measures>
+									</viz.data:FlattenedDataset>
+								</viz:dataset>
+								<viz:feeds>
+									<viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="agNUM_agNUM"/>
+									<viz.feeds:FeedItem uid="valueAxis" type="Measure" values="vEND_vEND"/>
+								</viz:feeds>
+							</viz:VizFrame>
+					<Button text="Extended" press="onClick"/>
+					<Button text="VizinView" press="onClick2"/>
+						<Button text="Table View" press="onClick3"/>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

@@ -1,0 +1,14 @@
+{
+	"newItem": [{
+		"Item": "",
+		"Material": "",
+		"ShortText": "",
+		"MaterialGroup": "",
+		"TargetQuantity": "",
+		"Unit": "",
+		"NetPrice": "",
+		"BuyBack": true,
+		"LeaseAssetType": "",
+		"zeditable": true
+	}]
+}

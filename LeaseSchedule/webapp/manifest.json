@@ -1,0 +1,122 @@
+{
+	"_version": "1.12.0",
+	"sap.app": {
+		"id": "com.lti.LeaseManagement.LeaseSchedule",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "ui5template.basicSAPUI5ApplicationProject",
+			"version": "1.40.12"
+		},
+		"crossNavigation": {
+			"inbounds": {
+				"intent1": {
+					"signature": {
+						"parameters": {},
+						"additionalParameters": "allowed"
+					},
+					"semanticObject": "leaseschedule",
+					"action": "display",
+					"title": "LeaseLiabilitySchedule",
+					"icon": "sap-icon://bar-chart"
+				}
+			}
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"flexEnabled": false,
+		"rootView": {
+			"viewName": "com.lti.LeaseManagement.LeaseSchedule.view.app",
+			"type": "XML",
+			"async": true,
+			"id": "app"
+		},
+		"dependencies": {
+			"minUI5Version": "1.65.6",
+			"libs": {
+				"sap.ui.layout": {},
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.ui.unified": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "com.lti.LeaseManagement.LeaseSchedule.i18n.i18n"
+				}
+			}
+		},
+		"resources": {
+			"css": [{
+				"uri": "css/style.css"
+			}]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "com.lti.LeaseManagement.LeaseSchedule.view",
+				"controlAggregation": "pages",
+				"controlId": "app",
+				"clearControlAggregation": false,
+				"sample": {
+					"files": ["IconTabBar.view.xml", "Column.view.xml", "Column.controller.js", "InitPage.js", "manifest.json"]
+				}
+			},
+			"routes": [{
+				"name": "Routeapp",
+				"pattern": "Routeapp",
+				"target": ["Targetapp"]
+			}, {
+				"name": "app",
+				"pattern": "",
+				"targetAggregation": "pages",
+				"view": "app",
+				"controlID": "app"
+			}, {
+				"name": "filter1",
+				"pattern": "filter1",
+				"targetAggregation": "pages",
+				"view": "filter1",
+				"controlID": "app"
+			}],
+			"targets": {
+				"Targetapp": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewId": "app",
+					"viewName": "app"
+				}
+			}
+		}
+	}
+}

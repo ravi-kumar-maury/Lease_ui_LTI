@@ -1,0 +1,6 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog id="idProfitDialog" title="Select Profit Centre" liveChange="onSearchProfit" cancel="handleCancelProfit" search="handleSearchProfit"
+		confirm="handleConfirmProfit" items="{/ZLTI_LA_PFTCNT}" growing = "true">
+		<StandardListItem id="ProfitList" title="{profCEN}" type="Active" description="{profCENVALDESC}"/>
+	</SelectDialog>
+</core:FragmentDefinition>

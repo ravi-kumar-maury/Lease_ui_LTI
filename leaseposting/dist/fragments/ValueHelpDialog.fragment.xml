@@ -1,0 +1,5 @@
+<c:FragmentDefinition xmlns="sap.m" xmlns:c="sap.ui.core" xmlns:f="sap.ui.layout.form">
+	<SelectDialog id="idValHelpDialog" title="Select Special G/L Indicator" items="{path: 'JTModel>/jobList'}" confirm="handleValueHelpClose" cancel="handleCancel">
+		<StandardListItem id="idSLI" title="{JTModel>Value}" type="Active"/>
+	</SelectDialog>
+</c:FragmentDefinition>

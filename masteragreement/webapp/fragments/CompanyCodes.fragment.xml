@@ -1,0 +1,6 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog title="Select Company Codes" liveChange="onSearchCC" search="handleSearchCC"
+		cancel="handleCloseSearchType" confirm="handleCloseCC" items="{/ZLTI_LA_CCODE}" growing="true" multiSelect = "false">
+		<StandardListItem title="{coCDE}" type="Active" description="{cocdeDESC}"/>
+	</SelectDialog>
+</core:FragmentDefinition>

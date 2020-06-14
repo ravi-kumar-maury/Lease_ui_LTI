@@ -1,0 +1,6 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog id="idCostCenterDialog" title="Select Cost Center" liveChange="onSearchCostCenter" cancel="handleCancelCostCenter" search="handleSearchCostCenter"
+		confirm="handleConfirmCostCenter" items="{/ZLTI_LA_CSTCNT}" growing = "true">
+		<StandardListItem  title="{ccCODE}" type="Active" description="{CCNAME}"/>
+	</SelectDialog>
+</core:FragmentDefinition>

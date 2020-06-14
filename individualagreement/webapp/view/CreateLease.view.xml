@@ -1,0 +1,422 @@
+<mvc:View controllerName="com.lti.LeaseManagement.individualagreement.controller.CreateLease" displayBlock="true"
+	xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:u="sap.uxap" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core"
+	xmlns:un="sap.ui.unified" xmlns:t="sap.ui.table" xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page id="idPageCreate">
+				<customHeader>
+					<Bar>
+						<contentLeft>
+							<Button icon="sap-icon://nav-back" press="onNavBack"/>
+						</contentLeft>
+						<contentMiddle>
+							<Label design="Bold" text="{i18n>title}"/>
+						</contentMiddle>
+					</Bar>
+				</customHeader>
+				<content>
+					<f:Form id="idHeaderForm" editable="true">
+						<f:layout>
+							<f:ResponsiveGridLayout labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="2" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0"
+								emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2" columnsM="2" singleContainerFullSize="false"/>
+						</f:layout>
+						<f:formContainers>
+							<f:FormContainer>
+								<f:formElements>
+									<f:FormElement label="Master Agreement">
+										<f:fields>
+											<Input id="idMstAggr" value="{mastAGGR_mastAGGR}" showValueHelp="true" valueHelpRequest="onValueMaster"/>
+											<ComboBox id="mstAgrLineNum" items="{path:'/ZLTI_LA_MASTRLA_ITMS'}">
+												<core:Item key="{iTEM}" text="{iTEM}"/>
+											</ComboBox>
+											<Button text="Create with Ref" press="fetchMasterAgr"/>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement>
+										<f:label>
+											<Label text="Agreement Type"/>
+										</f:label>
+										<f:fields>
+											<ComboBox id="agrType" value="{agTYP_docTYP}" items="{/ZLTI_LA_LAI_SW}" required="true">
+												<core:Item key="{docTYP}" text="{typDESC}"/>
+											</ComboBox>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="Vendor">
+										<f:fields>
+											<Input id="idVend" valueHelpRequest="onValueChangeVen" placeholder="Vendor" showSuggestion="true" showValueHelp="true" required="true"
+												value="{vEND_vEND}" textAlign="Left"/>
+										</f:fields>
+									</f:FormElement>
+								</f:formElements>
+							</f:FormContainer>
+							<f:FormContainer>
+								<f:formElements>
+									<f:FormElement label="Agreement Date">
+										<f:fields>
+											<DatePicker id="agrDate" required="true" valueFormat="MM-dd-yyyy" displayFormat="MM-dd-yyyy" dateValue="{aggDt}"/>
+										</f:fields>
+									</f:FormElement>
+								</f:formElements>
+							</f:FormContainer>
+						</f:formContainers>
+					</f:Form>
+					<u:ObjectPageLayout id="objectPageLayout" showEditHeaderButton="true" useIconTabBar="true">
+						<u:sections>
+							<u:ObjectPageSection title="General Data">
+								<u:subSections>
+									<u:ObjectPageSubSection id="generalDataSection">
+										<f:Form editable="true">
+											<f:layout>
+												<f:ResponsiveGridLayout labelSpanL="4" labelSpanM="2" labelSpanS="2" columnsL="3"/>
+											</f:layout>
+											<f:formContainers>
+												<f:FormContainer>
+													<f:formElements>
+														<f:FormElement>
+															<f:label>
+																<Label text="Company Code" required="true"/>
+															</f:label>
+															<f:fields>
+																<Input id="idCompCode" value="{coCDE_coCDE}" placeholder="Company Code" valueHelpRequest="onValueChangeCC" showValueHelp="true"
+																	required="true"/>
+															</f:fields>
+														</f:FormElement>
+													</f:formElements>
+													<f:formElements>
+														<f:FormElement label="Plant">
+															<f:fields>
+																<Input id="idPlant" value="{pLNT_pLNT}" placeholder="Plant" valueHelpRequest="onValueChangePlant" showValueHelp="true"/>
+															</f:fields>
+														</f:FormElement>
+													</f:formElements>
+													<f:formElements>
+														<f:FormElement label="Material">
+															<f:fields>
+																<Input id="idMat" value="{assIDENT_assIDENT}" placeholder="Material" valueHelpRequest="onValueChangeMat" showValueHelp="true"/>
+															</f:fields>
+														</f:FormElement>
+													</f:formElements>
+													<f:formElements>
+														<f:FormElement>
+															<f:label>
+																<Label text="Quantity" required="true"/>
+															</f:label>
+															<f:fields>
+																<Input id="idQty" value="{qTY}" width="100%" required="true" textAlign="Right"/>
+																<Input id="idUom" value="{uOM_uOM}" valueHelpRequest="onChangeUOM" showValueHelp="true" required="true" textAlign="Right"/>
+															</f:fields>
+														</f:FormElement>
+													</f:formElements>
+													<f:formElements>
+														<f:FormElement>
+															<f:label>
+																<Label text="Asset" required="true"/>
+															</f:label>
+															<f:fields>
+																<Input id="idAsset" value="{assNUM_assNUM}" width="100%" valueHelpRequest="onValueChangeAsset" showValueHelp="true" required="true"/>
+																<Input id="idAssetSub" width="30%" value="{assSUBNO_assNUM}" required="true"/>
+															</f:fields>
+														</f:FormElement>
+													</f:formElements>
+												</f:FormContainer>
+												<f:FormContainer>
+													<f:formElements>
+														<f:FormElement>
+															<f:label>
+																<Label text="Asset Description" required="true"/>
+															</f:label>
+															<f:fields>
+																<Input id="asstDesrcp" value="{assDesc}" placeholder="Asset Description" valueHelpRequest="onValueAssetDesc" showValueHelp="true"
+																	required="true"/>
+															</f:fields>
+														</f:FormElement>
+													</f:formElements>
+													<f:formElements>
+														<f:FormElement label="Cost Center">
+															<f:fields>
+																<Input id="idCostCnt" value="{ccCODE_coCDE}" valueHelpRequest="onValueCostCenter" showValueHelp="true" placeholder="Cost Center"/>
+															</f:fields>
+														</f:FormElement>
+													</f:formElements>
+													<f:formElements>
+														<f:FormElement label="Order">
+															<f:fields>
+																<Input id="idOrder" value="{internalORDER_internalORDER}" valueHelpRequest="onValueOrder" showValueHelp="true" placeholder="Order"
+																	width="auto"/>
+															</f:fields>
+														</f:FormElement>
+													</f:formElements>
+													<f:formElements>
+														<f:FormElement label="WBS Element">
+															<f:fields>
+																<Input id="idWbs" value="{wbS_wBS}" valueHelpRequest="onValueChangeWbs" showValueHelp="true" placeholder="WBS Element"/>
+															</f:fields>
+														</f:FormElement>
+													</f:formElements>
+													<f:formElements>
+														<f:FormElement>
+															<f:label>
+																<Label text="Profit Center" required="true"/>
+															</f:label>
+															<f:fields>
+																<Input id="idProfCnt" value="{profCEN_profCEN}" placeholder="Profit Center" valueHelpRequest="onValueChangeProfit" showValueHelp="true"
+																	required="true"/>
+															</f:fields>
+														</f:FormElement>
+													</f:formElements>
+												</f:FormContainer>
+												<f:FormContainer>
+													<f:formElements>
+														<f:FormElement>
+															<f:label>
+																<Label text="Currency" required="true"/>
+															</f:label>
+															<f:fields required="true">
+																<Input id="idCurr" value="{cURR_cURR}" placeholder="Currency" valueHelpRequest="onValueChangeCurrency" showValueHelp="true" required="true"/>
+															</f:fields>
+														</f:FormElement>
+													</f:formElements>
+													<f:formElements>
+														<f:FormElement>
+															<f:label>
+																<Label text="Exchange Rate" required="true"/>
+															</f:label>
+															<f:fields required="true">
+																<Input id="idExhRate" value="{exchngRATE}" placeholder="Exchange Rate" required="true" textAlign="Right"/>
+															</f:fields>
+														</f:FormElement>
+														<f:FormElement label="Migrated">
+															<f:fields>
+																<CheckBox/>
+															</f:fields>
+														</f:FormElement>
+													</f:formElements>
+												</f:FormContainer>
+											</f:formContainers>
+										</f:Form>
+									</u:ObjectPageSubSection>
+								</u:subSections>
+							</u:ObjectPageSection>
+							<u:ObjectPageSection title="Terms And Conditions" visible="{uiModel>/tabsVisible}">
+								<u:subSections>
+									<u:ObjectPageSubSection id="tnCsubSection">
+										<VBox id="vBoxtnCsubSection">
+											<f:Form id="idTnCForm" editable="true">
+												<f:layout>
+													<f:ResponsiveGridLayout labelSpanL="4" labelSpanM="2" labelSpanS="2" columnsL="2"/>
+												</f:layout>
+												<f:formContainers>
+													<f:FormContainer>
+														<f:formElements>
+															<f:FormElement label="Old Contract No">
+																<f:fields>
+																	<Input id="oldContNum" value="{oldCONTRNO}" placeholder="Old Contract No"/>
+																</f:fields>
+															</f:FormElement>
+															<f:FormElement label="Legal Document No">
+																<f:fields>
+																	<Input id="legDocNum" value="{legDOCNUM}" placeholder="Legal Document No"/>
+																</f:fields>
+															</f:FormElement>
+															<f:FormElement>
+																<f:label>
+																	<Label text="Lease Type" required="true"/>
+																</f:label>
+																<f:fields >
+																	<!--<ComboBox id="idLesType" value="{lesTYPE_lesTYPE}" items="{/ZLTI_LA_TYPES}" width="230px">-->
+																	<!--	<core:Item key="{lesTYPE}" text="{dESCRP}"/>-->
+																	<!--</ComboBox>-->
+																	<Input id="idLesType" value="{lesTYPE_lesTYPE}" valueHelpRequest="onChangeLT" showValueHelp="true" placeholder="Lease Type"/>
+																</f:fields>
+															</f:FormElement>
+															<f:FormElement>
+																<f:fields>
+																	<CheckBox id="buyBackChkBx" selected="{buyBACK}" class="buyBack" text="Buy-Back"/>
+																	<Text text="Buy-Back Amount" class="buyBack"/>
+																	<Input id="buyBackAmt" value="{buyBACKAMT}" textAlign="Right"/>
+																</f:fields>
+															</f:FormElement>
+															<f:FormElement>
+																<f:label>
+																	<Label text="Reference Interest Rate" required="true"/>
+																</f:label>
+																<f:fields>
+																	<Input id="refIntRate" value="{refINTRT_intrKEY}" valueHelpRequest="onChangeRefIntRate" showValueHelp="true"
+																		placeholder="Reference Interest Rate"/>
+																</f:fields>
+															</f:FormElement>
+															<f:FormElement label="Residual Value">
+																<f:fields>
+																	<Input id="resValue" value="{resiVALUE}" placeholder="Residual Value"/>
+																</f:fields>
+															</f:FormElement>
+														</f:formElements>
+													</f:FormContainer>
+													<f:FormContainer>
+														<f:formElements>
+															<f:FormElement label="Old contract date">
+																<f:fields>
+																	<DatePicker id="oldContDate" valueFormat="MM-dd-yyyy" displayFormat="MM-dd-yyyy" dateValue="{oldCONTRDT}"/>
+																</f:fields>
+															</f:FormElement>
+														</f:formElements>
+														<f:formElements>
+															<f:FormElement label="Legal Document date">
+																<f:fields>
+																	<DatePicker id="legDocDate" dateValue="{legDOCDT}" valueFormat="MM-dd-yyyy" displayFormat="MM-dd-yyyy"/>
+																</f:fields>
+															</f:FormElement>
+														</f:formElements>
+														<f:formElements>
+															<f:FormElement label="Master Contract No">
+																<f:fields>
+																	<Input id="mastContNum" value="{mastCONTNUM}" placeholder="Master Contract No"/>
+																</f:fields>
+															</f:FormElement>
+														</f:formElements>
+														<f:formElements>
+															<f:FormElement>
+																<f:label>
+																	<Label text="Useful Life" required="true"/>
+																</f:label>
+																<f:fields>
+																	<HBox>
+																		<Input id="usefulLifeYr" value="{useLIFEYRS}" width="4rem" required="true"/>
+																		<Text text=" / " renderWhitespace="true" maxLines="1"/>
+																		<ComboBox id="usefulLifeMnth" value="{useLIFEMON}" width="2rem">
+																			<core:Item text="1"/>
+																			<core:Item text="2"/>
+																			<core:Item text="3"/>
+																			<core:Item text="4"/>
+																			<core:Item text="5"/>
+																			<core:Item text="6"/>
+																			<core:Item text="7"/>
+																			<core:Item text="8"/>
+																			<core:Item text="9"/>
+																			<core:Item text="10"/>
+																			<core:Item text="11"/>
+																		</ComboBox>
+																	</HBox>
+																</f:fields>
+															</f:FormElement>
+															<f:FormElement label="Rent Index Key">
+																<f:fields>
+																	<Input id="renIndKey" value="{indxSER_indexSERIES}" valueHelpRequest="onChangeRentIndexKey" placeholder="Rent Index Key"
+																		showValueHelp="true" textAlign="Right"/>
+																</f:fields>
+															</f:FormElement>
+															<f:FormElement label="Sub-Leased">
+																<f:fields>
+																	<CheckBox id="subLeased"/>
+																</f:fields>
+															</f:FormElement>
+														</f:formElements>
+													</f:FormContainer>
+												</f:formContainers>
+											</f:Form>
+											<!--will insert table here later after clicking on Submit-->
+										</VBox>
+									</u:ObjectPageSubSection>
+								</u:subSections>
+							</u:ObjectPageSection>
+							<u:ObjectPageSection title="Validity Period" visible="{uiModel>/tabsVisible}">
+								<u:subSections>
+									<u:ObjectPageSubSection id="valSubSection">
+										<VBox id="vBoxValsubSection">
+											<Toolbar>
+												<ToolbarSpacer/>
+												<Label text="Valid From" labelFor="valValidFrom" required="true"/>
+												<DatePicker id="valValidFrom" width="10rem" valueFormat="MM-dd-yyyy" displayFormat="MM-dd-yyyy" dateValue="{validFROM}"/>
+												<!--<ToolbarSpacer width="200px"/>-->
+												<Label text="To" labelFor="validTo" required="true"/>
+												<DatePicker id="valValidTo" width="10rem" valueFormat="MM-dd-yyyy" displayFormat="MM-dd-yyyy" dateValue="{validTO}"/>
+												<ToolbarSpacer/>
+											</Toolbar>
+											<!--will insert table here later after clicking on Submit-->
+										</VBox>
+									</u:ObjectPageSubSection>
+								</u:subSections>
+							</u:ObjectPageSection>
+							<u:ObjectPageSection title="Cash Flow" visible="{uiModel>/tabsVisible}">
+								<u:subSections>
+									<u:ObjectPageSubSection >
+										<VBox>
+											<OverflowToolbar width="80%"></OverflowToolbar>
+											<t:Table selectionMode="MultiToggle" visibleRowCount="5" paste="onPaste">
+												<t:columns>
+													<t:Column width="11rem">
+														<Label text="Posting Date"/>
+														<t:template>
+															<DatePicker/>
+														</t:template>
+													</t:Column>
+													<t:Column width="11rem">
+														<Label text="Flow Type"/>
+														<t:template>
+															<Input/>
+														</t:template>
+													</t:Column>
+													<t:Column width="11rem">
+														<Label text="Flow Type Description"/>
+														<t:template>
+															<Input/>
+														</t:template>
+													</t:Column>
+													<t:Column width="11rem">
+														<Label text="Processing Status"/>
+														<t:template>
+															<Select/>
+														</t:template>
+													</t:Column>
+													<t:Column width="11rem">
+														<Label text="Amount"/>
+														<t:template>
+															<Input showValueHelp="true"/>
+														</t:template>
+													</t:Column>
+													<t:Column width="11rem">
+														<Label text="Currency"/>
+														<t:template>
+															<Input showValueHelp="true"/>
+														</t:template>
+													</t:Column>
+													<t:Column width="11rem">
+														<Label text="Ledger"/>
+														<t:template>
+															<Input showValueHelp="true"/>
+														</t:template>
+													</t:Column>
+													<t:Column width="11rem">
+														<Label text="Document Number"/>
+														<t:template>
+															<Input showValueHelp="true"/>
+														</t:template>
+													</t:Column>
+												</t:columns>
+											</t:Table>
+										</VBox>
+									</u:ObjectPageSubSection>
+								</u:subSections>
+							</u:ObjectPageSection>
+							<u:ObjectPageSection title="Text" visible="{uiModel>/tabsVisible}">
+								<u:subSections>
+									<u:ObjectPageSubSection >
+										<TextArea placeholder="Write some text here....." growing="true" width="100%" growingMaxLines="6" rows="15"/>
+									</u:ObjectPageSubSection>
+								</u:subSections>
+							</u:ObjectPageSection>
+						</u:sections>
+					</u:ObjectPageLayout>
+				</content>
+				<footer>
+					<Toolbar id="idCreateFooter">
+						<ToolbarSpacer/>
+						<Button text="Submit" type="Ghost" press="onPressSubmit"/>
+						<Button text="Cancel" type="Reject" press="onNavBack"/>
+					</Toolbar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

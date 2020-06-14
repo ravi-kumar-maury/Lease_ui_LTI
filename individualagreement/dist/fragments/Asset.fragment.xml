@@ -1,0 +1,6 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog id="idAssetDialog" title="Select Asset " liveChange="onSearchAsset" cancel="handleCancelAsset" search="handleSearchAsset"
+		confirm="handleConfirmAsset" items="{/ZLTI_LA_ASSTMST}" growing = "true">
+		<StandardListItem id="idAssetList" title="{assNUM}" type="Active" />
+	</SelectDialog>
+</core:FragmentDefinition>

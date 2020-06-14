@@ -1,0 +1,6 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog id="idTaxCdeDialog" title="Select Tax Code" liveChange="onSearchExpTyp" cancel="handleCancelTaxCde" search="handleSearchTaxCde"
+		confirm="handleConfirm" items="{/ZLTI_LA_TAXCDE}" growing = "true">
+		<StandardListItem type="Active" title="{taxCODE}" description="{taxCDEDESC}" />
+	</SelectDialog>
+</core:FragmentDefinition>

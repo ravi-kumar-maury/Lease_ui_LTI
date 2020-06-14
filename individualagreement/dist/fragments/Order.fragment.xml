@@ -1,0 +1,6 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog id="idOrderDialog" title="Select Order" liveChange="onSearchOrder" cancel="handleCancelOrder" search="handleSearchOrder"
+		confirm="handleConfirmOrder" items="{/ZLTI_LA_INTORD}" growing = "true">
+		<StandardListItem id="orderList" title="{internalORDER}" type="Active" description="{ccDESC}"/>
+	</SelectDialog>
+</core:FragmentDefinition>

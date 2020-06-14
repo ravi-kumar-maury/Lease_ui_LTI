@@ -1,0 +1,155 @@
+<mvc:View controllerName="com.lti.LeaseManagement.masteragreement.controller.InitialView" xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	xmlns="sap.m" xmlns:c="sap.ui.core" xmlns:v="sap.ui.comp.valuehelpdialog" xmlns:f="sap.ui.layout.form">
+	<App id="app">
+		<pages>
+			<Page id="page" enableScrolling="true"
+				class="sapUiContentPadding sapUiResponsivePadding--header sapUiResponsivePadding--subHeader sapUiResponsivePadding--content sapUiResponsivePadding--footer">
+				<customHeader>
+					<!--<Bar class="toolbarclass">-->
+					<Bar>
+						<contentMiddle>
+							<Title text="Master Lease Agreement" titleStyle="H3"/>
+						</contentMiddle>
+					</Bar>
+				</customHeader>
+				<Panel expandable="{device>/system/phone}" expanded="{= !${device>/system/phone} }">
+					<content>
+						<f:Form editable="true">
+							<f:layout>
+								<f:ResponsiveGridLayout labelSpanL="4" labelSpanM="4" labelSpanS="12" adjustLabelSpan="true" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+									columnsL="3" columnsM="3" singleContainerFullSize="true"/>
+							</f:layout>
+							<f:formContainers>
+								<f:FormContainer>
+									<f:formElements>
+										<f:FormElement>
+											<f:label>
+												<Label id="idMLALabel" text="Master Agreement" design="Bold"/>
+											</f:label>
+											<f:fields>
+												<Input id="idMLA" placeholder="Enter MLA" width="150px" showValueHelp="true" showSuggestion="true" valueHelpRequest="onValueChangeMst"/>
+											</f:fields>
+										</f:FormElement>
+										<f:FormElement>
+											<f:label>
+												<Label id="idCCLabel" text="Company Code" design="Bold"/>
+											</f:label>
+											<f:fields>
+												<Input id="idCC" placeholder="Company Code" width="150px" showValueHelp="true" showSuggestion="true" valueHelpRequest="onValueChangeCC"
+													change="onSearchAgreement"/>
+											</f:fields>
+										</f:FormElement>
+									</f:formElements>
+								</f:FormContainer>
+								<f:FormContainer>
+									<f:formElements>
+										<f:FormElement>
+											<f:label>
+												<Label id="idTOLLabel" text="Lease Type" design="Bold"/>
+											</f:label>
+											<f:fields>
+												<Input id="idTOL" placeholder="Type of Lease" width="150px" showValueHelp="true" showSuggestion="true" valueHelpRequest="onValueChangeLT"/>
+											</f:fields>
+										</f:FormElement>
+										<f:FormElement>
+											<f:label>
+												<Label id="idStrtLabel" text="Start Date" design="Bold"/>
+											</f:label>
+											<f:fields>
+												<DatePicker id="idStrt" valueFormat="yyyy-mm-dd" displayFormat="MM-dd-yyyy" width="150px"/>
+											</f:fields>
+										</f:FormElement>
+									</f:formElements>
+								</f:FormContainer>
+								<f:FormContainer>
+									<f:formElements>
+										<f:FormElement>
+											<f:label>
+												<Label id="idVenLabel" text="Vendor" design="Bold"/>
+											</f:label>
+											<f:fields>
+												<Input id="idVen" placeholder="Vendor" width="150px" showValueHelp="true" showSuggestion="true" valueHelpRequest="onValueChangeVen"/>
+											</f:fields>
+										</f:FormElement>
+										<f:FormElement>
+											<f:label>
+												<Label id="idEndLabel" text="End Date" design="Bold"/>
+											</f:label>
+											<f:fields>
+												<DatePicker id="idEnd" valueFormat="yyyy-mm-dd" displayFormat="MM-dd-yyyy" width="150px"/>
+											</f:fields>
+										</f:FormElement>
+									</f:formElements>
+								</f:FormContainer>
+							</f:formContainers>
+						</f:Form>
+						<Toolbar>
+							<ToolbarSpacer/>
+							<Button text="Apply" press="onSearch"/>
+							<Button text="Reset" press="onPressReset"/>
+						</Toolbar>
+						<Table id="idTable" class="sapUiResponsiveMargin" width="auto"
+							items="{ path : '/ZLTI_LA_MASTRLA', sorter : { path : 'mastAGGR' }, parameters : {$expand : 'iTEMs', $count: true, $$updateGroupId: 'MasterAgreementGroup' }}"
+							backgroundDesign="Solid" growing="true" growingThreshold="1000" growingScrollToLoad="true" mode="MultiSelect">
+							<headerToolbar>
+								<Toolbar>
+									<ToolbarSpacer></ToolbarSpacer>
+									<Button icon="sap-icon://add" tooltip="Add" press="onActionAdd"></Button>
+									<Button id="idNewDel" icon="sap-icon://sys-minus" tooltip="Delete Row" press="onItemDelete"></Button>
+									<Button icon="sap-icon://sort" tooltip="Sort" press="SortPress"></Button>
+									<Button icon="sap-icon://filter" tooltip="Filter" press="onApplyFilter"></Button>
+									<Button icon="sap-icon://action-settings" tooltip="Settings"></Button>
+								</Toolbar>
+							</headerToolbar>
+							<columns>
+								<Column  hAlign="Center" minScreenWidth="Small" demandPopin="true">
+									<!--<Text text="Master Agreement Number" ></Text>-->
+									<ObjectIdentifier title="Master Agreement Number"/>
+								</Column>
+								<Column hAlign="Center" minScreenWidth="Small" demandPopin="true">
+									<!--<Text text="Company Code"></Text>-->
+									<ObjectIdentifier title="Company Code"/>
+								</Column>
+								<Column hAlign="Center" minScreenWidth="Small" demandPopin="true">
+									<!--<Text text="Type of Lease"></Text>-->
+									<ObjectIdentifier title="Type of Lease"/>
+								</Column>
+								<Column hAlign="Center" minScreenWidth="Small" demandPopin="true">
+									<!--<Text text="Vendor"></Text>-->
+									<ObjectIdentifier title="Vendor"/>
+								</Column>
+								<Column hAlign="Center" minScreenWidth="Small" demandPopin="true">
+									<!--<Text text="Currency"></Text>-->
+									<ObjectIdentifier title="Currency"/>
+								</Column>
+								<Column hAlign="Center" minScreenWidth="Small" demandPopin="true">
+									<!--<Text text="Validity Start Date"></Text>-->
+									<ObjectIdentifier title="Validity Start Date"/>
+								</Column>
+								<Column hAlign="Center" minScreenWidth="Small" demandPopin="true">
+									<!--<Text text="Validity End Date"></Text>-->
+									<ObjectIdentifier title="Validity End Date"/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem type="Navigation" press="onSelectChange">
+									<cells >
+										<ObjectIdentifier text="{mastAGGR}"/>
+										<ObjectIdentifier text="{coCDE_coCDE}"/>
+										<ObjectIdentifier text="{lesTYPE_lesTYPE}"/>
+										<ObjectIdentifier text="{vEND_vEND}"/>
+										<ObjectIdentifier text="{cURR_cURR}"/>
+										<ObjectIdentifier text="{validFROM}"/>
+										<ObjectIdentifier text="{validTO}"/>
+									</cells >
+								</ColumnListItem>
+							</items>
+						</Table>
+						<v:ValueHelpDialog title="Product" ok=".onValueHelpOkPress" cancel=".onValueHelpCancelPress" afterClose=".onValueHelpAfterClose"
+							supportMultiselect="false" descriptionKey="Name"></v:ValueHelpDialog>
+					</content>
+				</Panel>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

@@ -1,0 +1,33 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:layout="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+	<Dialog id="filterdialog" resizable="true" draggable="true" contentHeight="420px" contentWidth="720px" title="Filter Master Agreement">
+		<App>
+			<pages >
+				<Page>
+					<content>
+						<VBox >
+							<f:SimpleForm title = "" id="SimpleFormChange354" editable="true" layout="ResponsiveGridLayout" labelSpanXL="3" labelSpanL="3" labelSpanM="3"
+								labelSpanS="12" adjustLabelSpan="true" emptySpanXL="3" emptySpanL="3" emptySpanM="3" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1"
+								singleContainerFullSize="true" >
+								<f:content>
+									<Label text="Master Agreement"/>
+									<MultiInput id="masterAgreement" placeholder="Enter Master Agreement : " showValueHelp="true" showSuggestion="true"
+										valueHelpRequest="handleValueHelp"/>
+									<Label text="Company Code"/>
+									<MultiInput id="companycode" placeholder="Enter Company Code" showValueHelp="true" showSuggestion="true" valueHelpRequest="onValueChangeCC"/>
+									<Label text="Lease Type"/>
+									<Input id="leasetype" placeholder="Enter Lease Type" showValueHelp="true" showSuggestion="true" valueHelpRequest="onValueChangeLT"/>
+									<Label text="Vendor"/>
+									<Input id="vendor" placeholder="Enter Vendor" showValueHelp="true" showSuggestion="true" valueHelpRequest="onValueChangeVen"/>
+								</f:content>
+							</f:SimpleForm>
+						</VBox>
+					</content>
+				</Page>
+			</pages>
+		</App>
+		<buttons>
+			<Button text="Apply" type="Accept" press="onSearchAgreement"/>
+			<Button text="Cancel" type="Reject" press="onCancel"/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

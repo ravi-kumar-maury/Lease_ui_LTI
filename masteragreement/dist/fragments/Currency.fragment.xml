@@ -1,0 +1,6 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog id="idCurrencyDialog" title="Select Currency" liveChange="onSearchCurrency" cancel="handleCloseCurrency" search="handleSearchCurrency"
+		confirm="handleConfirmCurrency" items="{/ZLTI_LA_CURR}" growing = "true">
+		<StandardListItem id="CurrencyList" title="{cURR}" type="Active" description="{currDESC}"/>
+	</SelectDialog>
+</core:FragmentDefinition>

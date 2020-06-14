@@ -1,0 +1,7 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog id="idDialogMst" title="Select Master Agreements" liveChange="onSearchMA" search="handleSearchMA"
+		cancel="handleCloseSearchType" confirm="handleConfirmMA" items="{/ZLTI_LA_MASTRLA}"  >
+		<StandardListItem id="MAList" title="{mastAGGR}" type="Active" description="Master Agreement"/>
+	</SelectDialog>
+</core:FragmentDefinition>
+

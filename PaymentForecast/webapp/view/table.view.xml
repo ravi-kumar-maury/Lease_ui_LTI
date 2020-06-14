@@ -1,0 +1,90 @@
+<mvc:View controllerName="com.lti.LeaseManagement.PaymentForecast.controller.table" xmlns:viz.data="sap.viz.ui5.data"
+	xmlns:viz="sap.viz.ui5.controls" xmlns:tnt="sap.tnt" xmlns:mvc="sap.ui.core.mvc" xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+	xmlns="sap.m" xmlns:table="sap.ui.table">
+	<App id="app">
+		<pages>
+			<Page id="page">
+				<content>
+					<!--<VBox>-->
+					<!--	<Table id="SalesOrders"-->
+					<!--		items="{path : '/ZLTI_LA_LCI_CFL', parameters : { $count : true, $select : ['lineITEM', 'agNUM_agNUM', 'aMT', 'vEND_vEND', 'flowTYPE_flowTYPE'] }, filters : { path : 'flowTYPE_flowTYPE', operator : 'EQ', value1 : '1000' }}"-->
+					<!--		mode="SingleSelectMaster" selectionChange="onSalesOrdersSelect">-->
+					<!--		<headerToolbar>-->
+					<!--			<Toolbar>-->
+					<!--				<Title id="SalesOrdersTitle" text="{$count} CFL Table Data" titleStyle="H2"/>-->
+					<!--			</Toolbar>-->
+					<!--		</headerToolbar>-->
+					<!--		<columns>-->
+					<!--			<Column>-->
+					<!--				<Text text="Line Item"/>-->
+					<!--			</Column>-->
+					<!--			<Column>-->
+					<!--				<Text text="Agreement Number"/>-->
+					<!--			</Column>-->
+					<!--			<Column>-->
+					<!--				<Text text="Amount"/>-->
+					<!--			</Column>-->
+					<!--			<Column>-->
+					<!--				<Text text="vEND_vENDor"/>-->
+					<!--			</Column>-->
+					<!--		</columns>-->
+					<!--		<ColumnListItem>-->
+					<!--			<Text text="{lineITEM}"/>-->
+					<!--			<Text text="{agNUM_agNUM}"/>-->
+					<!--			<Text text="{aMT}"/>-->
+					<!--			<Text text="{vEND_vEND}"/>-->
+					<!--		</ColumnListItem>-->
+					<!--	</Table>-->
+					<!--</VBox>-->
+					<VBox id="reportfetch" binding="{path : '/leaseReportData()'}">
+						<Table id="idTable" inset="false" items="{path : 'result'}">
+							<columns>
+								<Column mergeDuplicates="false" width="7rem">
+									<Text text="Line Item"/>
+								</Column>
+								<Column mergeDuplicates="false" width="12.4rem" demandPopin="true">
+									<Text text="Agreement Number"/>
+								</Column>
+								<Column mergeDuplicates="false" width="9.2rem" demandPopin="true">
+									<Text text="Vendor"/>
+								</Column>
+								<Column mergeDuplicates="false" width="9.2rem" demandPopin="true">
+									<Text text="Flowtype"/>
+								</Column>
+								<Column mergeDuplicates="false" width="9.2rem" demandPopin="true">
+									<Text text="Currency"/>
+								</Column>
+								<Column mergeDuplicates="false" width="9.2rem" demandPopin="true">
+									<Text text="Currency"/>
+								</Column>
+								<Column mergeDuplicates="false" width="8.8rem" demandPopin="true">
+									<Text text="Post Date"/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem >
+									<cells>
+										<Label text="{=%{lineITEM}}" design="Bold"/>
+										<Text text="{=%{agNUM_agNUM}}" wrapping="true"/>
+										<Text text="{=%{vEND_vEND}}"/>
+										<Text text="{=%{flowTYPE_flowTYPE}}"/>
+										<Text text="{=%{aMT}}"/>
+										<Text text="{=%{cURR_cURR}}"/>
+										<!--<Label id="idPoItem" text="{path:'poItemNo'}" design="{path:'poItemNo', formatter: '.textBold'}" />-->
+										<Label id="idPoItem" text="{=%{postDT}}" design="Bold"/>
+										<!--	<Text text="{=%{poSubLineItem}}"/> -->
+										<!--	<u:Currency value="{=parseFloat(%{poItemNoValue})}" currency="{=%{currency}}" useSymbol="false"/>-->
+										<!--	<Text text="{=%{percntLineItem}}"/>-->
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</VBox>
+				</content>
+				<Button text="Main View" press="onClick"/>
+				<Button text="Extended View" press="onClick2"/>
+				<Button text="VizinView" press="onClick3"/>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

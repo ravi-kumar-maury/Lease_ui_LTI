@@ -1,0 +1,101 @@
+{
+	"_version": "3.0.0",
+	"identification": {
+		"id": "dc921752-1df0-445b-be32-b3ad1a6c4c1d-1580197699434",
+		"entityType": "bundle"
+	},
+	"payload": {
+		"catalogs": [{
+			"_version": "3.0.0",
+			"identification": {
+				"id": "defaultCatalogId",
+				"title": "{{title}}",
+				"entityType": "catalog",
+				"i18n": "i18n/defaultCatalogId.properties"
+			},
+			"payload": {
+				"viz": []
+			}
+		}],
+		"groups": [{
+			"_version": "3.0.0",
+			"identification": {
+				"id": "defaultGroupId",
+				"title": "{{title}}",
+				"entityType": "group",
+				"i18n": "i18n/defaultGroupId.properties"
+			},
+			"payload": {
+				"viz": [{
+					"id": "com.lti.LeaseManagement.masteragreement-1-1587551572549",
+					"appId": "com.lti.LeaseManagement.masteragreement",
+					"vizId": "masteragreement-display"
+				}, {
+					"id": "com.lti.LeaseManagement.individualagreement-1-1580214301767",
+					"appId": "com.lti.LeaseManagement.individualagreement",
+					"vizId": "individualagreement-display"
+				}, {
+					"id": "com.lti.LeaseManagement.leaseposting-5-1587551572549",
+					"appId": "com.lti.LeaseManagement.leaseposting",
+					"vizId": "leaseaccountingjobs-display"
+				}]
+			}
+		}, {
+			"_version": "3.0.0",
+			"identification": {
+				"id": "lease-reporting",
+				"title": "{{title}}",
+				"entityType": "group",
+				"i18n": "i18n/lease-reporting.properties"
+			},
+			"payload": {
+				"viz": [{
+					"id": "com.lti.LeaseManagement.PaymentForecast-0-1580214408174",
+					"appId": "com.lti.LeaseManagement.PaymentForecast",
+					"vizId": "paymentforcast-display"
+				}, {
+					"id": "com.lti.LeaseManagement.LeaseSchedule-1-1580272368232",
+					"appId": "com.lti.LeaseManagement.LeaseSchedule",
+					"vizId": "leaseschedule-display"
+				}, {
+					"id": "com.lti.LeaseManagement.LowValueLease-2-1580284584012",
+					"appId": "com.lti.LeaseManagement.LowValueLease",
+					"vizId": "lowvaluelease-display"
+				}]
+			}
+		}],
+		"sites": [{
+			"_version": "3.0.0",
+			"identification": {
+				"id": "f4114d83-a13c-491a-8b0b-c37ab508d12b-1580197699434",
+				"entityType": "site",
+				"title": "SAP Fiori launchpad site on Cloud Foundry",
+				"description": "SAP Fiori launchpad site on Cloud Foundry, deployed from SAP Web IDE"
+			},
+			"payload": {
+				"config": {
+					"ushellConfig": {
+						"renderers": {
+							"fiori2": {
+								"componentData": {
+									"config": {
+										"applications": {
+											"Shell-home": {}
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				"groupsOrder": ["defaultGroupId", "lease-reporting"],
+				"sap.cloud.portal": {
+					"config": {
+						"theme.id": "sap_fiori_3",
+						"theme.active": ["sap_fiori_3", "sap_belize_hcb", "sap_belize_hcw"]
+					}
+				}
+			}
+		}]
+	}
+}

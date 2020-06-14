@@ -1,0 +1,6 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog id="idVendorDialog" title="Select Vendor" liveChange="onSearchVendor" cancel="handleCloseVendor" search="handleSearchVendor"
+		confirm="handleConfirmVendor" items="{/ZLTI_LA_VEND}" growing = "true">
+		<StandardListItem id="VendorList" title="{vEND}" type="Active" description="{dESCRP}"/>
+	</SelectDialog>
+</core:FragmentDefinition>

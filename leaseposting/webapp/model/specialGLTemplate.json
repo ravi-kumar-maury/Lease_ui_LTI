@@ -1,0 +1,24 @@
+{
+	"GL": [{
+		"value": 1,
+		"desc": "Perform Bond"
+	}, {
+		"value": "C",
+		"desc": "Value-Dated Bank Transfer"
+	}, {
+		"value": "D",
+		"desc": "Discounts"
+	}, {
+		"value": "G",
+		"desc": "Guarantee Received"
+	}, {
+		"value": "H",
+		"desc": "Security Deposit"
+	}, {
+		"value": "J",
+		"desc": "Vendor Retention"
+	}, {
+		"value": "N",
+		"desc": "Leasing Invoices"
+	}]
+}

@@ -1,0 +1,5 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog id="idLedgerDialog" title="Select Ledger"  confirm="handleConfirm" cancel="handleCancelLedger" items="{/ZLTI_LA_LCI_LEDG}" growing = "true" >
+		<StandardListItem title="{lEDGER}" type="Active" description="{ledNAM}"/>
+	</SelectDialog>
+</core:FragmentDefinition>
