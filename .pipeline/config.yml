@@ -5,11 +5,11 @@ general:
 steps:
   mtaBuild:
     buildTarget: 'CF'
-    mtaBuildTool: cloudMbt
-    classic:
-      dockerImage: 'ppiper/mta-archive-builder'
-    cloudMbt:
-      dockerImage: 'devxci/mbtci:1.0.10'
+#     mtaBuildTool: cloudMbt
+#     classic:
+#       dockerImage: 'ppiper/mta-archive-builder'
+#     cloudMbt:
+#       dockerImage: 'devxci/mbtci:1.0.10'
 
 ### Stage-specific 
 stages:
